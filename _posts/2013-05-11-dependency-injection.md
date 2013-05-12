@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Dependency Injection"
+title: "Dependency Injection: Resources"
 description: ""
 category: 
 tags : [dependency injection, DI, Symfony, Drupal 8]
@@ -13,7 +13,7 @@ Here's a list of resources for learning about Dependency Injection, beginning wi
 
 - Martin Fowler's essay on [Inversion of Control Containers and the Dependency Injection pattern](http://martinfowler.com/articles/injection.html)
 - James Shore's blog post [Dependency Injection Demystified](http://www.jamesshore.com/Blog/Dependency-Injection-Demystified.html)
-- Anthony Ferrera's short intro to DI video <https://www.youtube.com/watch?v=IKD2-MAkXyQ>
+- Anthony Ferrera's short video intro to DI <https://www.youtube.com/watch?v=IKD2-MAkXyQ>
 - Book on [Dependency Injection](http://www.amazon.com/gp/product/193398855X?ie=UTF8&tag=thlafa-20&linkCode=as2&camp=1789&creative=390957&creativeASIN=193398855X) by Dhanji R. Prasanna
 
 ### Dependency Injection in Symfony
@@ -23,11 +23,12 @@ Here's a list of resources for learning about Dependency Injection, beginning wi
 
 ### Dependency Injection in Drupal
 - Change Record about using DI in Drupal 8 <http://drupal.org/node/1539454>
-- dfjkdf
-- fasd
+- Intro to routing and controllers: [WSCCI Conversion Guild - Pass 1](http://drupal.org/node/1953346)
+- Leveraging DI in your controllers: [WSCCI Conversion Guild - Pass 2](http://drupal.org/node/1953354)
 
-### General Symfony Resources
+### Related Symfony Resources
 - Fabien Potencier's blog series [Create your own framework... on top of the Symfony2 Components](http://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1)
+- The Symfony Event Dispatcher component: <http://symfony.com/doc/current/components/event_dispatcher/introduction.html>
 
 
 ### Advanced discussions of DI
