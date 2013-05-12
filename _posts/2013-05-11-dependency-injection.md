@@ -23,8 +23,8 @@ Here's a list of resources for learning about Dependency Injection, beginning wi
 
 ### Dependency Injection in Drupal
 - Change Record about using DI in Drupal 8 <http://drupal.org/node/1539454>
-- Intro to routing and controllers: [WSCCI Conversion Guild - Pass 1](http://drupal.org/node/1953346)
-- Leveraging DI in your controllers: [WSCCI Conversion Guild - Pass 2](http://drupal.org/node/1953354)
+- Intro to routing and controllers: [WSCCI Conversion Guide - Pass 1](http://drupal.org/node/1953346)
+- Leveraging DI in your controllers: [WSCCI Conversion Guide - Pass 2](http://drupal.org/node/1953354)
 
 ### Related Symfony Resources
 - Fabien Potencier's blog series [Create your own framework... on top of the Symfony2 Components](http://fabien.potencier.org/article/50/create-your-own-framework-on-top-of-the-symfony2-components-part-1)
