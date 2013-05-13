@@ -534,7 +534,7 @@ pre {
   list-style-type: none;
 }
 .sidebar .social-media-icon {
-  background: url("/assets/themes/the-minimum/img/icon-sprite.webp") no-repeat;
+  background: url("/assets/themes/the-minimum/img/icon-sprite.png") no-repeat;
   float: left;
   clear: both;
 }
