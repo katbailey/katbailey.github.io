@@ -2,7 +2,7 @@
 layout: post
 title: "Dependency Injection: Resources"
 description: ""
-category: 
+excerpt: "Here's a list of resources for learning about Dependency Injection, beginning with some generic posts about DI as a design pattern and then getting more specific with Symfony and Drupal 8."
 tags : [dependency injection, DI, Symfony, Drupal 8]
 ---
 {% include JB/setup %}
@@ -19,7 +19,7 @@ Here's a list of resources for learning about Dependency Injection, beginning wi
 ### Dependency Injection in Symfony
 
 - Fabien Potencier's blog post [What is Dependency Injection](http://fabien.potencier.org/article/11/what-is-dependency-injection)
-- The Symfony Cookbook [section about the Service Container](http://symfony.com/doc/current/book/service_container.html)
+- The Symfony Cookbook [section on the Service Container](http://symfony.com/doc/current/book/service_container.html)
 
 ### Dependency Injection in Drupal
 - Change Record about using DI in Drupal 8 <http://drupal.org/node/1539454>
