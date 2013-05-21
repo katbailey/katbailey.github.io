@@ -20,6 +20,7 @@ Here's a list of resources for learning about Dependency Injection, beginning wi
 
 - Fabien Potencier's blog post [What is Dependency Injection](http://fabien.potencier.org/article/11/what-is-dependency-injection)
 - The Symfony Cookbook [section on the Service Container](http://symfony.com/doc/current/book/service_container.html)
+- Documentation on [compiler passes](http://symfony.com/doc/current/cookbook/service_container/compiler_passes.html) 
 
 ### Dependency Injection in Drupal
 - Change Record about using DI in Drupal 8 <http://drupal.org/node/1539454>
