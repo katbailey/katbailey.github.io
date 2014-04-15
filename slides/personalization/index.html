@@ -1,0 +1,486 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>Personalization in Drupal</title>
+
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+		<link rel="stylesheet" href="css/reveal.min.css">
+		<link rel="stylesheet" href="css/theme/sky.css" id="theme">
+
+		<!-- For syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+		<script>
+			document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h2>Extending Personalization</h2>
+					<h4>with personalize.module plug-ins.</h4>
+					<p>
+						<small>Presented by <a href="http://katbailey.github.io">Kat Bailey</a> / <a href="http://twitter.com/katherinebailey">@katherinebailey</a></small><br />
+                        <small>and</small><br />
+                        <small><a href="http://drupal.org/user/352282">Dave Ingram</a> / <a href="http://twitter.com/daveaingram">@daveaingram</a></small>
+					</p>
+				</section>
+
+                <section>
+                    <h2>Look around you</h2>
+                </section>
+
+                <section>
+                    <p><img src="images/wireframe.png" /></p>
+                </section>
+
+                <section>
+                    <h2>Visitor Context</h2>
+                    <p><img src="images/contexts.png" /></p>
+                </section>
+
+                <section>
+                    <h2>What now!?</h2>
+                    <p>&nbsp;</p>
+
+                    <h2 class="fragment">Personalize!</h2>
+                    <p class="fragment">
+                        <small>Say wah?</small>
+                    </p>
+                </section>
+
+                <section>
+                    <h2>Types of personalization:</h2>
+                    <ul>
+                        <li class="fragment">Testing (A/B, MVT, MAB, etc..)</li>
+                        <li class="fragment">Content recommendations</li>
+                        <li class="fragment">Rules based targeting</li>
+                        <li class="fragment">Magic</li>
+                    </ul>
+                </section>
+
+                <section>
+                    <h2>Smart Websites:</h2>
+                    <h4>Content based on context</h4>
+                    <p><img src="images/wireframe.png" width="700" /></p>
+                </section>
+
+                <section data-transition="none">
+                    <p><img src="images/server1.png" /></p>
+                </section>
+
+                <section data-transition="none">
+                    <p><img src="images/server2.png" /></p>
+                </section>
+
+                <section data-transition="none">
+                    <p><img src="images/server3.png" /></p>
+                </section>
+
+                <section data-transition="none">
+                    <p><img src="images/server4.png" /></p>
+                </section>
+
+                <section data-transition="none">
+                    <p><img src="images/server5.png" /></p>
+                </section>
+
+                <section data-transition="none">
+                    <p><img src="images/server3.png" /></p>
+                </section>
+
+                <section data-transition="none">
+                    <p><img src="images/server6.png" /></p>
+                </section>
+
+                <section data-transition="none">
+                    <p><img src="images/server7.png" /></p>
+                </section>
+
+                <section>
+                    <h2>Super quick demo time!</h2>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Components of the personalization framework</h2>
+                    </section>
+                    <section>
+                        <h2>Agents</h2>
+                        <img src="images/agent_decision.png" alt="agent">
+                    </section>
+                    <section>
+                        <h2>Visitor Context</h2>
+                        <img src="images/visitor_context.png" alt="visitor context">
+                    </section>
+
+                    <section data-background="images/option_sets.png">
+                        <h2>Option Sets</h2>
+                        <div class="left">
+                            <!-- So sue me -->
+                            <p class="heading">Sets of different...</p>
+                            <ul>
+                                <li>values in a multi-value field</li>
+                                <li>blocks</li>
+                                <li>blobs of html to replace the contents of some selector</li>
+                                <li>panel panes?</li>
+                            </ul>
+                        </div>
+
+                    </section>
+                    <section>
+                        <h2>Executors</h2>
+                        <img src="images/executor.png" alt="agent">
+                    </section>
+                    <section>
+                        <h2>Goals (Visitor Actions)</h2>
+                        <img class="borderless" src="images/goals.png" alt="goals">
+                    </section>
+                </section>
+                <section>
+                    <h1>How can you extend this?</h1>
+                </section>
+                <section>
+                    <section>
+                        <h2>Agent type plugins</h2>
+                        <img class="borderless"  src="images/agent_types.png" alt="agent types">
+                    </section>
+                    <section>
+                        <h2>Existing Agent Type plugins</h2>
+                        <ul>
+                            <li>Personalize Target</li>
+                            <li>Acquia Lift</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>What type of agent will <strong>*you*</strong> create?</h2>
+                    </section>
+                    <section>
+                        <img src="images/google-analytics.jpg" alt="google">
+                    </section>
+
+                    <section>
+                        <h2>GA Experiments</h2>
+                        <img src="images/google_experiments-2.png" alt="google">
+                    </section>
+                    <section>
+                        <h2>Components of an Agent Type plugin</h2>
+                        <ul>
+                            <li>PHP Class implementing an interface</li>
+                            <li>JavaScript code for the actual decision</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Configuration Form</h2>
+                        <img src="images/personalize_ga_ss-5.png" alt="personalize GA">
+                    </section>
+                    <section>
+                        <h3>Static method to define form elements for configuration</h3>
+                        <pre><code data-trim contenteditable>
+public static function optionsForm($agent_data) {
+    $form = array();
+    // @todo For now we only support pre-configured GA experiments but we should
+    //   support creating them from the Drupal side via the Management API.
+    $form['ga_experiment'] = array(
+        '#type' => 'textfield',
+        '#title' => t('Experiement ID'),
+        '#default_value' => isset($agent_data->data['ga_experiment']) ? $agent_data->data['ga_experiment'] : '',
+        '#description' => t('The ID of the experiment that has been configured in GA'),
+    );
+    return $form;
+}
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>Method to load the JS for the agent</h3>
+                        <pre><code data-trim contenteditable>
+public function getAssets() {
+    $cx_script = 'http://www.google-analytics.com/cx/api.js?experiment=' . $this->data['ga_experiment'];
+    return array(
+        'js' => array(
+            $cx_script => array('type' => 'external'),
+            drupal_get_path('module', 'personalize_ga') . '/personalize_ga.js' => array('type' => 'file', 'scope' => 'footer', 'defer' => TRUE),
+        )
+    );
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>JavaScript to get the decision</h3>
+                        <pre><code data-trim contenteditable>
+Drupal.personalize.agents.personalize_ga = {
+    'getDecisionsForPoint': function(agent_name, visitor_context, choices, decision_point, fallbacks, callback) {
+        var decisions = {};
+        for (var j in choices) {
+            if (choices.hasOwnProperty(j)) {
+                decisions[j] = choices[j][cxApi.chooseVariation()];
+                _gaq.push(['_trackEvent', 'Personalize', 'decision', j, variation, true]);
+            }
+        }
+        callback(decisions);
+    }
+};
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Facebook's Planout</h2>
+                        <img src="images/fb-2.png" alt="facebook">
+                    </section>
+                    <section>
+                        <h3>Planout code snippet (Python)</h3>
+                        <pre><code data-trim contenteditable>
+class MyExperiment(SimpleExperiment):
+    def assign(self, params, userid):
+        params.button_color = UniformChoice(choices=['#ff0000', '#00ff00'], unit=userid)
+        params.button_text = UniformChoice(choices=['I voted', 'I am a voter'], unit=userid)
+
+...
+
+my_exp = MyExperiment(userid=42)
+color = my_exp.get('button_color')
+text = my_exp.get('button_text')
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h3>http://my-awesome-planout-service.com</h3>
+                        <p class="small">/get-decision/some-decision-name/option-a,option-b</p>
+                        <p class="small">/send-goal/some-goal/some-value</p>
+                        <p class="small">/get-reports/some-decision-name</p>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Visitor Context Plugins</h2>
+                        <img class="borderless" src="images/visitor_context_plugins.png" alt="visitor context">
+                    </section>
+                    <section tagcloud>
+                        Season
+                        Time
+                        Business
+                        Proximity
+                        Location
+                        Day
+                        Browser
+                        Census data
+                        Weather
+                        Device
+                        Age
+                        UTM parameters
+                        Loyalty
+                        Personal Info
+                        Occupation
+                        Gender
+                        Past behavior
+                        Interests
+                        Clickstream
+                        Referrer
+                        Social likes
+                        Purchases
+                    </section>
+                    <section>
+                        <h2>Existing Visitor Context plugins</h2>
+                        <ul>
+                            <li>User Profile context (in personalize module)</li>
+                            <li>Personalize URL Context submodule (for targeting based on querystring parameters).</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Components of a Visitor Context plugin</h2>
+                        <ul>
+                            <li>PHP Class implementing an interface</li>
+                            <li>JavaScript code to pass the context values to the agent</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>New plugin example: <strong>User roles</strong></h2>
+                    </section>
+                    <section>
+                        <h2>Configuration Form</h2>
+                        <img src="images/extra_contexts_ss-3.png" alt="extra context">
+                    </section>
+                    <section>
+                        <h3>Static method to define the context options</h3>
+                        <pre><code data-trim contenteditable>
+public static function getOptions() {
+    $options = array();
+    $roles = user_roles();
+        foreach ($roles as $rid => $role) {
+            if (in_array($rid, array(DRUPAL_ANONYMOUS_RID, DRUPAL_AUTHENTICATED_RID))) {
+                continue;
+            }
+            $options['role_' . $rid] = array(
+                'name' => t('@role role', array('@role' => ucfirst($role))),
+                'group' => 'Extra User Context'
+            );
+        }
+    return $options;
+}
+                        </code></pre>
+                    </section>
+                    <section>
+                        <h2>Explicit Targeting Config</h2>
+                        <img src="images/extra_context_ss2-2.png" alt="extra context">
+                    </section>
+                    <section>
+                        <h3>Method to return possible values</h3>
+                        <pre><code data-trim contenteditable>
+public function getPossibleValues() {
+    $possible_values = array();
+    foreach ($this->selectedContext as $name) {
+        if (!preg_match("/role_(\d+)/", $name, $matches)) {
+            continue;
+        }
+        $role = user_role_load($matches[1]);
+        $possible_values[$name] = array(
+            'friendly name' => $role->name,
+            'values' => array(),
+        );
+        foreach (array(0 => t('Does not have'), 1 => t('Has')) as $val => $has_text) {
+            $possible_values[$name]['values'][$val] = t('@has the @role role', array('@has' => $has_text, '@role' => $role->name));
+        }
+    }
+    return $possible_values;
+}
+                        </code></pre>
+                    </section>
+
+                    <section>
+                        <h3>JavaScript to pass the actual values</h3>
+                        <pre><code data-trim contenteditable>
+Drupal.personalize.visitor_context.extra_context = {
+    'getContext': function(enabled) {
+        var i, context_values = {};
+        for (i in enabled) {
+            if (enabled.hasOwnProperty(i) && Drupal.settings.personalize_extra_context.hasOwnProperty(i)) {
+                context_values[i] = Drupal.settings.personalize_extra_context[i];
+            }
+        }
+        return context_values;
+    }
+};
+                        </code></pre>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Option Set Type Plugins</h2>
+                        <img class="borderless"  src="images/option_set_types.png" alt="google">
+                    </section>
+                    <section>
+                        <h2>Existing Option Set type plugins</h2>
+                        <ul>
+                            <li>Personalize Fields submodule</li>
+                            <li>Personalize Blocks submodule</li>
+                            <li>Personalize Elements submodule</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>More possibilities:</h2>
+                        <ul>
+                            <li>Panel Variants</li>
+                            <li>Page Redirects</li>
+                            <li>Menu Links</li>
+                            <li>Input Filters</li>
+                        </ul>
+                    </section>
+                </section>
+
+                <section>
+                    <section>
+                        <h2>Executors are swappable too!</h2>
+                    </section>
+                    <section>
+                        <h2>The "show" executor</h2>
+<pre><code data-trim contenteditable>
+Drupal.personalize.executors.show = {
+    'execute': function ($option_set, choice_name, osid) {
+        var element = $('script[type="text/template"]', $option_set).get(0);
+        var json = element.innerText;
+        var choices = jQuery.parseJSON(json);
+        var winner = choices[choice_name]['html'];
+        // Append the selected option.
+        $option_set.append(winner);
+    }
+};
+</code></pre>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>Goals (Visitor Actions)</h2>
+                        <img src="images/goals_ss.png" alt="goals demo">
+                    </section>
+                    <section>
+                        <h2>Visitor Actions</h2>
+                        <ul>
+                            <li>Can be defined in code by implementing a hook</li>
+                            <li>Can be defined via the Rules UI</li>
+                            <li>You can write an Actionable Element plugin for allowing other types of things (besides links, forms and the entire page) to be actionable via the Visitor Actions UI module</li>
+                        </ul>
+                    </section>
+                </section>
+				<section>
+					<h1>Thanks!</h1>
+					<h2>Questions?</h2>
+				</section>
+
+			</div>
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.min.js"></script>
+
+		<script>
+
+			// Full list of configuration options available here:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+				transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+				// Parallax scrolling
+				// parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+				// parallaxBackgroundSize: '2100px 900px',
+
+				// Optional libraries used to extend on reveal.js
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+                    { src: 'plugin/tagcloud/tagcloud.js', async: true, }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
