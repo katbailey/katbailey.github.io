@@ -1,0 +1,784 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on ohAI</title>
+    <link>http://katbailey.github.io/post/</link>
+    <description>Recent content in Posts on ohAI</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 21 Dec 2015 21:04:12 -0700</lastBuildDate>
+    <atom:link href="http://katbailey.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Adventures learning Neural Nets and Python</title>
+      <link>http://katbailey.github.io/post/neural-nets-in-python/</link>
+      <pubDate>Mon, 21 Dec 2015 21:04:12 -0700</pubDate>
+      
+      <guid>http://katbailey.github.io/post/neural-nets-in-python/</guid>
+      <description>
+
+&lt;p&gt;This documents my efforts to learn both neural networks and, to a certain extent, the Python programming language. I say &amp;ldquo;to a certain extent&amp;rdquo; because far from feeling all &amp;ldquo;yay! I know Python now!&amp;rdquo; I feel more like &amp;ldquo;I can use Python 2.7 in certain ways to do certain things&amp;hellip; yay?&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;And what of my understanding of neural nets as a result of this exercise? After battling with my naïve implementation of a multi-layer perceptron as described below, I felt I had a pretty visceral understanding of them. But then I started looking at &lt;a href=&#34;http://deeplearning.net/software/theano/&#34;&gt;Theano&lt;/a&gt; and &lt;a href=&#34;https://www.tensorflow.org/&#34;&gt;Google&amp;rsquo;s TensorFlow&lt;/a&gt; with their convolutional neural networks etc, and it was the same old story: the more I learned, the more I realized I had yet to learn. So now there are all sorts of books and posts about various aspects of deep learning that I want to read, which I link to at this end of this post.&lt;/p&gt;
+
+&lt;p&gt;For a basic intro to how neural nets work, I recommend &lt;a href=&#34;http://sebastianraschka.com/Articles/2015_singlelayer_neurons.html&#34;&gt;Sebastian Raschka&amp;rsquo;s post on Single-Layer Neural Networks&lt;/a&gt;. In short, though, the setup of a neural net for doing multi-class classification is as follows: at a minimum you have an input layer and an output layer. The input layer is  the set of features you feed in and the output layer is the classification for each example. But you will likely also have at least one hidden layer as well.
+&lt;a title=&#34;By Glosser.ca [CC BY-SA 3.0 (http://creativecommons.org/licenses/by-sa/3.0)], via Wikimedia Commons&#34; href=&#34;https://commons.wikimedia.org/wiki/File%3AColored_neural_network.svg&#34;&gt;&lt;img width=&#34;256&#34; alt=&#34;Colored neural network&#34; src=&#34;https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Colored_neural_network.svg/256px-Colored_neural_network.svg.png&#34;/&gt;&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;A set of weights is applied to one layer to get to the next, until you reach the output layer, and training a neural network is about learning what these weights should be.&lt;/p&gt;
+
+&lt;h3 id=&#34;a-little-background:14c7068255137565e326b1d24878d8a5&#34;&gt;A little background&lt;/h3&gt;
+
+&lt;p&gt;I recently took &lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34;&gt;Andrew Ng&amp;rsquo;s Coursera course on Machine Learning&lt;/a&gt;. It&amp;rsquo;s taught through matlab and goes into the math behind classic machine learning algorithms such as neural networks. But I&amp;rsquo;ve been noticing that a lot of the newer code and tutorials out there for learning neural nets (e.g. Google&amp;rsquo;s TensorFlow tutorial) are in Python. So I thought, wouldn&amp;rsquo;t it be a fun exercise to port my matlab neural net to python and then learn about all the new libraries there are in python for doing this stuff, one of which is called Lasagne. Because layers :)&lt;/p&gt;
+
+&lt;p&gt;Here I use the handwritten digits dataset from the ML course assignment, which can be found &lt;a href=&#34;https://s3.amazonaws.com/spark-public/ml/exercises/on-demand/machine-learning-ex4.zip&#34;&gt;here&lt;/a&gt;. It is much smaller than the &lt;a href=&#34;http://yann.lecun.com/exdb/mnist/&#34;&gt;MNIST dataset&lt;/a&gt; used in most tutorials, both in number of examples and in image size - each image is 20x20 pixels. I train 3 different neural networks:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;A simple port to Python of the matlab code I wrote for the ML course assignment&lt;/li&gt;
+&lt;li&gt;An adaptation of the multi-layer perceptron from the Theano + Lasagne tutorial&lt;/li&gt;
+&lt;li&gt;An adaptation of the convolutional neural net from the TensorFlow tutorial&lt;/li&gt;
+&lt;/ol&gt;
+
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This is not a tutorial. It is simply an exploration, by a non-expert, of the topic of training neural nets in python. There are lots of great tutorials on this stuff, e.g. the ones mentioned below for Lasagne and TensorFlow, and also &lt;a href=&#34;http://rasbt.github.io/mlxtend/docs/classifier/neuralnet_mlp/&#34;&gt;this one&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3 id=&#34;initial-setup:14c7068255137565e326b1d24878d8a5&#34;&gt;Initial Setup&lt;/h3&gt;
+
+&lt;p&gt;Load some required libraries, extract the data from the matlab file and split it into training, validation and test sets.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from __future__ import print_function
+import numpy as np
+import scipy.io as sio
+from sklearn.cross_validation import train_test_split
+from pylab import *
+
+mat_contents = sio.loadmat(&#39;ex4data1.mat&#39;)
+# 0s were converted to 10s in the matlab data because matlab
+# indices start at 1, so we need to change them back to 0s
+labels = mat_contents[&#39;y&#39;]
+labels = np.where(labels == 10, 0, labels)
+labels = labels.reshape((labels.shape[0],))
+X_train, X_test, y_train, y_test = train_test_split(mat_contents[&#39;X&#39;], labels)
+X_train, X_val = X_train[:-1000], X_train[-1000:]
+y_train, y_val = y_train[:-1000], y_train[-1000:]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a visualization of one of the example images:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plt.imshow(X_train[1202].reshape((20, 20), order=&#39;F&#39;), cmap=&#39;Greys&#39;,  interpolation=&#39;nearest&#39;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/example_four.png&#34; alt=&#34;A number four from the training examples&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        A number four from the training examples
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;h2 id=&#34;1-naïve-neural-net:14c7068255137565e326b1d24878d8a5&#34;&gt;1. Naïve neural net&lt;/h2&gt;
+
+&lt;p&gt;This is where I just port the code I wrote in Matlab for the Coursera Machine Learning course into python. And where I learned that multiplying large matrices in Python is to be avoided :) More on that below, first here&amp;rsquo;s the code:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;from scipy.optimize import minimize
+
+# Basic sigmoid function for logistic regression.
+def sigmoid(X):
+    return 1.0 / (1.0 + math.e ** (-1.0 * X)) 
+
+# Randomly initializes the weights for layer with the specified numbers of
+# incoming and outgoing connections.
+def randInitializeWeights(incoming, outgoing):
+    epsilon_init = 0.12
+    return rand(outgoing, 1 + incoming) * (2 * epsilon_init) - epsilon_init
+
+# Adds the bias column to the matrix X.
+def addBias(X):
+    return np.concatenate((np.ones((X.shape[0],1)), X), 1) 
+
+# Reconstitutes the two weight matrices from a single vector, given the
+# size of the input layer, the hidden layer, and the number of possible
+# labels in the output.
+def extractWeightMatrices(thetas, input_layer_size, hidden_layer_size, num_labels):
+    theta1size = (input_layer_size + 1) * hidden_layer_size
+    theta1 = reshape(thetas[:theta1size], (hidden_layer_size, input_layer_size + 1), order=&#39;A&#39;)
+    theta2 = reshape(thetas[theta1size:], (num_labels, hidden_layer_size + 1), order=&#39;A&#39;)
+    return theta1, theta2
+
+# Converts single lables to one-hot vectors.
+def convertLabelsToClassVectors(labels, num_classes):
+    labels = labels.reshape((labels.shape[0],1))
+    ycols = np.tile(labels, (1, num_classes))
+    m, n = ycols.shape
+    indices = np.tile(np.arange(num_classes).reshape((1,num_classes)), (m, 1))
+    ymat = indices == ycols
+    return ymat.astype(int)
+
+# Returns a vector corresponding to the randomly initialized weights for the
+# input layer and hidden layer.
+def getInitialWeights(input_layer_size, hidden_layer_size, num_labels):
+    theta1 = randInitializeWeights(input_layer_size, hidden_layer_size)
+    theta2 = randInitializeWeights(hidden_layer_size, num_labels)
+    return np.append(theta1.ravel(order=&#39;A&#39;), theta2.ravel(order=&#39;A&#39;))
+
+# Trains a basic multilayer perceptron. Returns weights to use for feed-forward
+# pass to predict on new data.
+def train(X_train, y_train, hidden_layer_size, lmda, maxIter):
+    input_layer_size = X_train.shape[1]
+    num_labels = 10
+    initial_weights = getInitialWeights(input_layer_size, hidden_layer_size, num_labels)
+    if y_train.ndim == 1:
+        # Convert the labels to one-hot vectors.
+        y_train = convertLabelsToClassVectors(y_train, num_labels)
+
+    # Given weights for the input layer and hidden layer, calulates the 
+    # activations for the hidden layer and the output layer of a 3-layer nn.
+    def getActivations(theta1, theta2):
+        z2 = np.dot(addBias(X_train),theta1.T)
+        a2 = np.concatenate((np.ones((z2.shape[0],1)), sigmoid(z2)), 1)
+        # a2 is an m x num_hidden+1 matrix, Theta2 is a num_labels x
+        # num_hidden+1 matrix
+        z3 = np.dot(a2,theta2.T)
+        a3 = sigmoid(z3) # Now we have an m x num_labels matrix
+        return a2, a3
+
+    # Cost function to be minimized with respect to weights.
+    def costFunction(weights):
+        theta1, theta2 = extractWeightMatrices(weights, input_layer_size, hidden_layer_size, num_labels)
+        hidden_activation, output_activation = getActivations(theta1, theta2)
+        m = X_train.shape[0]
+        cost = sum((-y_train * log(output_activation)) - ((1 - y_train) * log(1-output_activation))) / m
+        # Regularization
+        thetasq = sum(theta1[:,1:(input_layer_size + 1)]**2) + sum(theta2[:,1:hidden_layer_size + 1]**2)
+        reg = (lmda / float(2*m)) * thetasq
+        print(&amp;quot;Training loss:\t\t{:.6f}&amp;quot;.format(cost))
+        return cost + reg
+
+    # Gradient function to pass to our optimization function.
+    def calculateGradient(weights):
+        theta1, theta2 = extractWeightMatrices(weights, input_layer_size, hidden_layer_size, num_labels)
+        # Backpropagation - step 1: feed-forward.
+        hidden_activation, output_activation = getActivations(theta1, theta2)
+        m = X_train.shape[0]
+        # Step 2 - the error in the output layer is just the difference
+        # between the output layer and y
+        delta_3 = output_activation - y_train # delta_3 is m x num_labels
+        delta_3 = delta_3.T
+
+        # Step 3
+        sigmoidGrad = hidden_activation * (1 - hidden_activation)
+        delta_2 = (np.dot(theta2.T,delta_3)) * sigmoidGrad.T
+        delta_2 = delta_2[1:, :] # hidden_layer_size x m
+        theta1_grad = np.dot(delta_2, np.concatenate((np.ones((X_train.shape[0],1)), X_train), 1))
+        theta2_grad = np.dot(delta_3, hidden_activation)
+        # Add regularization
+        reg_grad1 = (lmda / float(m)) * theta1
+        # We don&#39;t regularize the weight for the bias column
+        reg_grad1[:,0] = 0
+        reg_grad2 = (lmda / float(m)) * theta2;
+        reg_grad2[:,0] = 0
+        return np.append(ravel((theta1_grad / float(m)) + reg_grad1, order=&#39;A&#39;), ravel((theta2_grad / float(m)) + reg_grad2, order=&#39;A&#39;))
+
+    # Use scipy&#39;s minimize function with method &amp;quot;BFGS&amp;quot; to find the optimum
+    # weights.
+    res = minimize(costFunction, initial_weights, method=&#39;BFGS&#39;, jac=calculateGradient, options={&#39;disp&#39;: False, &#39;maxiter&#39;:maxIter})
+    theta1, theta2 = extractWeightMatrices(res.x, input_layer_size, hidden_layer_size, num_labels)
+    return theta1, theta2
+
+# Predicts the output given input and weights.
+def predict(X, theta1, theta2):
+    m, n = X.shape
+    X = addBias(X)
+    h1 = sigmoid(np.dot(X,theta1.T))
+    h2 = sigmoid(addBias(h1).dot(theta2.T))
+    return np.argmax(h2, axis=1)
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;That last function, predict, allows us to pass in a set of image representations, and some weights for the input and hidden layers, and it will predict the classification, i.e. which of digits 0 through 9 is represented by the image. First let&amp;rsquo;s see what we get with a random set of weights for each layer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;init_weights = getInitialWeights(400, 25, 10)
+theta1_init, theta2_init = extractWeightMatrices(init_weights, 400, 25, 10)
+pred_train = predict(X_train, theta1_init, theta2_init)
+sum(np.where(y_train == pred_train, 1, 0))/float(X_train.shape[0])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;0.11054545454545454
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;So, just over 11% accuracy, which when you think about it is roughly what you&amp;rsquo;d expect: given there are 10 possible classes for each image (digits 0 through 9), you have a 10% chance of getting it right simply by guessing.&lt;/p&gt;
+
+&lt;p&gt;So now let&amp;rsquo;s learn some better weights&amp;hellip;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;theta1, theta2 = nn.train(X_train, y_train, 25, 0, 50)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On my machine it takes about an hour to run this for 50 iterations. As an aside, I also tried to use it on the MNIST dataset. That dataset has 60,000 images of size 28x28 pixels. So the input layer consists of 784 features. With a hidden layer of 30 units it would grind away for a long time and eventually run out of memory. I managed to get it to run if I halved the number of hidden units.&lt;/p&gt;
+
+&lt;p&gt;I did some profiling using the awesome &lt;a href=&#34;https://github.com/rkern/line_profiler&#34;&gt;line_profiler&lt;/a&gt; to try to ascertain what the problem was. This helped me identify a few places where my code could be made more efficient - for example, initially I still had a for loop in the cost function - gasp! The first thing you learn in neural net school is the importance of using vectorized approaches to the computations. Anyway after I had fixed a few things like that it soon became clear to me that things weren&amp;rsquo;t getting hung inside any of my functions but in the optimization function itself. To cut a long story short, it was having to do a matrix multiplication where the matrices were 23860x23860. This number comes from the &amp;ldquo;unrolled&amp;rdquo; and concatenated weight vectors (with bias added on): (785 * 30) + (31*10). I have 16GB of RAM on my local machine, but that is apparently not enough for this operation to be run in Python. Both Theano and TensorFlow do all the heavy lifting in C, and this makes an enormous difference, as we&amp;rsquo;ll see.&lt;/p&gt;
+
+&lt;h3 id=&#34;results-after-50-iterations-and-no-regularization:14c7068255137565e326b1d24878d8a5&#34;&gt;Results after 50 iterations and no regularization&lt;/h3&gt;
+
+&lt;p&gt;Training set:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;predictions = predict(X_train, theta1, theta2)
+sum(np.where(y_train == predictions, 1, 0))/float(X_train.shape[0])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Accuracy: 0.94145454545454543
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Validation set:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;predictions = predict(X_val, theta1, theta2)
+sum(np.where(y_val == predictions, 1, 0))/float(X_val.shape[0])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Accuracy: 0.91900000000000004
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Test set:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;predictions = predict(X_test, theta1, theta2)
+sum(np.where(y_test == predictions, 1, 0))/float(X_test.shape[0])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Accuracy: 0.91359999999999997
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Not bad for just 50 iterations!&lt;/p&gt;
+
+&lt;h2 id=&#34;2-using-theano-and-lasagne:14c7068255137565e326b1d24878d8a5&#34;&gt;2. Using Theano and Lasagne&lt;/h2&gt;
+
+&lt;p&gt;This code is adapted from the &lt;a href=&#34;http://lasagne.readthedocs.org/en/latest/user/tutorial.html&#34;&gt;Lasagne tutorial&lt;/a&gt; (specifically the multi-layer perceptron.) I turned it into a function that works on the smaller data set and includes parameters for specifying:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;the number of units in its single hidden layer&lt;/li&gt;
+&lt;li&gt;the number of epochs to run for&lt;/li&gt;
+&lt;li&gt;the value to use for l2 regularization&lt;/li&gt;
+&lt;li&gt;whether or not to use dropout layers (though the actual dropout probabilities for the input and hidden layers are hard-coded)&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import time
+import theano
+import theano.tensor as T
+import lasagne
+from lasagne.regularization import regularize_layer_params_weighted, l2, l1
+
+# Uses Lasagne to train a multi-layer perceptron, adapted from
+# http://lasagne.readthedocs.org/en/latest/user/tutorial.html
+def lasagne_mlp(X_train, y_train, X_val, y_val, X_test, y_test, hidden_units=25, num_epochs=500, l2_param = 0.01, use_dropout=True):
+    X_train = X_train.reshape(-1, 1, 400)
+    X_val = X_val.reshape(-1, 1, 400)
+    X_test = X_test.reshape(-1, 1, 400)
+    # Prepare Theano variables for inputs and targets
+    input_var = T.tensor3(&#39;inputs&#39;)
+    target_var = T.ivector(&#39;targets&#39;)
+
+    print(&amp;quot;Building model and compiling functions...&amp;quot;)
+    # Input layer
+    network = lasagne.layers.InputLayer(shape=(None, 1, 400),
+                                     input_var=input_var)
+
+    if use_dropout:
+        # Apply 20% dropout to the input data:
+        network = lasagne.layers.DropoutLayer(network, p=0.2)
+
+    # A single hidden layer with number of hidden units as specified in the
+    # parameter.
+    l_hid1 = lasagne.layers.DenseLayer(
+            network, num_units=hidden_units,
+            nonlinearity=lasagne.nonlinearities.rectify,
+            W=lasagne.init.GlorotUniform())
+
+    if use_dropout:
+        # Dropout of 50%:
+        l_hid1_drop = lasagne.layers.DropoutLayer(l_hid1, p=0.5)
+        # Fully-connected output layer of 10 softmax units:
+        network = lasagne.layers.DenseLayer(
+            l_hid1_drop, num_units=10,
+            nonlinearity=lasagne.nonlinearities.softmax)
+    else:
+        # Fully-connected output layer of 10 softmax units:
+        network = lasagne.layers.DenseLayer(
+            l_hid1, num_units=10,
+            nonlinearity=lasagne.nonlinearities.softmax)
+
+    # Loss expression for training
+    prediction = lasagne.layers.get_output(network)
+    loss = lasagne.objectives.categorical_crossentropy(prediction, target_var)
+    loss = loss.mean()
+    # Regularization.
+    l2_penalty = lasagne.regularization.regularize_layer_params_weighted({l_hid1: l2_param}, l2)
+    loss = loss + l2_penalty
+    # Update expressions for training, using Stochastic Gradient Descent.
+    params = lasagne.layers.get_all_params(network, trainable=True)
+    updates = lasagne.updates.nesterov_momentum(
+            loss, params, learning_rate=0.01, momentum=0.9)
+
+    # Loss expression for evaluation.
+    test_prediction = lasagne.layers.get_output(network, deterministic=True)
+    test_loss = lasagne.objectives.categorical_crossentropy(test_prediction,
+                                                            target_var)
+    test_loss = test_loss.mean()
+    # Expression for the classification accuracy:
+    test_acc = T.mean(T.eq(T.argmax(test_prediction, axis=1), target_var),
+                      dtype=theano.config.floatX)
+
+    # Compile a function performing a training step on a mini-batch (by giving
+    # the updates dictionary) and returning the corresponding training loss:
+    train_fn = theano.function([input_var, target_var], loss, updates=updates)
+
+    # Compile a second function computing the validation loss and accuracy:
+    val_fn = theano.function([input_var, target_var], [test_loss, test_acc])
+
+    # Finally, launch the training loop.
+    print(&amp;quot;Starting training...&amp;quot;)
+    # Keep track of taining and validation cost over the epochs
+    epoch_cost_train = np.empty(num_epochs, dtype=float32)
+    epoch_cost_val = np.empty(num_epochs, dtype=float32)
+    # We iterate over epochs:
+    for epoch in range(num_epochs):
+        # In each epoch, we do a full pass over the training data:
+        train_err = 0
+        # We also want to keep track of the deterministic (feed-forward) 
+        # training error.
+        train_err_ff = 0
+        train_batches = 0
+        start_time = time.time()
+        for batch in iterate_minibatches(X_train, y_train, 50, shuffle=True):
+            inputs, targets = batch
+            err, acc = val_fn(inputs, targets)
+            train_err_ff += err
+            train_err += train_fn(inputs, targets)
+
+            train_batches += 1
+
+        # And a full pass over the validation data:
+        val_err = 0
+        val_acc = 0
+        val_batches = 0
+        for batch in iterate_minibatches(X_val, y_val, 50, shuffle=False):
+            inputs, targets = batch
+            err, acc = val_fn(inputs, targets)
+            val_err += err
+            val_acc += acc
+            val_batches += 1
+
+        epoch_cost_train[epoch] = train_err_ff / train_batches
+        epoch_cost_val[epoch] = val_err / val_batches
+        # Then we print the results for this epoch:
+        print(&amp;quot;Epoch {} of {} took {:.3f}s&amp;quot;.format(
+            epoch + 1, num_epochs, time.time() - start_time))
+        print(&amp;quot;  training loss:\t\t{:.6f}&amp;quot;.format(train_err / train_batches))
+        print(&amp;quot;  validation loss:\t\t{:.6f}&amp;quot;.format(val_err / val_batches))
+        print(&amp;quot;  validation accuracy:\t\t{:.2f} %&amp;quot;.format(
+            val_acc / val_batches * 100))
+
+    # After training, we compute and print the test error:
+    test_err = 0
+    test_acc = 0
+    test_batches = 0
+    for batch in iterate_minibatches(X_test, y_test, 50, shuffle=False):
+        inputs, targets = batch
+        err, acc = val_fn(inputs, targets)
+        test_err += err
+        test_acc += acc
+        test_batches += 1
+    print(&amp;quot;Final results:&amp;quot;)
+    print(&amp;quot;  test loss:\t\t\t{:.6f}&amp;quot;.format(test_err / test_batches))
+    print(&amp;quot;  test accuracy:\t\t{:.2f} %&amp;quot;.format(
+        test_acc / test_batches * 100))
+    return epoch_cost_train, epoch_cost_val
+
+# This function was copied verbatim from the Lasagne tutorial at 
+# http://lasagne.readthedocs.org/en/latest/user/tutorial.html
+def iterate_minibatches(inputs, targets, batchsize, shuffle=False):
+    assert len(inputs) == len(targets)
+    if shuffle:
+        indices = np.arange(len(inputs))
+        np.random.shuffle(indices)
+    for start_idx in range(0, len(inputs) - batchsize + 1, batchsize):
+        if shuffle:
+            excerpt = indices[start_idx:start_idx + batchsize]
+        else:
+            excerpt = slice(start_idx, start_idx + batchsize)
+        yield inputs[excerpt], targets[excerpt]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Here we run it for 500 epochs without regularization but with dropout on the input and hidden layers.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;epoch_cost_train, epoch_cost_val = lasagne_mlp(X_train, y_train, X_val, y_val, X_test,
+ y_test, hidden_units=800, num_epochs=500, l2_param=0, use_dropout=True)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;Epoch 1 of 500 took 0.495s
+  training loss:                0.282050
+  validation loss:              0.216164
+  validation accuracy:          94.50 %
+...
+Epoch 500 of 500 took 0.504s
+  training loss:                0.016550
+  validation loss:              0.127085
+  validation accuracy:          97.50 %
+Final results:
+  test loss:                    0.152830
+  test accuracy:                96.48 %
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Each epoch generally took less than a second to run. But one time I ran it and noticed it taking forever to run a single epoch - it would grind away and eventually get through one epoch after about 8 minutes. So I thought to myself &amp;ldquo;I wonder if that warning I saw but ignored when Theano got imported was actually important&amp;rdquo;&amp;hellip; Yep. The warning was &amp;ldquo;&lt;em&gt;WARNING (theano.configdefaults): g++ not detected ! Theano will be unable to execute optimized C-implementations (for both CPU and GPU) and will default to Python implementations. Performance will be severely degraded.&lt;/em&gt;&amp;rdquo; It couldn&amp;rsquo;t find g++ and so it was actually doing everything in Python. Turned out it was because I had upgraded XCode the previous day but the upgrade hadn&amp;rsquo;t completed (because I hadn&amp;rsquo;t opened it and accepted the license agreement). Anyway, the point here is: less than a second versus 8 minutes&amp;hellip; &lt;em&gt;holy shit!&lt;/em&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Epoch 1 of 500 took 509.737s
+  training loss:                1.544798
+  validation loss:              0.795227
+  validation accuracy:          83.20 %
+Epoch 2 of 500 took 489.701s
+  training loss:                0.730792
+  validation loss:              0.512750
+  validation accuracy:          86.90 %
+Epoch 3 of 500 took 655.276s
+  training loss:                0.557232
+  validation loss:              0.430175
+  validation accuracy:          88.10 %
+Epoch 4 of 500 took 496.489s
+  training loss:                0.498586
+  validation loss:              0.382306
+  validation accuracy:          89.30 %
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;the-dangers-of-over-fitting:14c7068255137565e326b1d24878d8a5&#34;&gt;The dangers of over-fitting&lt;/h2&gt;
+
+&lt;p&gt;To explain what over-fitting is, let&amp;rsquo;s imagine an extreme example. Let&amp;rsquo;s say we only have a very small set of training example images with which to train our neural net. Now imagine that it happens to be the case that almost every number 7 example has the stem crossed, like this example:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/seven_stem.png&#34; alt=&#34;A seven example with a crossed stem&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        A seven example with a crossed stem
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;When you train on these examples the model will not generalize well to new examples that do not have this feature. We could say that it would give &lt;em&gt;too much weight&lt;/em&gt; to this crossed stem feature. A great measure against over-fitting is having lots and lots of data to train your model on, because the more data you have the less likely you are to have this type of scenario. But beyond getting more data, there are a couple of other ways to minimize this over-fitting problem. The standard way is to use regularization, where you penalize the weights such that minimizing the cost necessarily means shrinking the weights towards 0. Read more about regularization &lt;a href=&#34;https://en.wikipedia.org/wiki/Regularization_(mathematics&#34;&gt;here&lt;/a&gt;). However, &lt;a href=&#34;http://arxiv.org/abs/1207.0580&#34;&gt;Hinton et al&lt;/a&gt; came up with a solution for neural nets that works by &amp;ldquo;randomly omitting half of the feature detectors on each training case&amp;rdquo;. It&amp;rsquo;s called dropout and it is very effective.&lt;/p&gt;
+
+&lt;p&gt;The graph below shows what happens to our validation error, as compared with the training error if we perform no regularization and do not include dropout layers in our model.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/500_800_noreg_nodropout.png&#34; alt=&#34;No dropout, no regularization&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        No dropout, no regularization
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And here&amp;rsquo;s what happens with 20% dropout on the input layer and 50% on the hidden layer. Still no regularization.
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/500_800_noreg.png&#34; alt=&#34;Dropout layers, no regularization&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Dropout layers, no regularization
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Accuracy on the test set without dropout was generally around 94%, with dropout was around 97%.&lt;/p&gt;
+
+&lt;p&gt;If we try without dropout but with l2 regularization it looks like this is not as effective at bringing down the validation error.
+
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/500_800_reg01_nodropout.png&#34; alt=&#34;Regularization, no dropout&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        Regularization, no dropout
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The code for generating the above plots, assuming your training and validation results as returned from lasagne_mlp are in the epoch_cost_train and epoch_cost_val variables respectively, is as follows:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-pyton&#34;&gt;plt.style.use(&#39;bmh&#39;)
+plt.plot(range(len(epoch_cost_train)), epoch_cost_train, label=&amp;quot;Training error&amp;quot;)
+plt.plot(range(len(epoch_cost_val)), epoch_cost_val, label=&amp;quot;Validation error&amp;quot;)
+legend()
+plt.xlabel(&amp;quot;Num epochs&amp;quot;)
+plt.ylabel(&amp;quot;Cost&amp;quot;) 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;3-using-tensorflow:14c7068255137565e326b1d24878d8a5&#34;&gt;3. Using TensorFlow&lt;/h2&gt;
+
+&lt;p&gt;In this last section I achieve little more than proving to myself that I can get enough of a handle on things as to be able to adapt the TensorFlow tutorial to my Coursera data set. Go me.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import tensorflow as tf
+
+# This function was copied verbatim from the TensorFlow tutorial at
+# https://www.tensorflow.org/versions/master/tutorials/index.html
+def dense_to_one_hot(labels_dense, num_classes=10):
+  &amp;quot;&amp;quot;&amp;quot;Convert class labels from scalars to one-hot vectors.&amp;quot;&amp;quot;&amp;quot;
+  num_labels = labels_dense.shape[0]
+  index_offset = np.arange(num_labels) * num_classes
+  labels_one_hot = np.zeros((num_labels, num_classes))
+  labels_one_hot.flat[index_offset + labels_dense.ravel()] = 1
+  return labels_one_hot
+
+# Adapted from the TensorFlow tutorial at
+# https://www.tensorflow.org/versions/master/tutorials/index.html
+class DataSet(object):
+  def __init__(self, images, labels):
+    assert images.shape[0] == labels.shape[0], (
+      &amp;quot;images.shape: %s labels.shape: %s&amp;quot; % (images.shape,
+                                             labels.shape))
+    self._num_examples = images.shape[0]
+    self._images = images
+    self._labels = labels
+    self._epochs_completed = 0
+    self._index_in_epoch = 0
+  @property
+  def images(self):
+    return self._images
+  @property
+  def labels(self):
+    return self._labels
+  @property
+  def num_examples(self):
+    return self._num_examples
+  @property
+  def epochs_completed(self):
+    return self._epochs_completed
+  def next_batch(self, batch_size):
+    &amp;quot;&amp;quot;&amp;quot;Return the next `batch_size` examples from this data set.&amp;quot;&amp;quot;&amp;quot;
+    start = self._index_in_epoch
+    self._index_in_epoch += batch_size
+    if self._index_in_epoch &amp;gt; self._num_examples:
+      # Finished epoch
+      self._epochs_completed += 1
+      # Shuffle the data
+      perm = np.arange(self._num_examples)
+      np.random.shuffle(perm)
+      self._images = self._images[perm]
+      self._labels = self._labels[perm]
+      # Start next epoch
+      start = 0
+      self._index_in_epoch = batch_size
+      assert batch_size &amp;lt;= self._num_examples
+    end = self._index_in_epoch
+    return self._images[start:end], self._labels[start:end]
+def read_data_sets(train_images, train_labels, validation_images, validation_labels, test_images, test_labels):
+  class DataSets(object):
+    pass
+  data_sets = DataSets()
+  data_sets.train = DataSet(train_images, dense_to_one_hot(train_labels))
+  data_sets.validation = DataSet(validation_images, dense_to_one_hot(validation_labels))
+  data_sets.test = DataSet(test_images, dense_to_one_hot(test_labels))
+  return data_sets
+
+# Adapted from the TensorFlow tutorial at
+# https://www.tensorflow.org/versions/master/tutorials/index.html
+def tensorFlowBasic(X_train, y_train, X_val, y_val, X_test, y_test):
+    sess = tf.InteractiveSession()
+    x = tf.placeholder(&amp;quot;float&amp;quot;, shape=[None, 400])
+    y_ = tf.placeholder(&amp;quot;float&amp;quot;, shape=[None, 10])
+    W = tf.Variable(tf.zeros([400,10]))
+    b = tf.Variable(tf.zeros([10]))
+    sess.run(tf.initialize_all_variables())
+    y = tf.nn.softmax(tf.matmul(x,W) + b)
+    cross_entropy = -tf.reduce_sum(y_*tf.log(y))
+    train_step = tf.train.GradientDescentOptimizer(0.01).minimize(cross_entropy)
+    mydata = read_data_sets(X_train, y_train, X_val, y_val, X_test, y_test)
+
+    for i in range(1000):
+      batch = mydata.train.next_batch(50)
+      train_step.run(feed_dict={x: batch[0], y_: batch[1]})
+    
+    correct_prediction = tf.equal(tf.argmax(y,1), tf.argmax(y_,1))
+    accuracy = tf.reduce_mean(tf.cast(correct_prediction, &amp;quot;float&amp;quot;))
+    return accuracy.eval(feed_dict={x: mydata.test.images, y_: mydata.test.labels})
+
+def weight_variable(shape):
+  initial = tf.truncated_normal(shape, stddev=0.1)
+  return tf.Variable(initial)
+
+def bias_variable(shape):
+  initial = tf.constant(0.1, shape=shape)
+  return tf.Variable(initial)
+
+def conv2d(x, W):
+  return tf.nn.conv2d(x, W, strides=[1, 1, 1, 1], padding=&#39;SAME&#39;)
+
+def max_pool_2x2(x):
+  return tf.nn.max_pool(x, ksize=[1, 2, 2, 1],
+                        strides=[1, 2, 2, 1], padding=&#39;SAME&#39;)
+
+def tensorFlowCNN(X_train, y_train, X_val, y_val, X_test, y_test, add_second_conv_layer = True):
+    x = tf.placeholder(&amp;quot;float&amp;quot;, shape=[None, 400])
+    y_ = tf.placeholder(&amp;quot;float&amp;quot;, shape=[None, 10])
+    sess = tf.InteractiveSession()
+    # First Convolutional Layer
+    W_conv1 = weight_variable([5, 5, 1, 32])
+    b_conv1 = bias_variable([32])
+    x_image = tf.reshape(x, [-1,20,20,1])
+    h_conv1 = tf.nn.relu(conv2d(x_image, W_conv1) + b_conv1)
+    h_pool1 = max_pool_2x2(h_conv1)
+    if add_second_conv_layer:
+        # Second Convolutional Layer
+        W_conv2 = weight_variable([5, 5, 32, 64])
+        b_conv2 = bias_variable([64])
+        h_conv2 = tf.nn.relu(conv2d(h_pool1, W_conv2) + b_conv2)
+        h_pool2 = max_pool_2x2(h_conv2)
+    
+        # Densely Connected Layer
+        W_fc1 = weight_variable([5 * 5 * 64, 1024])
+        b_fc1 = bias_variable([1024])
+        h_pool2_flat = tf.reshape(h_pool2, [-1, 5*5*64])
+        h_fc1 = tf.nn.relu(tf.matmul(h_pool2_flat, W_fc1) + b_fc1)
+    else:
+        # Densely Connected Layer
+        W_fc1 = weight_variable([10 * 10 * 32, 1024])
+        b_fc1 = bias_variable([1024])
+        h_pool1_flat = tf.reshape(h_pool1, [-1, 10*10*32])
+        h_fc1 = tf.nn.relu(tf.matmul(h_pool1_flat, W_fc1) + b_fc1) 
+    
+    # Dropout
+    keep_prob = tf.placeholder(&amp;quot;float&amp;quot;)
+    h_fc1_drop = tf.nn.dropout(h_fc1, keep_prob)
+    # Softmax
+    W_fc2 = weight_variable([1024, 10])
+    b_fc2 = bias_variable([10])
+    y_conv=tf.nn.softmax(tf.matmul(h_fc1_drop, W_fc2) + b_fc2)
+
+    # Train the model
+    mydata = read_data_sets(X_train, y_train, X_val, y_val, X_test, y_test)
+    cross_entropy = -tf.reduce_sum(y_*tf.log(y_conv))
+    train_step = tf.train.AdamOptimizer(1e-4).minimize(cross_entropy)
+    correct_prediction = tf.equal(tf.argmax(y_conv,1), tf.argmax(y_,1))
+    accuracy = tf.reduce_mean(tf.cast(correct_prediction, &amp;quot;float&amp;quot;))
+    sess.run(tf.initialize_all_variables())
+    for i in range(1000):
+        batch = mydata.train.next_batch(50)
+        if i%100 == 0:
+            train_accuracy = accuracy.eval(feed_dict={
+                x:batch[0], y_: batch[1], keep_prob: 1.0})
+            print(&amp;quot;step %d, training accuracy %g&amp;quot;%(i, train_accuracy))
+        train_step.run(feed_dict={x: batch[0], y_: batch[1], keep_prob: 0.5})
+
+    return accuracy.eval(feed_dict={
+        x: mydata.test.images, y_: mydata.test.labels, keep_prob: 1.0})
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There&amp;rsquo;s a tensorFlowBasic function which just has an input layer and an output layer, but the fun stuff happens in tensorFlowCNN, which is my first introduction to convolutional neural nets.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;accuracy = tensorFlowCNN(X_train, y_train, X_val, y_val, X_test, y_test)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;step 0, training accuracy 0.1
+step 100, training accuracy 0.82
+...
+step 900, training accuracy 0.96
+accuracy: 0.95200002
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I can also pass a parameter telling it not to add a second convolutional layer:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;accuracy = tensorFlowCNN(X_train, y_train, X_val, y_val, X_test, y_test, add_second_conv_layer=False)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;pre&gt;&lt;code&gt;accuracy: 0.94160002
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;With the second layer I generally get around 95% accuracy on the test set, without it around 94%. I need to do a lot more experimenting to get a real handle on how to tweak these layers though. And I need to do a lot more reading to understand convolution and pooling better.&lt;/p&gt;
+
+&lt;h3 id=&#34;further-reading:14c7068255137565e326b1d24878d8a5&#34;&gt;Further reading&lt;/h3&gt;
+
+&lt;p&gt;As mentioned at the start, this exercise has mostly just made me realize how much I have yet to learn about this field. Here&amp;rsquo;s what I have on my reading list:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://timdettmers.com/2015/03/26/convolution-deep-learning/&#34;&gt;Understanding Convolution in Deep Learning&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-core-concepts/&#34;&gt;Deep Learning in a Nutshell: Core Concepts&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://devblogs.nvidia.com/parallelforall/deep-learning-nutshell-history-training/&#34;&gt;Deep Learning in a Nutshell: History and Training&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Michael Nielson&amp;rsquo;s &lt;a href=&#34;http://neuralnetworksanddeeplearning.com/&#34;&gt;Neural Networks and Deep Learning&lt;/a&gt; ebook&lt;/li&gt;
+&lt;li&gt;Stanford course notes on &lt;a href=&#34;http://cs231n.github.io/&#34;&gt;Convolutional Neural Networks for Visual Recognition&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Some TensorFlow-specic stuff:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://shapeofdata.wordpress.com/2015/11/30/the-tensorflow-perspective-on-neural-networks/&#34;&gt;The TensorFlow perspective on neural networks&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://www.kdnuggets.com/2015/11/google-tensorflow-deep-learning-disappoints.html&#34;&gt;TensorFlow Disappoints – Google Deep Learning falls shallow&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Welch&#39;s T-test in Go</title>
+      <link>http://katbailey.github.io/post/welch-t-test-golang/</link>
+      <pubDate>Thu, 15 Oct 2015 21:04:38 -0700</pubDate>
+      
+      <guid>http://katbailey.github.io/post/welch-t-test-golang/</guid>
+      <description>&lt;p&gt;I wrote some code for doing a Welch&amp;rsquo;s T-Test in Go. You can read up on what a Welch&amp;rsquo;s t-test is &lt;a href=&#34;https://en.wikipedia.org/wiki/Welch%27s_t_test&#34;&gt;here&lt;/a&gt; but in short it&amp;rsquo;s a significance test for the difference between two treatments (like in an A/B test) where the distributions may have unequal variances.&lt;/p&gt;
+
+&lt;pre&gt;
+
+                 * *
+               *     *
+              *       *
+             *         *
+            *           *    
+           *            **   
+          *             ***  
+        *               *****
+  * * *                 ***********
+ -----------------|-----|-----------
+ &lt;/pre&gt;
+
+&lt;p&gt;So if you are doing an A/B test and you have the mean and variance of each treatment, you can get a confidence measure for whether the mean of one is truly higher than the mean of the other.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s the code: &lt;a href=&#34;https://github.com/katbailey/welchttest&#34;&gt;https://github.com/katbailey/welchttest&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

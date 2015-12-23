@@ -1,0 +1,16 @@
+pre {
+  white-space: pre;
+  word-wrap: normal;
+  overflow: scroll;
+}
+
+figcaption p {
+	text-align: center;
+	font-family: serif;
+	font-size: smaller;
+}
+
+figure.center img {
+    display: block;
+    margin: 0 auto;
+}
