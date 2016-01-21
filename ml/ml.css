@@ -1,0 +1,131 @@
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
+
+body {
+    font-size: 200%;
+    text-align: center;
+    font-family: Libre Baskerville;
+}
+
+p {
+    font-weight: normal;
+    margin-bottom: 0.3em;
+    margin-top: 0.3em;
+    text-align: left;
+    color: #666666;
+}
+
+ul li {
+    color: #666666;
+}
+
+strong {
+    color: #2b7f9f;
+}
+
+em {
+    color: #000000;
+}
+
+pre {
+    text-align: left;
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+    margin-bottom: 0.3em;
+    margin-top: 0.3em;
+}
+
+tt {
+    font-size: 125;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+li {
+    font-family: serif;
+    font-weight: normal;
+    margin-bottom: 0.3em;
+    margin-top: 0.3em;
+    padding-left: 0.3em;
+    line-height: 1.8em;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: #f60048;
+}
+
+div#regression-classification:not(.active), div#regression-classification-1:not(.active), div#supervised-unsupervised:not(.active), div#supervised-unsupervised-1:not(.active), div#intelligence:not(.active) { 
+    opacity: 0; 
+}
+
+.hidden {
+    display: none;
+}
+
+div#singularity strong {
+    font-size: 200%;
+}
+
+div#supervised-unsupervised p, div#supervised-unsupervised-1 p, div#regression-classification p, div#regression-classification-1 p, div#title p {
+    text-align: center;
+}
+
+div#pca h1, div#kmeans h1, div#linear-regression h1, div#multi-linear-regression h1 {
+    font-size: 100%;
+}
+
+div#pca p, div#kmeans p, div#linear-regression p, div#multi-linear-regression p {
+    font-size: 50%;
+    text-align: right;
+}
+
+div#gradient-descent {
+    background-image: url("images/gradient_descent_bg.jpg");
+    background-position: 0px 0px;
+}
+
+div#gradient-descent h1, div#linear-other h1, div#deep-learning h1, div#training-test h1, div#cross-validation h1, div#bayesian-ml h1, div#nlp h1 {
+    font-size: 150%;
+}
+
+div#gradient-descent p {
+    height: 412px;
+}
+
+div#tree-based {
+    background-image: url("images/decision_tree.png");
+    background-position: 156px 80px;
+    background-repeat: no-repeat;
+}
+
+div#linear-other {
+    background-image: url("images/knn_small.png");
+    background-position: 404px 288px;
+    background-repeat: no-repeat;
+}
+
+div#tree-based ul, div#linear-other ul {
+    height: 412px;
+}
+
+div#bayesian-ml {
+    background-image: url("images/probabilistic.png");
+    background-position: 311px 160px;
+    background-repeat: no-repeat;
+}
+
+
+div#nlp {
+    background-image: url("images/chain_small.png");
+    background-position: 97px 416px;
+    background-repeat: no-repeat;
+}
+
+div#nlp ul {
+    height: 400px;
+}
