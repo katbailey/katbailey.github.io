@@ -6,8 +6,37 @@
     <description>Recent content in Posts on ohAI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 26 Jan 2016 07:45:28 -0700</lastBuildDate>
+    <lastBuildDate>Sat, 06 Feb 2016 10:58:20 -0700</lastBuildDate>
     <atom:link href="http://katbailey.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>My Favourite Data Science Podcasts</title>
+      <link>http://katbailey.github.io/post/data-science-podcasts/</link>
+      <pubDate>Sat, 06 Feb 2016 10:58:20 -0700</pubDate>
+      
+      <guid>http://katbailey.github.io/post/data-science-podcasts/</guid>
+      <description>
+
+&lt;p&gt;There&amp;rsquo;s a pretty impressive selection of high-quality podcasts out there these days on topics in data science. Here are four that I am really enjoying right now, along with my take on what is good about each of them.&lt;/p&gt;
+
+&lt;h2 id=&#34;not-so-standard-deviations:6faa704a913ba6d911650b2542fcebc9&#34;&gt;Not So Standard Deviations&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://soundcloud.com/nssd-podcast&#34;&gt;NSSD podcast on SoundCloud&lt;/a&gt; Two very smart people with PhDs in biostatistics, one still in academia and the other working as a data scientist for Etsy, Roger and Hilary sure do ramble on but the ramblings are great :) They cover all sorts of topics, always at least loosely related to data science and my favourite things about the podcast are 1. the discussions about differences between academia and industry when it comes to data science and 2. how unafraid they both are to wander into topics they admit to knowing very little about and just wonder curiously aloud about them. Very accessible and enjoyable.&lt;/p&gt;
+
+&lt;h2 id=&#34;partially-derivative:6faa704a913ba6d911650b2542fcebc9&#34;&gt;Partially Derivative&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.partiallyderivative.com/&#34;&gt;partiallyderivative.com&lt;/a&gt; When I first started listening to this show I thought the guys were a bit too bro-tastic for me to be able to listen to them for long. They are terribly silly but they cover so many interesting data science related news stories with a great balance between serious stories and utterly trivial and hilarious ones (e.g. about someone training a model to predict when Game of Thrones characters will die, or someone writing a program that uses Markov chains to generate pretentious craft beer reviews). When listening to this podcast I regularly find myself bursting out laughing in spite of myself.&lt;/p&gt;
+
+&lt;h2 id=&#34;data-skeptic:6faa704a913ba6d911650b2542fcebc9&#34;&gt;Data Skeptic&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://dataskeptic.com/&#34;&gt;dataskeptic.com&lt;/a&gt;
+This one alternates its format between full length episodes where the presenter, Kyle, interviews people working or doing research in data science, and mini-episodes where he explains topics to his wife, a non data scientist, in ways someone not from the field can understand. Personally I prefer the interview episodes - highlights so far have been the interview with Gordon Pennycook on his research into people&amp;rsquo;s susceptibility to &amp;ldquo;pseudo-profound bullshit&amp;rdquo;, and the interview with Thomas Levi, former physicist and current lead data scientist at Plenty of Fish.&lt;/p&gt;
+
+&lt;h2 id=&#34;talking-machines:6faa704a913ba6d911650b2542fcebc9&#34;&gt;Talking Machines&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://www.thetalkingmachines.com/&#34;&gt;thetalkingmachines.com&lt;/a&gt; OK this one is my absolute favourite. It is an extremely high quality production, both in terms of content and how it is put together. There&amp;rsquo;s a set format, where they start out with an exploration of a particular topic in machine learning, e.g. Gaussian processes, active learning, expectation maximization, to name a few they&amp;rsquo;ve covered. Then they&amp;rsquo;ll answer a question that came in from a listener, before moving on to the &amp;ldquo;meat&amp;rdquo; of the show, which is an interview with someone, usually an academic, doing research in machine learning. Among those they&amp;rsquo;ve interviewed are Geoff Hinton, Andrew Ng, Yann LeCun, Nando de Freitas and Claudia Perlich. I always feel just a little bit smarter after listening to an episode of Talking Machines.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Machine Learning talk</title>
