@@ -14,3 +14,19 @@ figure.center img {
     display: block;
     margin: 0 auto;
 }
+
+figure.matrices {
+	  align-content: center;
+}
+
+figure.matrices img {
+    max-width: 50%;
+    height: auto;
+}
+code.has-jax {
+	font: inherit;
+    font-size: 100%;
+    background: inherit;
+    border: inherit;
+    color: #515151;
+}

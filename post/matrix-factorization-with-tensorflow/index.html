@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Matrix Factorization with Tensorflow &middot; </title>
+
+  
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/styles.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/highlight/monokai_sublime.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://katbailey.github.io/touch-icon-144-precomposed.png">
+  <link href="http://katbailey.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+  <link href="http://katbailey.github.io/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      
+      
+      
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i = 0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>ohAI</h1>
+      <p class="lead">Where I write about things vaguely (and sometimes even closely!) related to AI</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://katbailey.github.io/">Home</a></li>
+            <li class="sidebar-nav-item"><a href="http://katbailey.github.io/about">About</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/katbailey"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      <a href="http://twitter.com/katherinebailey"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>&copy; 2016 Katherine Bailey</p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Matrix Factorization with Tensorflow</h1>
+    <span class="post-date">Mar 11, 2016 &middot; 9 minute read &middot; <a href="http://katbailey.github.io/post/matrix-factorization-with-tensorflow/#disqus_thread">Comments</a>
+    
+    <br/>
+    
+    </span>
+    
+
+<p>I&rsquo;ve been working on building a content recommender in TensorFlow using matrix factorization, following the approach described in the article <a href="https://datajobs.com/data-science-repo/Recommender-Systems-%5BNetflix%5D.pdf">Matrix Factorization Techniques for Recommender Systems</a> (MFTRS). I haven&rsquo;t come across any discussion of this particular use case in TensorFlow but it seems like an ideal job for it. I&rsquo;ll explain briefly here what matrix factorization is in the context of recommender systems (although I highly <em>cough</em> recommend reading the MFTRS article) and how things needed to be set up to do this in TensorFlow. Then I&rsquo;ll show the code I wrote to train the model and the resulting TensorFlow computation graph produced by TensorBoard.</p>
+
+<h2 id="the-basics:eb1147f7685f7b4fdbf640a27bbc705e">The basics</h2>
+
+<p>A matrix of ratings with users as rows and items as columns might look something like this:</p>
+
+<p>
+<figure class="matrices center">
+    
+        <img src="/images/matrix.png" alt="A matrix of user/item ratings" />
+    
+    
+    <figcaption>
+        <p>
+        A matrix of user/item ratings
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+</p>
+
+<p>We see for example that user 1 has given item 2 a rating of 3.</p>
+
+<p>What matrix factorization does is to come up with two smaller matrices, one representing users and one representing items, which when multiplied together will produce roughly this matrix of ratings, ignoring the 0 entries.</p>
+
+<p>
+<figure class="center">
+    
+        <img src="/images/matrix_factorization.png" />
+    
+    
+</figure>
+</p>
+
+<p>So if our original matrix is m x n, where m is the number of users and n is the number of items, we need an m x d matrix and a d x n matrix as our factors, where d is chosen to be small enough for the computation to be efficient and large enough to represent the number of dimensions along which interactions between users and items are likely to vary in some significant way. In the above illustration we have d = 2. The predicted rating by a given user for a given item is then the dot product of the vector representing the user and the vector representing the item. In the MFTRS article, this is expressed as:</p>
+
+<p>$ \hat{r_{ui}} = q_i^Tp_u $</p>
+
+<p>where $ \hat{r_{ui}} $ denotes the predicted rating for user u and item i and $ q_i^Tp_u $ denotes the dot product of the vector representing item i and the vector representing user u.</p>
+
+<h2 id="user-bias-item-bias-and-average-rating:eb1147f7685f7b4fdbf640a27bbc705e">User bias, item bias and average rating</h2>
+
+<p>We need to add bias into the mix. Each user&rsquo;s average rating will be different from the average rating across all users. And the average rating of a particular item will be somewhat different from the average across all items.</p>
+
+<p>
+<figure class="center">
+    
+        <img src="/images/add_bias.png" alt="Adding user and item bias" />
+    
+    
+    <figcaption>
+        <p>
+        Adding user and item bias
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+</p>
+
+<p>Adding a column vector of user bias to the user matrix and matching it with a row vector of 1s in the item matrix has the effect that the rating prediction for a given user/item pair will now have that user&rsquo;s bias added on. Similarly, adding a row vector of item biases to items and a matching column vector of 1s to users will add the item bias to the prediction.</p>
+
+<p>The average rating across all users and items also needs to be included so in the notation of the MFTRS article each rating will be predicted using:</p>
+
+<p>$ \hat{r_{ui}} = \mu + b_i + b_u + q_i^Tp_u $</p>
+
+<p>where $ \mu $ is the overall average rating, $ b_i $ is the bias for item i, $ b_u $ is the bias for user u, and $ q_i^Tp_u $ is the interaction between item i and user u.</p>
+
+<p>But the overall mean rating can be added on after we do the matrix multiplication.</p>
+
+<h2 id="objective-function-and-regularization:eb1147f7685f7b4fdbf640a27bbc705e">Objective Function and Regularization</h2>
+
+<p>The objective function, or cost function, used in this approach is simply the sum of squared distances between predicted ratings and actual ratings, so this is what we need to minimize. But in order to prevent over-fitting to the training data we need to constrain the learned values for our user and item features by penalizing high values. We do this by multiplying the sum of the squares of the elements of the user and item matrices by a configurable regularization parameter and including this in our cost function. We&rsquo;ll use gradient descent to minimize the cost.</p>
+
+<h2 id="accuracy:eb1147f7685f7b4fdbf640a27bbc705e">Accuracy</h2>
+
+<p>The metric I decided on for accuracy was to calculate the fraction of predicted ratings that were within some threshold of the real rating. I used a threshold of 0.5 when evaluating accuracy. Note that this type of absolute threshold works fine if the ratings are on a fixed scale, e.g. 1-5, but for something like the Million Song Dataset, where &ldquo;ratings&rdquo; are actually listen counts, a percentage based threshold would need to be used.</p>
+
+<h2 id="sparse-representation-of-matrices:eb1147f7685f7b4fdbf640a27bbc705e">Sparse representation of matrices</h2>
+
+<p>The ratings matrix is sparse, meaning most of the values are 0, because each user has only rated a small number of items. The concept of a sparse matrix can actually be translated to a different data structure that retains only information about the non-zero values, making it a much more memory-efficient represenation of the same information. One way is to define a vector of row indices, i, a vector of column indices, j, and a vector of values for each (i,j) pair. So only the (i,j) pairs that have values are included. Using this format, known as coordinate list or COO, the above ratings would be expressed as follows:</p>
+
+<p>
+<figure class="matrices center">
+    
+        <img src="/images/coo.png" alt="The same ratings in COO sparse matrix format" />
+    
+    
+    <figcaption>
+        <p>
+        The same ratings in COO sparse matrix format
+        
+            
+        
+        </p> 
+    </figcaption>
+    
+</figure>
+</p>
+
+<p>The dataset I worked with was the Movie Lens dataset, available <a href="http://grouplens.org/datasets/movielens/100k/">here</a>. Only the u.data file was needed to train the model. This contains 100,000 ratings from 943 users of 1,682 movies. If we expressed this as a full matrix, we&rsquo;d have 943 x 1,682 = 1,586,126 values to store in memory while doing computations on them. But doing it this way we only have to work with 100,000 x 3 = 300,000 values.</p>
+
+<p>The user_ids and item_ids in this dataset are already serial IDs, so we have users 1 through 943 and items 1 through 1682. Subracting 1 from each ID allows us to use them as matrix indices. They also need to be ordered first by user index, then by item index for faster access.</p>
+
+<h2 id="the-code:eb1147f7685f7b4fdbf640a27bbc705e">The Code</h2>
+
+<p>The code below assumes we have training ratings and validation ratings in the above COO format and have extracted the individual columns as the row_indices, col_indices and rating_values variables, in the case of the training set, and variables suffixed with _val for the validation set. For more complete example code, see the Beaker notebook <a href="https://pub.beakernotebook.com/#/publications/56df05ac-4f52-46fe-a22d-4f604391a577">here</a>.</p>
+
+<p>The configurable parameters are</p>
+
+<ul>
+<li>rank, or number of feature vectors to learn</li>
+<li>lamda (regularization parameter)</li>
+<li>learning rate</li>
+<li>accuracy threshold</li>
+</ul>
+
+<pre><code class="language-python">
+# Initialize the matrix factors from random normals with mean 0. W will
+# represent users and H will represent items.
+W = tf.Variable(tf.truncated_normal([num_users, rank], stddev=0.2, mean=0), name=&quot;users&quot;)
+H = tf.Variable(tf.truncated_normal([rank, num_items], stddev=0.2, mean=0), name=&quot;items&quot;)
+
+# To the user matrix we add a bias column holding the bias of each user,
+# and another column of 1s to multiply the item bias by.
+W_plus_bias = tf.concat(1, [W, tf.convert_to_tensor(user_bias, dtype=float32, name=&quot;user_bias&quot;), tf.ones((num_users,1), dtype=float32, name=&quot;item_bias_ones&quot;)])
+# To the item matrix we add a row of 1s to multiply the user bias by, and
+# a bias row holding the bias of each item.
+H_plus_bias = tf.concat(0, [H, tf.ones((1, num_items), name=&quot;user_bias_ones&quot;, dtype=float32), tf.convert_to_tensor(item_bias, dtype=float32, name=&quot;item_bias&quot;)])
+# Multiply the factors to get our result as a dense matrix
+result = tf.matmul(W_plus_bias, H_plus_bias)
+
+# Now we just want the values represented by the pairs of user and item
+# indices for which we had known ratings. Unfortunately TensorFlow does not
+# yet support numpy-like indexing of tensors. See the issue for this at
+# https://github.com/tensorflow/tensorflow/issues/206 The workaround here
+# came from https://github.com/tensorflow/tensorflow/issues/418 and is a
+# little esoteric but in numpy this would just be done as follows:
+# result_values = result[user_indices, item_indices]
+result_values = tf.gather(tf.reshape(result, [-1]), user_indices * tf.shape(result)[1] + item_indices, name=&quot;extract_training_ratings&quot;)
+
+# Same thing for the validation set ratings.
+result_values_val = tf.gather(tf.reshape(result, [-1]), user_indices_val * tf.shape(result)[1] + item_indices_val, name=&quot;extract_validation_ratings&quot;)
+
+# Calculate the difference between the predicted ratings and the actual
+# ratings. The predicted ratings are the values obtained form the matrix
+# multiplication with the mean rating added on.
+diff_op = tf.sub(tf.add(result_values, mean_rating, name=&quot;add_mean&quot;), rating_values, name=&quot;raw_training_error&quot;)
+diff_op_val = tf.sub(tf.add(result_values_val, mean_rating, name=&quot;add_mean_val&quot;), rating_values_val, name=&quot;raw_validation_error&quot;)
+
+with tf.name_scope(&quot;training_cost&quot;) as scope:
+    base_cost = tf.reduce_sum(tf.square(diff_op, name=&quot;squared_difference&quot;), name=&quot;sum_squared_error&quot;)
+    # Add regularization.
+    regularizer = tf.mul(tf.add(tf.reduce_sum(tf.square(W)), tf.reduce_sum(tf.square(H))), lda, name=&quot;regularize&quot;)
+    cost = tf.div(tf.add(base_cost, regularizer), num_ratings * 2, name=&quot;average_error&quot;)
+
+with tf.name_scope(&quot;validation_cost&quot;) as scope:
+    cost_val = tf.div(tf.reduce_sum(tf.square(diff_op_val, name=&quot;squared_difference_val&quot;), name=&quot;sum_squared_error_val&quot;), num_ratings_val * 2, name=&quot;average_error&quot;)
+
+# Use an exponentially decaying learning rate.
+global_step = tf.Variable(0, trainable=False)
+learning_rate = tf.train.exponential_decay(lr, global_step, 10000, 0.96, staircase=True)
+
+
+with tf.name_scope(&quot;train&quot;) as scope:
+    optimizer = tf.train.GradientDescentOptimizer(learning_rate)
+    # Passing global_step to minimize() will increment it at each step so
+    # that the learning rate will be decayed at the specified intervals.
+    train_step = optimizer.minimize(cost, global_step=global_step)
+
+with tf.name_scope(&quot;training_accuracy&quot;) as scope:
+  # Just measure the absolute difference against the threshold
+  # TODO: support percentage-based thresholds
+  good = tf.less(tf.abs(diff_op), threshold)
+
+  accuracy_tr = tf.div(tf.reduce_sum(tf.cast(good, tf.float32)), num_ratings)
+  accuracy_tr_summary = tf.scalar_summary(&quot;accuracy_tr&quot;, accuracy_tr)
+
+with tf.name_scope(&quot;validation_accuracy&quot;) as scope:
+  # Validation set accuracy:
+  good_val = tf.less(tf.abs(diff_op_val), threshold)
+  accuracy_val = tf.reduce_sum(tf.cast(good_val, tf.float32)) / num_ratings_val
+  accuracy_val_summary = tf.scalar_summary(&quot;accuracy_val&quot;, accuracy_val)
+
+# Create a TensorFlow session and initialize variables.
+sess = tf.Session()
+sess.run(tf.initialize_all_variables())
+
+# Make sure summaries get written to the logs.
+summary_op = tf.merge_all_summaries()
+writer = tf.train.SummaryWriter(&quot;/tmp/recommender_logs&quot;, sess.graph_def)
+
+# Run the graph and see how we're doing on every 500th iteration.
+for i in range(max_iter):
+    if i % 500 == 0:
+        res = sess.run([summary_op, accuracy_tr, accuracy_val, cost, cost_val])
+        summary_str = res[0]
+        acc_tr = res[1]
+        acc_val = res[2]
+        cost_ev = res[3]
+        cost_val_ev = res[4]
+        writer.add_summary(summary_str, i)
+        print(&quot;Training accuracy at step %s: %s&quot; % (i, acc_tr))
+        print(&quot;Validation accuracy at step %s: %s&quot; % (i, acc_val))
+        print(&quot;Training cost: %s&quot; % (cost_ev))
+        print(&quot;Validation cost: %s&quot; % (cost_val_ev))
+    else:
+        sess.run(train_step)
+
+with tf.name_scope(&quot;final_model&quot;) as scope:
+    # At the end we want to get the final ratings matrix by adding the mean
+    # to the result matrix and doing any further processing required
+    add_mean_final = tf.add(result, mean_rating, name=&quot;add_mean_final&quot;)
+    if result_processor == None:
+        final_matrix = add_mean_final
+    else:
+        final_matrix = result_processor(add_mean_final)
+    final_res = sess.run([final_matrix])
+
+</code></pre>
+
+<h2 id="computation-graph:eb1147f7685f7b4fdbf640a27bbc705e">Computation Graph</h2>
+
+<p>Here is the overall computation graph produced by this code as visualized by TensorBoard. Click the image to enlarge it.
+<a href="#" data-featherlight="/images/graph_unexpanded.png">
+        <img src="/images/graph_unexpanded.png" width="600px" />
+</a>
+</p>
+
+<p>And here&rsquo;s the training cost portion of the graph expanded.
+<a href="#" data-featherlight="/images/graph_expanded.png">
+        <img src="/images/graph_expanded.png" width="600px" />
+</a>
+</p>
+
+<h2 id="results-and-next-steps:eb1147f7685f7b4fdbf640a27bbc705e">Results and Next Steps</h2>
+
+<p>OK, this is the part where I come clean and admit that I have not yet spent sufficient time tweaking all the tweakable things to train a model that performs satisfactorily on unseen data. Very disappointingly, I haven&rsquo;t seen better than 42% accuracy on the validation set. With an accuracy threshold of 0.5, this means that only roughly two out of five predicted ratings were within 0.5 of the actual rating. Not very impressive :(.</p>
+
+<p>Interestingly though, the one time I ran it for 1 million iterations, the <em>training</em> accuracy never went above 60% and there had been no change in cost over the last several thousand iterations. This suggests that it got stuck in a local minimum and couldn&rsquo;t get out.</p>
+
+<p>I just started reading <a href="http://papers.nips.cc/paper/3208-probabilistic-matrix-factorization.pdf">this paper on Probabilistic Matrix Factorization</a>, which says in its introduction:</p>
+
+<blockquote>
+<p>Since most real-world datasets are sparse, most entries in R will be missing. In those cases, the sum-squared distance is computed only for the observed entries of the target matrix R. As shown by (&hellip;), this seemingly minor modification results in a difficult non-convex optimization problem which cannot be solved using standard SVD implementations.</p>
+</blockquote>
+
+<p>So my suspicion is that I have been taking a very naive approach to a highly non-convex optimization problem that no amount of parameter tuning is going to get me past. My next step will be to try to follow the probabilistic approach described in the above paper and present my findings in a follow-up post.</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "katbailey";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "katbailey";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="http://katbailey.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="http://katbailey.github.io/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+
+<script src="http://katbailey.github.io/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+
