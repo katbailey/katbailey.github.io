@@ -30,3 +30,8 @@ code.has-jax {
     border: inherit;
     color: #515151;
 }
+
+figure.half-size img {
+  max-width: 50%;
+  height: auto;
+}

@@ -6,8 +6,215 @@
     <description>Recent content on ohAI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 11 Mar 2016 16:50:34 -0500</lastBuildDate>
+    <lastBuildDate>Tue, 12 Apr 2016 07:13:39 -0700</lastBuildDate>
     <atom:link href="http://katbailey.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Tay and the Dangers of Artificial Stupidity</title>
+      <link>http://katbailey.github.io/post/tay-and-the-danger-of-artificial-stupidity/</link>
+      <pubDate>Tue, 12 Apr 2016 07:13:39 -0700</pubDate>
+      
+      <guid>http://katbailey.github.io/post/tay-and-the-danger-of-artificial-stupidity/</guid>
+      <description>
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/sexist_tay.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;&gt;Tay&lt;/a&gt;, Microsoft&amp;rsquo;s AI chatbot, and me. Tay was let loose on Twitter a couple of weeks ago to pretty &lt;a href=&#34;https://www.washingtonpost.com/news/the-intersect/wp/2016/03/24/the-internet-turned-tay-microsofts-fun-millennial-ai-bot-into-a-genocidal-maniac/&#34;&gt;disastrous effect&lt;/a&gt;. It was trained by a bunch of racists to say racist things. It could just as easily have been trained by a bunch of sexists to say sexist things, hence my imagined conversation above. The conversation is completely unrealistic though - I would never take career advice from an AI!&lt;/p&gt;
+
+&lt;p&gt;AIs are still pretty stupid and can&amp;rsquo;t answer questions like the one above. At their core, they are machine learning algorithms (possibly multiple algorithms feeding into each other). Machine learning involves training a machine to learn from data and make predictions about new data. It&amp;rsquo;s about math, statistics and lots and lots of data.&lt;/p&gt;
+
+&lt;h2 id=&#34;the-question-tay-is-really-answering:20a4829f9cb79389360a21a53910b571&#34;&gt;The question Tay is really answering&lt;/h2&gt;
+
+&lt;p&gt;In the case of an AI that has been trained using data from real human conversations, be they from Twitter, YouTube or what have you, the question it is actually answering when I ask it &amp;ldquo;As a woman, should I work in technology?&amp;rdquo; is more like &amp;ldquo;&lt;strong&gt;What is the most common response to the question&lt;/strong&gt; &lt;em&gt;As a woman, should I work in technology?&lt;/em&gt;&amp;rdquo; And if all the responses it has ever seen are from sexist jerks, then this is the correct answer - way to go Tay! :D&lt;/p&gt;
+
+&lt;p&gt;Very often there won&amp;rsquo;t be a difference between the answers to these different questions and that&amp;rsquo;s when the AI will seem smart.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/questions.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This question-answering behavior is in contrast to AI systems like Apple&amp;rsquo;s Siri, which use machine learning only to understand the question but not to generate the response. To answer questions, Siri consults the &lt;a href=&#34;https://en.wikipedia.org/wiki/Wolfram_Alpha&#34;&gt;Wolfram Alpha&lt;/a&gt; knowledge engine.&lt;/p&gt;
+
+&lt;h2 id=&#34;machine-learning-always-involves-uncertainty:20a4829f9cb79389360a21a53910b571&#34;&gt;Machine Learning always involves uncertainty&lt;/h2&gt;
+
+&lt;p&gt;I can&amp;rsquo;t actually pose my question to Tay as the chatbot is &lt;a href=&#34;https://twitter.com/tayandyou&#34;&gt;taking a break&lt;/a&gt; but when I asked Siri about whether women make good software engineers, I had to re-phrase the question several times before it would even attempt a response, and its response in the end was to google the question. In a scenario like this, the level of uncertainty is clear to the user - uncertainty about the question being asked, and uncertainty in the answer, which is a list of Google search results that may or may not be what you are looking for. (As an aside, &lt;a href=&#34;http://www.slate.com/articles/technology/cover_story/2016/04/alexa_cortana_and_siri_aren_t_novelties_anymore_they_re_our_terrifyingly.html?wpsrc=sh_all_dt_tw_top&#34;&gt;this Slate article&lt;/a&gt; raises some interesting questions about the trust issues involved when an AI answers a question by quoting verbatim from a single source like Wikipedia without saying this is where it got the answer from.)&lt;/p&gt;
+
+&lt;p&gt;Siri is probably no less sophisticated an AI system than Tay - it&amp;rsquo;s just more upfront about the level of uncertainty involved when you interact with it. Both systems are examples of &lt;strong&gt;weak AI&lt;/strong&gt;, which is also called &lt;em&gt;narrow&lt;/em&gt; AI, because it&amp;rsquo;s the type of AI that is focused on one very specific and narrow task. &lt;strong&gt;Strong AI&lt;/strong&gt;, on the other hand, also called &lt;strong&gt;Artificial General Intelligence&lt;/strong&gt;, is about human-like intelligence, and there is absolutely no reason to believe that all the sophisticated weak AIs in the world are a basis for producing strong AI.&lt;/p&gt;
+
+&lt;h2 id=&#34;weak-ai-and-the-objective-function:20a4829f9cb79389360a21a53910b571&#34;&gt;Weak AI and the Objective Function&lt;/h2&gt;
+
+&lt;p&gt;The difference between weak AI and strong AI is pretty important, especially in order to understand what is bemoaned as the &amp;ldquo;moving the goal posts&amp;rdquo; problem in the perception of AI. Kevin Kelly wrote in a &lt;a href=&#34;http://www.wired.com/2014/10/future-of-artificial-intelligence/&#34;&gt;Wired article in October 2014&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In the past, we would have said only a superintelligent AI could drive a car, or beat a human at Jeopardy! or chess. But once AI did each of those things, we considered that achievement obviously mechanical and hardly worth the label of true intelligence. Every success in AI redefines it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;That&amp;rsquo;s not really true. I think the correct way to think about it is that there was a prior belief that these problems could only be solved with strong AI and it turned out they could be solved with weak AI. These are pretty &lt;a href=&#34;https://en.wikipedia.org/wiki/Weak_AI&#34;&gt;well-defined&lt;/a&gt; &lt;a href=&#34;https://en.wikipedia.org/wiki/Artificial_general_intelligence&#34;&gt;terms&lt;/a&gt; and they have not needed any redefinition in light of new developments like &lt;a href=&#34;http://www.theatlantic.com/technology/archive/2016/03/the-invisible-opponent/475611/&#34;&gt;AlphaGo&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;With weak AI, the system has what is called an &lt;strong&gt;objective function&lt;/strong&gt; aka a &lt;strong&gt;loss&lt;/strong&gt; or &lt;strong&gt;error&lt;/strong&gt; function. Training the AI is about minimizing the error between its output and the &amp;ldquo;correct&amp;rdquo; answer.&lt;/p&gt;
+
+&lt;p&gt;While there are some &lt;a href=&#34;http://www.somatic.io/blog/on-alphago-intuition-and-the-master-objective-function&#34;&gt;interesting ideas&lt;/a&gt; out there about what objective functions might look like in the future, for now it is this fairly simple idea of measuring performance against a single specific error metric. Even in a complex AI system that combines multiple machine learning algorithms together, each one is just working to minimize its own narrowly-defined error function.&lt;/p&gt;
+
+&lt;p&gt;With all that said, this is still really really impressive stuff!&lt;/p&gt;
+
+&lt;h2 id=&#34;objective-function-goggles:20a4829f9cb79389360a21a53910b571&#34;&gt;Objective Function Goggles&lt;/h2&gt;
+
+&lt;p&gt;To examine Tay with an objective eye, we need to put on our Objective Function Goggles (OFGs). The idea for these goggles comes from a professor I once had for symbolic logic, who encouraged us to don &amp;ldquo;Boolean Goggles&amp;rdquo; when assessing the validity of an argument.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/goggles.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The reason for the goggles is so that if the premises in the argument were something less palatable (e.g. &amp;ldquo;if it&amp;rsquo;s raining then the grass is blue&amp;rdquo;) we would not get tripped up by their meaning and just focus on whether the logic is valid.&lt;/p&gt;
+
+&lt;p&gt;Palatability (of a different sort) is definitely lacking when it comes to Tay&amp;rsquo;s tweets (you can read a selection of them &lt;a href=&#34;https://www.theguardian.com/technology/2016/mar/24/tay-microsofts-ai-chatbot-gets-a-crash-course-in-racism-from-twitter&#34;&gt;here&lt;/a&gt;), so we&amp;rsquo;ll don our OFGs to obscure their meaning and just answer the following questions about them:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Does Tay compose syntactically correct tweets?&lt;/li&gt;
+&lt;li&gt;Does Tay compose tweets that sound like the tweets of an 18-24yr old (the target demographic for the bot)?&lt;/li&gt;
+&lt;li&gt;Does Tay respond to tweets in a way that sounds like it has understood the tweet it has responded to?&lt;/li&gt;
+&lt;li&gt;Does Tay engage in conversation with interlocutors in a way that suggests it has understood the values of those interlocutors?&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/OFGs.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s reasonable to answer Yes to all of these questions. Presumably there are separate pieces to Tay - perhaps some sentiment analysis and other Natural Language Processing (NLP) techniques are applied on the tweets it receives. Once it has processed those, it needs to generate responses using some probabilistic model. At each step it is obviously performing well.&lt;/p&gt;
+
+&lt;p&gt;From a pure objective function standpoint, we&amp;rsquo;d have to give Tay a pretty positive assessment.&lt;/p&gt;
+
+&lt;p&gt;Of course, eventually we have to take off the goggles. I really tried to think of a word beginning with M that would make sense in between &amp;ldquo;Objective&amp;rdquo; and &amp;ldquo;Function&amp;rdquo; because then we&amp;rsquo;d have &lt;strong&gt;OMFG&lt;/strong&gt;s - an apt reaction upon removing them.&lt;/p&gt;
+
+&lt;p&gt;Tay may be an impressively smart piece of Machine Learning, but it makes for a very dumb human. It is an Artificial Stupidity (or &lt;strong&gt;A&lt;/strong&gt;rtificially &lt;strong&gt;S&lt;/strong&gt;tupid &lt;strong&gt;S&lt;/strong&gt;ystem?)&lt;/p&gt;
+
+&lt;h2 id=&#34;should-we-be-worried-about-weak-ai:20a4829f9cb79389360a21a53910b571&#34;&gt;Should we be worried about weak AI?&lt;/h2&gt;
+
+&lt;p&gt;George Dvorsky, transhumanist and Chair of the Board for the Institute for Ethics and Emerging Technologies, has &lt;a href=&#34;http://io9.gizmodo.com/how-much-longer-before-our-first-ai-catastrophe-464043243&#34;&gt;written about the dangers of weak AI&lt;/a&gt;, but focuses mostly on what can happen when artificial intelligence &amp;ldquo;gets it wrong&amp;rdquo;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;because expert systems like Watson will soon be able to conjure answers to questions that are beyond our comprehension, we won’t always know when they’re wrong.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;But if a question (or the answer to it) is beyond our comprehension, then &lt;em&gt;we should not be acting on the answer&lt;/em&gt;, or allowing a machine to. That&amp;rsquo;s not AI gone wrong, it&amp;rsquo;s human common sense gone out the window.&lt;/p&gt;
+
+&lt;p&gt;Responsible use of a machine learning algorithm requires an understanding of the way it produces its output and the level of uncertainty inherent in that output.&lt;/p&gt;
+
+&lt;p&gt;Dvorsky talks about critical decisions now being in the hands of machines, but really the critical decision is whether to deploy that machine for a particular task in the first place. And that decision is always squarely in the hands of humans.&lt;/p&gt;
+
+&lt;h2 id=&#34;imputing-intelligence-to-machines-and-responding-emotionally:20a4829f9cb79389360a21a53910b571&#34;&gt;Imputing intelligence to machines and responding emotionally&lt;/h2&gt;
+
+&lt;p&gt;The other potential source of trouble when it comes to weak AI has also more to do with human behavior than the behavior of the AIs. It has to do with how we naturally respond to AIs.&lt;/p&gt;
+
+&lt;p&gt;Leaving aside AIs for a moment, meet Tubbs the cat from popular Japanese game &lt;a href=&#34;https://en.wikipedia.org/wiki/Neko_Atsume&#34;&gt;Neko Atsume&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;half-size center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/tubbs.jpg&#34; alt=&#34;This is the only thing you&amp;#39;ll ever see Tubbs doing&#34; /&gt;
+    
+    
+    &lt;figcaption&gt;
+        &lt;p&gt;
+        This is the only thing you&amp;#39;ll ever see Tubbs doing
+        
+            
+        
+        &lt;/p&gt; 
+    &lt;/figcaption&gt;
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Apparently people have &lt;a href=&#34;http://www.buzzfeed.com/natalyalobanova/protect-tubbs-at-all-costs&#34;&gt;quite strong feelings&lt;/a&gt; about Tubbs, and he&amp;rsquo;s just a  bunch of pixels, not even animated! (Yes, I totally did just make up a reason to include a picture of Tubbs in my blog post.)&lt;/p&gt;
+
+&lt;p&gt;So it doesn&amp;rsquo;t take much for us to respond emotionally to made-up characters, even without imputing any intelligence to them.&lt;/p&gt;
+
+&lt;p&gt;Imputing intelligence to machines is something we do very naturally when we see them perform tasks like winning a game of Go or chess, or responding to tweets.&lt;/p&gt;
+
+&lt;p&gt;We take&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Machines can do X&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;to mean&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Machines can do all the things I do when I am doing X&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is encouraged by the way AI successes are reported in the media. Here&amp;rsquo;s a relatively subtle example from &lt;a href=&#34;http://www.businessinsider.com/ai-picks-most-creative-paintings-of-their-time-2015-6&#34;&gt;Business Insider&amp;rsquo;s coverage of a recent paper&lt;/a&gt; on &lt;em&gt;Quantifying Creativity in Art Networks&lt;/em&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Creativity and art are usually thought of as the domains of humans.&lt;/p&gt;
+
+&lt;p&gt;But computer scientists from Rutgers University have designed an algorithm that shows that computers may be just as skilled at critiquing artwork.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Now, the researchers themselves &lt;a href=&#34;http://arxiv.org/abs/1506.00711&#34;&gt;describe what their algorithm does&lt;/a&gt; as &amp;ldquo;constructing a network between creative products and using this network to infer about the originality and influence of its nodes.&amp;rdquo;&lt;/p&gt;
+
+&lt;p&gt;It analyzes the differing styles across all these paintings and can pinpoint the originators of styles that influenced later paintings. This certainly sounds to me like an incredibly sophisticated and awesome use of machine learning! But it is definitely &lt;em&gt;not&lt;/em&gt; about an algorithm that is &amp;ldquo;critiquing artwork.&amp;rdquo; Shown a new painting by an up and coming artist, the algorithm would have absolutely nothing to say about it.&lt;/p&gt;
+
+&lt;p&gt;OK, so as I said the BI quote is a pretty subtle example, but you also get &lt;a href=&#34;http://listverse.com/2016/04/02/10-remarkable-but-scary-developments-in-artificial-intelligence/&#34;&gt;silly articles like this&lt;/a&gt;, which totally mischaracterize the state of AI with headings like &amp;ldquo;They’re Learning To Deceive And Cheat&amp;rdquo;, &amp;ldquo;They’re Starting To Understand Our Behavior&amp;rdquo;, &lt;strong&gt;&amp;ldquo;They’re Starting To Feel Emotions&amp;rdquo;&lt;/strong&gt;.&lt;/p&gt;
+
+&lt;p&gt;This last one is a reference to Xiaoice, a precursor to Tay that Microsoft has been running in China seemingly with some success (see &lt;a href=&#34;https://blogs.microsoft.com/blog/2016/03/25/learning-tays-introduction/#sm.00014j43dh10waeonwtog322jtey0&#34;&gt;Microsoft&amp;rsquo;s apology for Tay&lt;/a&gt; which mentions Xiaoice.)&lt;/p&gt;
+
+&lt;p&gt;So if you&amp;rsquo;re being told that the likes of Xiaoice and Tay can feel emotions, the strongest of which in the case of Tay is hatred, and you tend to have emotional responses even to things you don&amp;rsquo;t believe are sentient, it&amp;rsquo;s not hard to imagine things getting out of hand.&lt;/p&gt;
+
+&lt;p&gt;With AIs like Tay it&amp;rsquo;s particularly hard to avoid seeing them as &amp;ldquo;people&amp;rdquo; in some sense, with a whole set of beliefs, values and emotions, because they are deliberately being presented to us as people.&lt;/p&gt;
+
+&lt;p&gt;But to the extent that Tay has beliefs at all, they are beliefs in the sense of Bayesian probability, e.g. a belief that the sentiment of the tweet it&amp;rsquo;s responding to is positive or negative, or a belief that the most common response to such a tweet is the one it is about to make.&lt;/p&gt;
+
+&lt;p&gt;Really, Tay should not have been deployed on Twitter - that was kind of a dumb mistake on Microsoft&amp;rsquo;s part, as &lt;a href=&#34;https://medium.com/@anthonygarvan/hey-microsoft-the-internet-made-my-bot-racist-too-d897fa847232#.n2e5507w5&#34;&gt;this lesson had been learned many times before&lt;/a&gt;. The very things that made it impressive as a piece of machine learning were what led to its spiralling out of control in the spectacular way it did.&lt;/p&gt;
+
+&lt;p&gt;There will no doubt be more Tays, and there will be more confused reporting about AI successes. All we can do is arm ourselves with a better understanding of what AI is about. I highly recommend reading this &lt;a href=&#34;https://www.oreilly.com/ideas/ais-dueling-definitions&#34;&gt;excellent post by Beau Cronin&lt;/a&gt; from a couple of years ago on the different definitions of AI.&lt;/p&gt;
+
+&lt;p&gt;And I&amp;rsquo;ll leave you with a simple trick for assessing whether something is an example of strong AI&amp;hellip;&lt;/p&gt;
+
+&lt;h2 id=&#34;binary-classifier-for-strong-ai:20a4829f9cb79389360a21a53910b571&#34;&gt;Binary classifier for strong AI&lt;/h2&gt;
+
+&lt;p&gt;A binary classifier is an algorithm that can distinguish members of a class from non-members - its output is a simple &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt; for each input. Various machine learning techniques can be used to train binary classifiers, including neural networks.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s a binary classifier that tells you whether &lt;code&gt;x&lt;/code&gt; (the latest amazing piece of AI technology) is an example of strong AI and thus a harbinger of the Singularity. It has been trained on a highly sophisticated convolutional neural network&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:20a4829f9cb79389360a21a53910b571:cnnfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:20a4829f9cb79389360a21a53910b571:cnnfootnote&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; with hundreds of layers and thousands of nodes. &lt;strong&gt;100% accuracy guaranteed!&lt;/strong&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def isStrongAI(x):
+  return False
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;I promise, by the time the Singularity comes about, the Python programming language won&amp;rsquo;t even be a thing anymore ;)&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:20a4829f9cb79389360a21a53910b571:cnnfootnote&#34;&gt;Tongue firmly in cheek
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:20a4829f9cb79389360a21a53910b571:cnnfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>Matrix Factorization with Tensorflow</title>
