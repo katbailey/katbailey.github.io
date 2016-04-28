@@ -1,0 +1,81 @@
+@import url(http://fonts.googleapis.com/css?family=Libre+Baskerville);
+
+body {
+    font-size: 200%;
+    text-align: center;
+    font-family: Libre Baskerville;
+}
+
+p {
+    font-weight: normal;
+    margin-bottom: 0.3em;
+    margin-top: 0.3em;
+    text-align: center;
+    color: #666666;
+}
+
+ul li {
+    color: #666666;
+}
+
+strong {
+    color: #2b7f9f;
+}
+
+em {
+    color: #000000;
+}
+
+pre {
+    text-align: left;
+}
+
+h1, h2, h3, h4 {
+    font-weight: normal;
+    margin-bottom: 0.3em;
+    margin-top: 0.3em;
+}
+
+tt {
+    font-size: 125;
+}
+
+ul {
+    list-style-position: inside;
+}
+
+li {
+    font-family: serif;
+    font-weight: normal;
+    margin-bottom: 0.3em;
+    margin-top: 0.3em;
+    padding-left: 0.3em;
+    line-height: 1.8em;
+    text-align: left;
+}
+
+a {
+    text-decoration: none;
+    color: #f60048;
+}
+
+.hidden {
+    display: none;
+}
+
+div#matrix-factorization:not(.active), div#matrix-factorization-1:not(.active), div#r-hat:not(.active), div#tensorflow-factors:not(.active), div#tensorflow-factors-1:not(.active) { 
+    opacity: 0; 
+}
+
+div#title h1 {
+    font-size: 180%;
+}
+
+div#netflix-problems h1, div#learnable h1 {
+    font-size: 150%;
+}
+
+div#neighborhood-1 p {
+    font-size: 12px;
+    text-align: right;
+}
