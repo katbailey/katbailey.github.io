@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>AI and Music &middot; </title>
+
+  
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/styles.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/highlight/monokai_sublime.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://katbailey.github.io/touch-icon-144-precomposed.png">
+  <link href="http://katbailey.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+  <link href="http://katbailey.github.io/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      
+      
+      
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i = 0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>ohAI</h1>
+      <p class="lead">Where I write about things vaguely (and sometimes even closely!) related to AI</p>
+    </div>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item"><a href="http://katbailey.github.io/">Home</a></li>
+            <li class="sidebar-nav-item"><a href="http://katbailey.github.io/about">About</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/katbailey"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      <a href="http://twitter.com/katherinebailey"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>&copy; 2016 Katherine Bailey</p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>AI and Music</h1>
+    <span class="post-date">May 6, 2016 &middot; 5 minute read &middot; <a href="http://katbailey.github.io/post/ai-and-music/#disqus_thread">Comments</a>
+    
+    <br/>
+    
+    </span>
+    <p><em>I originally wrote the post below as a guest blogger on a now-defunct blog called high-c.com. I&rsquo;m re-posting it here because I recently <a href="https://twitter.com/katherinebailey/status/728671554683297792">had cause to dig it up</a> and was pleasantly surprised at how well it still reflects my views on this topic. The only change I made is the recording of Bach&rsquo;s Chaconne that I link to&hellip;</em></p>
+
+<blockquote>
+<p>On one stave, for a small instrument, the man writes a whole world of the deepest thoughts and most powerful feelings. If I imagined that I could have created, even conceived the piece, I am quite certain that the excess of excitement and earth-shattering experience would have driven me out of my mind.</p>
+</blockquote>
+
+<p>This is what Johannes Brahms had to say about the Chaconne from Bach&rsquo;s Partita in D minor for solo violin, often referred to simply as Bach&rsquo;s Chaconne. More than anything I can add about the piece, this should be enough to persuade you to take the quarter of an hour required to <a href="https://www.youtube.com/watch?v=QqA3qQMKueA">listen to it in its entirety</a> and give it your full attention. Based on a simple harmonic progression with variation after variation, the Chaconne stretches the limits of what is even possible to play on a violin and is still considered one of the most challenging and certainly one of the most beautiful pieces that can be played on the instrument.</p>
+
+<p>Patterns - the harmonic progression itself, the passages where the chords are played as rapidly ascending and descending arpeggios, the repititions, both of patterns and of individual notes - abound in this piece, as in any work by Bach. And patterns, of course, are highly programmable; a simplistic example would be calling an arpeggio() function, passing in the tonic and some options like &lsquo;dom7&rsquo;. Well, apparently even musical style is programmable. Or is it? I came across <a href="https://web.archive.org/web/20100715123354/http://www.unc.edu/~mumukshu/gandhi/gandhi/hofstadter.htm">an article by Douglas Hofstadter</a> discussing the research of David Cope, whose Experiments in Musical Intelligence (EMI) program has produced works in the style of Bach, Mozart and Chopin that can easily be mistaken as genuine. You can listen to them here. Now, the Bach example hardly compares with the Chaconne, but is this not just a question of increasing the sophistication of the program? What EMI does is produce music based on analysis of the entire existing works of a given composer. It takes bits from these works and recombines them according to various rules. So in fact the &lsquo;style&rsquo; has been programmed in as declarative data, not procedural information. In any case, with enough refinement of the rules, will it not one day produce something comparable to the Chaconne?</p>
+
+<p>The question as to whether computer programs will ever produce really beautiful and original music is a hotly debated one: many people are very emotionally attached to the idea that music is a fundamental part of what it means to be human. Personally I don&rsquo;t see any reason why it wouldn&rsquo;t be possible at least in principle for a machine to produce music that I might enjoy as much as I enjoy Bach, but I think such an achievement will be in virtue of its having learned to do a whole lot more besides, including understanding a wide range of human emotions.</p>
+
+<p>In order for me to really enjoy a piece of music, one necessary but insufficient condition is that I must feel some sort of connection with it. The connection could be anything from a feeling that the composer shared my deepest beliefs and longings, to a fairly vague notion that the composer was an intelligent being with a worldview somewhat analogous to my own. In the case of Bach, it is indeed a vague connection - what, after all, could I really have in common with a deeply religious man from the early 18th century? And yet, every time I hear his Chaconne I feel I&rsquo;m learning something new. It&rsquo;s this connection that makes a work of art different from, say, a beautiful sunset: even if Bach was actually expressing something about the wondrousness of God, something which I as an atheist can&rsquo;t exactly grasp, he was expressing a human sentiment and I am understanding something of that human sentiment; the sunset isn&rsquo;t expressing anything, it is merely beautiful. (I&rsquo;ll reiterate that I don&rsquo;t mean to exclude the possibility of machines expressing and understanding human sentiments, it&rsquo;s just that currently the only beings we know to have these capacities are human beings).</p>
+
+<p>In his article, Hofstadter describes lectures he gave on EMI during which he played recordings of pieces by Bach and Chopin mixed in with pieces created by EMI in the style of those composers. Many were fooled by the EMI pieces, especially the Chopin. If I had been one of those fooled, then any value I had previously seen in the piece would simply disappear for me. I would just have to accept that I had mistakenly believed there was something there of value, but in fact there was nothing at all, just some pretty notes. I will never feel I can learn something new from a piece of music written by a machine without a basic shared understanding of the world.</p>
+
+<p>EMI might be able to produce 1000 different Chaconnes based on Bach&rsquo;s entire works, but given the choice, I&rsquo;d rather listen to the original 1000 times over. As for the intelligent, human-like machine that might one day exist, it&rsquo;s as unlikely to ever produce anything Bach-like as a human composer is today: it might produce something comparable in depth and power, but the lack of understanding will most likely be on my part this time.</p>
+
+<p><div class="embed video-player">
+<iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/QqA3qQMKueA" allowfullscreen frameborder="0">
+</iframe>
+</div></p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "katbailey";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "katbailey";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="http://katbailey.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="http://katbailey.github.io/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+
+<script src="http://katbailey.github.io/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+

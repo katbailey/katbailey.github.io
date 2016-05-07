@@ -6,8 +6,39 @@
     <description>Recent content in Posts on ohAI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 12 Apr 2016 07:13:39 -0700</lastBuildDate>
+    <lastBuildDate>Fri, 06 May 2016 16:30:28 -0700</lastBuildDate>
     <atom:link href="http://katbailey.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>AI and Music</title>
+      <link>http://katbailey.github.io/post/ai-and-music/</link>
+      <pubDate>Fri, 06 May 2016 16:30:28 -0700</pubDate>
+      
+      <guid>http://katbailey.github.io/post/ai-and-music/</guid>
+      <description>&lt;p&gt;&lt;em&gt;I originally wrote the post below as a guest blogger on a now-defunct blog called high-c.com. I&amp;rsquo;m re-posting it here because I recently &lt;a href=&#34;https://twitter.com/katherinebailey/status/728671554683297792&#34;&gt;had cause to dig it up&lt;/a&gt; and was pleasantly surprised at how well it still reflects my views on this topic. The only change I made is the recording of Bach&amp;rsquo;s Chaconne that I link to&amp;hellip;&lt;/em&gt;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;On one stave, for a small instrument, the man writes a whole world of the deepest thoughts and most powerful feelings. If I imagined that I could have created, even conceived the piece, I am quite certain that the excess of excitement and earth-shattering experience would have driven me out of my mind.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;This is what Johannes Brahms had to say about the Chaconne from Bach&amp;rsquo;s Partita in D minor for solo violin, often referred to simply as Bach&amp;rsquo;s Chaconne. More than anything I can add about the piece, this should be enough to persuade you to take the quarter of an hour required to &lt;a href=&#34;https://www.youtube.com/watch?v=QqA3qQMKueA&#34;&gt;listen to it in its entirety&lt;/a&gt; and give it your full attention. Based on a simple harmonic progression with variation after variation, the Chaconne stretches the limits of what is even possible to play on a violin and is still considered one of the most challenging and certainly one of the most beautiful pieces that can be played on the instrument.&lt;/p&gt;
+
+&lt;p&gt;Patterns - the harmonic progression itself, the passages where the chords are played as rapidly ascending and descending arpeggios, the repititions, both of patterns and of individual notes - abound in this piece, as in any work by Bach. And patterns, of course, are highly programmable; a simplistic example would be calling an arpeggio() function, passing in the tonic and some options like &amp;lsquo;dom7&amp;rsquo;. Well, apparently even musical style is programmable. Or is it? I came across &lt;a href=&#34;https://web.archive.org/web/20100715123354/http://www.unc.edu/~mumukshu/gandhi/gandhi/hofstadter.htm&#34;&gt;an article by Douglas Hofstadter&lt;/a&gt; discussing the research of David Cope, whose Experiments in Musical Intelligence (EMI) program has produced works in the style of Bach, Mozart and Chopin that can easily be mistaken as genuine. You can listen to them here. Now, the Bach example hardly compares with the Chaconne, but is this not just a question of increasing the sophistication of the program? What EMI does is produce music based on analysis of the entire existing works of a given composer. It takes bits from these works and recombines them according to various rules. So in fact the &amp;lsquo;style&amp;rsquo; has been programmed in as declarative data, not procedural information. In any case, with enough refinement of the rules, will it not one day produce something comparable to the Chaconne?&lt;/p&gt;
+
+&lt;p&gt;The question as to whether computer programs will ever produce really beautiful and original music is a hotly debated one: many people are very emotionally attached to the idea that music is a fundamental part of what it means to be human. Personally I don&amp;rsquo;t see any reason why it wouldn&amp;rsquo;t be possible at least in principle for a machine to produce music that I might enjoy as much as I enjoy Bach, but I think such an achievement will be in virtue of its having learned to do a whole lot more besides, including understanding a wide range of human emotions.&lt;/p&gt;
+
+&lt;p&gt;In order for me to really enjoy a piece of music, one necessary but insufficient condition is that I must feel some sort of connection with it. The connection could be anything from a feeling that the composer shared my deepest beliefs and longings, to a fairly vague notion that the composer was an intelligent being with a worldview somewhat analogous to my own. In the case of Bach, it is indeed a vague connection - what, after all, could I really have in common with a deeply religious man from the early 18th century? And yet, every time I hear his Chaconne I feel I&amp;rsquo;m learning something new. It&amp;rsquo;s this connection that makes a work of art different from, say, a beautiful sunset: even if Bach was actually expressing something about the wondrousness of God, something which I as an atheist can&amp;rsquo;t exactly grasp, he was expressing a human sentiment and I am understanding something of that human sentiment; the sunset isn&amp;rsquo;t expressing anything, it is merely beautiful. (I&amp;rsquo;ll reiterate that I don&amp;rsquo;t mean to exclude the possibility of machines expressing and understanding human sentiments, it&amp;rsquo;s just that currently the only beings we know to have these capacities are human beings).&lt;/p&gt;
+
+&lt;p&gt;In his article, Hofstadter describes lectures he gave on EMI during which he played recordings of pieces by Bach and Chopin mixed in with pieces created by EMI in the style of those composers. Many were fooled by the EMI pieces, especially the Chopin. If I had been one of those fooled, then any value I had previously seen in the piece would simply disappear for me. I would just have to accept that I had mistakenly believed there was something there of value, but in fact there was nothing at all, just some pretty notes. I will never feel I can learn something new from a piece of music written by a machine without a basic shared understanding of the world.&lt;/p&gt;
+
+&lt;p&gt;EMI might be able to produce 1000 different Chaconnes based on Bach&amp;rsquo;s entire works, but given the choice, I&amp;rsquo;d rather listen to the original 1000 times over. As for the intelligent, human-like machine that might one day exist, it&amp;rsquo;s as unlikely to ever produce anything Bach-like as a human composer is today: it might produce something comparable in depth and power, but the lack of understanding will most likely be on my part this time.&lt;/p&gt;
+
+&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;iframe class=&#34;youtube-player&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/QqA3qQMKueA&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
+&lt;/iframe&gt;
+&lt;/div&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Tay and the Dangers of Artificial Stupidity</title>
