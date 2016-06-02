@@ -31,6 +31,26 @@ code.has-jax {
     color: #515151;
 }
 
+div.equation {
+  text-align: center;
+}
+
+p.source {
+  text-align: right;
+  font-size: 12px;
+}
+
+figure.left-align {
+  margin-left: 0px;
+}
+
+figure.left-align img {
+  float: left;
+  padding-left: 0px;
+  padding-right: 20px;
+}
+
+
 figure.half-size img {
   max-width: 50%;
   height: auto;

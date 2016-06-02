@@ -6,8 +6,340 @@
     <description>Recent content in Posts on ohAI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 06 May 2016 16:30:28 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jun 2016 07:32:46 -0600</lastBuildDate>
     <atom:link href="http://katbailey.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>From both sides now: the math of linear regression</title>
+      <link>http://katbailey.github.io/post/from-both-sides-now-the-math-of-linear-regression/</link>
+      <pubDate>Thu, 02 Jun 2016 07:32:46 -0600</pubDate>
+      
+      <guid>http://katbailey.github.io/post/from-both-sides-now-the-math-of-linear-regression/</guid>
+      <description>
+
+&lt;p&gt;Linear regression is the most basic and the most widely used technique in machine learning; yet for all its simplicity, studying it can unlock some of the most important concepts in statistics.&lt;/p&gt;
+
+&lt;p&gt;If you have a basic undestanding of linear regression expressed as $ \hat{Y} = \theta_0 + \theta_1X$, but don&amp;rsquo;t have a background in statistics and find statements like &amp;ldquo;ridge regression is equivalent to the maximum a posteriori (MAP) estimate with a zero-mean Gaussian prior&amp;rdquo; bewildering, then this post is for you. (And yes, it&amp;rsquo;s for me as much as it&amp;rsquo;s for you because I was there not long ago.) With a superficial goal of understanding that somewhat obtuse statement, its main objective is to explore the topic, starting from the standard formulation of linear regression, moving on to the probabilistic approach (maximum likelihood formulation) and from there to Bayesian linear regression.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;ll use the $\theta$ character throughout to refer to the coefficients (weights) of a regression model, either explicitly broken out as $\theta_0$ and $\theta_1$ for intercept and slope respectively, or just $\theta$ referring to the vector of coefficients. I&amp;rsquo;ll usually use the expression $\theta^Tx_i$ for the prediction a model gives at $x_i$, the assumption being that a 1 has been added to the vector of values at $x_i$. &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:a3bf4783b942516f86178995501fdab1:matrixfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:a3bf4783b942516f86178995501fdab1:matrixfootnote&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;what-s-in-a-line:a3bf4783b942516f86178995501fdab1&#34;&gt;What&amp;rsquo;s in a line?&lt;/h1&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/least_squares_sm.jpg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;In the single predictor case, we know that the least squares fit is the line that minimizes the sum of the squared distances between observed data and predicted values, i.e. it minimizes the Residual Sum of Squares (RSS):
+&lt;div class=&#34;equation&#34;&gt;
+$ \underset{\theta}{\arg\min} \sum_{i=1}^n(y_i - \hat{y_i})^2 $
+&lt;/div&gt;
+where
+&lt;div class=&#34;equation&#34;&gt;
+$\hat{y_i} = \theta_0 + \theta_1x_i$
+&lt;/div&gt;
+is the predicted outcome for the ith observation. We can write the actual value of the ith observation as:
+&lt;div class=&#34;equation&#34;&gt;
+$y_i = \theta_0 + \theta_1x_i + \epsilon_i$
+&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;where $\epsilon_i$ is the residual, or error, we get for the ith observation, i.e. the difference between the predicted value $\hat{y_i}$ and the actual value $y_i$.&lt;/p&gt;
+
+&lt;p&gt;These residuals are pretty important in how we reason about our model. For now we&amp;rsquo;ll just note that by definition they must have an expected value (mean) of 0.&lt;/p&gt;
+
+&lt;p&gt;What else can we say about this line? It defines a particular relationship between the predictor and the outcome. Specifically, the slope of the line is the correlation between outcome values and predictor values, multiplied by the ratio of their standard deviations. So we know how to calculate $\theta_1$ from our data. What about $\theta_0$? Well, we know that the line goes through the point (mean(x), mean(y))&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:a3bf4783b942516f86178995501fdab1:meanxyfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:a3bf4783b942516f86178995501fdab1:meanxyfootnote&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;, and once we know the slope of a line and a single point it goes through we can find the intercept by working back along the slope from that point: $\theta_0 = \bar{y} - \theta_1\bar{x}$&lt;/p&gt;
+
+&lt;p&gt;In the multiple regression scenario, where we have p predictors, we model the outcome as:&lt;/p&gt;
+
+&lt;p&gt;$ \hat{y_i} = \theta_0 + \theta_1x_1 + \theta_2x_2 + &amp;hellip; + \theta_px_p $&lt;/p&gt;
+
+&lt;p&gt;In this setting it&amp;rsquo;s not quite as straight-forward to derive the coefficients as in the single predictor case. Instead, we need to use calculus and get the partial derivative of our cost function with respect to each parameter and solve for that parameter when setting its derivative to 0.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:a3bf4783b942516f86178995501fdab1:calculusfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:a3bf4783b942516f86178995501fdab1:calculusfootnote&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;h1 id=&#34;from-minimization-to-maximization:a3bf4783b942516f86178995501fdab1&#34;&gt;From minimization to maximization&lt;/h1&gt;
+
+&lt;p&gt;If we ever want to understand linear regression from a Bayesian perspective we need to start thinking probabilistically. We need to flip things over and instead of thinking about the line &lt;strong&gt;minimizing&lt;/strong&gt; a cost, think about it as &lt;strong&gt;maximizing&lt;/strong&gt; the likelihood of the observed data. As we&amp;rsquo;ll see, this amounts to the exact same thing - mathematically speaking - it&amp;rsquo;s just a different way of looking at it.&lt;/p&gt;
+
+&lt;p&gt;To get the likelihood of our data given our assumptions about how it was generated, we must get the probability of each data point y and multiply them together.
+&lt;div class=&#34;equation&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;$ \text{likelihood} = p(y_1|x_1, \theta)*p(y_2|x_2, \theta)&amp;hellip;*p(y_n|x_n, \theta) $&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;
+We want to find values of $\theta$ that maximize this result.&lt;/p&gt;
+
+&lt;p&gt;How do we calculate each of these probabilities?&lt;/p&gt;
+
+&lt;h1 id=&#34;know-thy-normal-distribution:a3bf4783b942516f86178995501fdab1&#34;&gt;Know thy Normal distribution&lt;/h1&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/normal_dist.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;We noted earlier that the residuals from our least squares fit have a mean of 0. Well we can go one step and say that they are &lt;em&gt;normally distributed&lt;/em&gt; with a mean of 0, i.e.
+&lt;div class=&#34;equation&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;$\epsilon_i \sim \mathcal{N}(0, \sigma^2)$&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;
+Here&amp;rsquo;s the function that defines the normal, or Gaussian, distribution:
+&lt;div class=&#34;equation&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;$\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x - \mu)^2}{2\sigma^2} }$&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;
+It&amp;rsquo;s not the friendliest looking function, but there&amp;rsquo;s really no way around it: you have to learn this function off because you&amp;rsquo;ll need to be able to recognize it when you see it in equations. A handy fact about the normal distribution is that if $ X \sim \mathcal{N}(\mu, \sigma^2)$ and $Y \sim \mathcal{N}(0, \sigma^2)$ then $ X = \mu + Y$&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:a3bf4783b942516f86178995501fdab1:normfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:a3bf4783b942516f86178995501fdab1:normfootnote&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+
+&lt;p&gt;Back to calculating the probabilities of our observed y values&amp;hellip; if each $y_i$ is $\theta^Tx_i + \epsilon_i$ and $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, we can also say that
+&lt;div class=&#34;equation&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;$y_i \sim \mathcal{N}(\theta^Tx_i, \sigma^2)$&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;
+See what we did there? We used our handy fact about normally distributed variables, only in reverse. And now we have a way of calculating the probability of each $y_i$ - we just plug it into the normal density function with the right mean and variance. Here&amp;rsquo;s a python function that will calculate the log-likelihood of our y values given the x values and a model as specified by theta0, theta1 and standard deviation.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def log_likelihood(x, y, theta0, theta1, stdev):
+    # Get the likelihood of y given the least squares model described
+    # by theta0, theta1 and the standard deviation of the error term.
+    for i, x_val in enumerate(x):
+        mu = theta0 + (theta1*x_val)
+        # This is just plugging our observed y value into the normal
+        # density function.
+        lk = stats.norm(mu, stdev).pdf(y[i])
+        res = lk if i == 0 else lk * res
+    return Decimal(res).ln()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;We often work with the log-likelihood instead of the likelihood simply because it produces quanitities that are easier to work with and compare. And because the log function is a &lt;a href=&#34;https://en.wikipedia.org/wiki/Monotonic_function&#34;&gt;monotonically increasing function&lt;/a&gt;, we know that maximizing the log of a value, with respect to some parameter, coincides with maximizing the value itself.&lt;/p&gt;
+
+&lt;p&gt;We want to maximize the likelihood of our data with respect to our parameters, $\theta$. Here&amp;rsquo;s that likelihood shown as the product of normal densities:
+&lt;div class=&#34;equation&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;$\prod_{i=1}^n \frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(y_i - \theta^Tx_i)^2}{2\sigma^2} } $&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;
+With a little mathematical shunting (and remembering that $e^xe^y = e^{x + y}$) we can see that this is equivalent to:
+&lt;div class=&#34;equation&#34;&gt;&lt;/p&gt;
+
+&lt;p&gt;$\sigma^22\pi^{-\frac{n}{2}} e^{-\frac{1}{2\sigma^2}
+\color{red}{\sum_1^n(y_i - \theta^Tx_i)^2}}$&lt;/p&gt;
+
+&lt;p&gt;&lt;/div&gt;
+Anything look familiar there? Yay - it&amp;rsquo;s our RSS! Hopefully you can see that minimizing the highlighted part of this expression means maximizing the entire expression. In other words, minimizing the residual sum of squares is equivalent to maximizing the likelihood of the data.&lt;/p&gt;
+
+&lt;p&gt;And to get a visual feel for this likelihood, here&amp;rsquo;s a contour plot:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/contour_plot_sm.jpg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This was produced based on the same data I generated for the linear regression line above. I plugged the Xs and Ys and a series of possible $(\theta_0,\theta_1)$ pairs into the log_likelihood function above to get the log-likelihood of each combination. The original data were generated with an intercept of 4 and a slope of 8 (i.e. y = 4 + 8x + noise.)&lt;/p&gt;
+
+&lt;h1 id=&#34;bayesian-inference:a3bf4783b942516f86178995501fdab1&#34;&gt;Bayesian Inference&lt;/h1&gt;
+
+&lt;p&gt;Now that we&amp;rsquo;re thinking in terms of likelihood of data, we can start to adopt a Bayesian mindset.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/bayes.jpeg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+&lt;p class=&#34;source&#34;&gt;Source: &lt;a href=&#34;https://en.wikipedia.org/wiki/Bayes%27_theorem#/media/File:Bayes%27_Theorem_MMB_01.jpg&#34;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;Hopefully you have come across Bayes&amp;rsquo; Rule before - it describes the conditional probability of event A &lt;em&gt;given&lt;/em&gt; event B. A note on the bottom line on the right hand side: you may have seen the rule written as
+&lt;div class=&#34;equation&#34;&gt;
+$ p(A|B) = \dfrac{p(B|A)p(A)}{p(B|A)p(A) + p(B|\neg{A})p(\neg{A})}$
+&lt;/div&gt;
+But because that bottom line exhausts all possibilities with respect to event A, it boils down to simply p(B). So event A has been &amp;ldquo;marginalized out&amp;rdquo;. (In the discrete case you&amp;rsquo;re talking about probabilities over the possible values of A, which you could tabulate, summing the totals in the margins, hence marginalized.) So this quantity is referred to as the &amp;ldquo;marginal likelihood&amp;rdquo;, and because it isn&amp;rsquo;t dependent on event A, it is often removed from the equation and the rule is expressed as a proportion instead:
+&lt;div class=&#34;equation&#34;&gt;
+$ p(A|B) \propto p(B|A)p(A)$
+&lt;/div&gt;
+The way Bayes rule is used for Bayesian inference is that your model is &lt;em&gt;conditioned&lt;/em&gt; on your data:
+&lt;div class=&#34;equation&#34;&gt;
+$ p(H|D) = \dfrac{p(D|H)p(H)}{p(D)}$
+&lt;/div&gt;
+where H stands for hypothesis and D stands for data. Sometimes you&amp;rsquo;ll see the word evidence used in place of data. And with this interpretation of the rule, we can now finally talk about priors and posteriors. In the Bayesian setting, the term probability is used as a measure of belief in a hypothesis. You start with a prior belief about that hypothesis, then observe some data (or &amp;ldquo;gather evidence&amp;rdquo;), and then you have a posterior belief.&lt;/p&gt;
+
+&lt;div class=&#34;equation&#34;&gt;
+$\text{posterior} = \dfrac{\text{likelihood x prior}}{\text{marginal likelihood}}$
+&lt;/div&gt;
+or 
+&lt;div class=&#34;equation&#34;&gt;
+$\text{posterior} \propto \text{likelihood x prior}$
+&lt;/div&gt;
+
+&lt;p&gt;One other really important thing to note about Bayesian methods is that they are always explicit about uncertainty. They work with probability distritions, not point estimates. So a hypothesis about the parameters of a linear model would not be e.g. that the intercept has a value of 4, but that it is normally distributed with a mean of 4 and some standard deviation. And this gets updated the more evidence you gather. So your prior is a &lt;em&gt;distribution&lt;/em&gt; and so is your posterior.&lt;/p&gt;
+
+&lt;p&gt;The way I like to think of it is that the data is like a magnet that attracts probability mass.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/magnet_normal_prior.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;On the left you see samples from the prior distribution I gave for the intercept parameter, $\theta_0$: normally distruted with mean 0 and standard deviation 1. I then used &lt;a href=&#34;https://github.com/pymc-devs/pymc&#34;&gt;PyMC&lt;/a&gt;, a Python module for doing &lt;a href=&#34;https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo&#34;&gt;Markov Chain Monte Carlo&lt;/a&gt; sampling, to come up with the posterior distribution on the right. The mean (and the mode) of this posterior distribution is 3.95, close to the true parameter of 4. This is our maximum a posteriori (MAP) estimate for the $\theta_0$ parameter.&lt;/p&gt;
+
+&lt;p&gt;But before we continue on our journey to understand what MAP estimates have to do with ridge regression, we must finish our exploration of regression in the Bayesian setting. It&amp;rsquo;s interesting to see what happens if instead of using a prior that&amp;rsquo;s normally distributed with mean 0 and standard deviation of 1, we give it a uniform prior between -2 and 2.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/magnet_uniform_prior.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;No matter how strong that magnet, i.e. no matter how much data we gather, the posterior will never assign a non-zero probability to any value greater than 2. So obviously it&amp;rsquo;s important to choose a sensible prior.&lt;/p&gt;
+
+&lt;p&gt;Once we have a posterior for each parameter, one way we &lt;em&gt;could&lt;/em&gt; go about making predictions would be to simply &amp;ldquo;plug in&amp;rdquo; the MAP estimates of our parameters:&lt;/p&gt;
+
+&lt;p&gt;$\hat{y^*} = [\text{MAP estimate of }\theta_0] + [\text{MAP estimate of }\theta_1] x^* $&lt;/p&gt;
+
+&lt;p&gt;where $ x^* $  is an unseen data point for which we want to predict the outcome $ y^* $. That is frequentist thinking though. Remember, Bayesians work with distributions, not point estimates, and so no special significance is bestowed upon MAP estimates in the Bayesian setting. The way prediction works instead is that we get a &lt;em&gt;probability distribution&lt;/em&gt; (of course!) for the outcome $ y^* $ at each $ x^* $. We use the posterior distribution of the weights, representing all possible linear models, each of which would produce a different prediction for y. And so the prediction from each possible model is weighted by the probability of that model. Or, more formally:&lt;/p&gt;
+
+&lt;p&gt;$ p(y^* | x^*, X, y) = \int_{\theta}p(y^* | x^*,\theta)p(\theta|X,y)d\theta $&lt;/p&gt;
+
+&lt;p&gt;X and y are given - they are the training data; $ x^* $ is also given - it&amp;rsquo;s the new data point we want to predict the outcome for. From those three givens we want to predict $ y^* $. And we do it by &lt;em&gt;marginalizing&lt;/em&gt; (remember that term?) over the posterior distribution of $\theta$. What we end up with is a Gaussian distribution whose variance depends on the magnitude of the $ x^* $ value.&lt;/p&gt;
+
+&lt;p&gt;The beauty of this is that it retains information about the level of uncertainty around each prediction.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/uncertainty.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The further away we get from our training data, the greater the margin of error around our predictions.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s always seemed obvious to me that it&amp;rsquo;s better to know that you don&amp;rsquo;t know, than to think you know and act on wrong information. But it surprised me to learn years ago that there are people who prefer to have &amp;ldquo;an answer&amp;rdquo; they can act upon and aren&amp;rsquo;t too concerned about whether it&amp;rsquo;s correct. They may be the same people who will tell me something with great confidence when they have absolutely no idea what they&amp;rsquo;re talking about. Personally, I&amp;rsquo;ve always preferred interacting with the &amp;ldquo;wiser people so full of doubts&amp;rdquo;. I guess that makes me a Bayesian.&lt;/p&gt;
+
+&lt;p&gt;Anyway, back to statistics.&lt;/p&gt;
+
+&lt;h2 id=&#34;map-estimates-and-ridge-regression:a3bf4783b942516f86178995501fdab1&#34;&gt;MAP estimates and Ridge Regression&lt;/h2&gt;
+
+&lt;p&gt;It&amp;rsquo;s finally time to make sense of that statement about the relationship between ridge regression and MAP estimates. Ridge regression is about penalizing large values of parameters in order to prevent over-fitting to your training data. Here&amp;rsquo;s an example from Kevin Murphy&amp;rsquo;s companion code to his textbook on machine learning. We have generated some dummy data where the true function that produces y from x is a second-order polynomial function ($ y = ax + bx^2 $.) But we are trying to fit a 14-degree polynomial to the data.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure &gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/overfitting.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The green line represents predictions for the test set based on the weights learned for the training set. The red line represents the true values of the test set. We can see that the green line fits the training values very well, but it does this by being very &amp;ldquo;loopy&amp;rdquo; - due to some weights having extremely high positive values and others having extreme negative values. This makes it go wildly wrong on some of the test data. If we penalize extreme values, this forces the model to fit the data in a way that&amp;rsquo;s more likely to generalize to unseen data. With ridge regression, we do this by adding the sum of the squared parameters to the cost that we&amp;rsquo;re minimizing:
+&lt;div class=&#34;equation&#34;&gt;
+$ \underset{\theta}{\arg\min} \sum_1^n(y_i - \hat{y_i})^2 + \lambda \sum_1^p\theta^2 $
+&lt;/div&gt;
+where $ \lambda $ is a tuning parameter that controls the extent to which the weights are penalized and p is the length of the parameter vector $\theta$, excluding the intercept. For a really great explanation of ridge regression, I highly recommend the Hastie et al book &lt;a href=&#34;http://www-bcf.usc.edu/~gareth/ISL/getbook.html&#34;&gt;An Introduction to Statistical Learning&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Now let&amp;rsquo;s see how we can arrive at this same solution from the Bayesian method. Recall that the posterior distribution for the weights is proportional to the likelihood times the prior. Using the likelihood we figured out before  and a Gaussian prior with a mean of 0 and a variance of $\tau^2$, this becomes:&lt;/p&gt;
+
+&lt;div class=&#34;equation&#34;&gt;
+
+$ \color{blue}{\sigma^22\pi^{-\frac{n}{2}} e^{-\frac{1}{2\sigma^2} {\sum_1^n(y_i - \hat{y_i})^2}}} \color{black} \times \color{green}{\tau^22\pi^{-\frac{p}{2}} e^{-\frac{1}{2\tau^2} \sum_1^p\theta^2}} $
+
+&lt;/div&gt;
+
+&lt;p&gt;with the likelihood in blue and the prior in green. With some slight rearranging we get&lt;/p&gt;
+
+&lt;div class=&#34;equation&#34;&gt;
+
+$ e^{\color{blue}{-\frac{1}{2\sigma^2} \sum_1^n(y_i - \hat{y_i})^2} \color{green}{-\frac{1}{2\tau^2} \sum_1^p\theta^2}} \color{black} \times \color{blue}{\sigma^22\pi^{-\frac{n}{2}}} \color{black} \times \color{green}{\tau^22\pi^{-\frac{p}{2}}}$
+
+&lt;/div&gt;
+
+&lt;p&gt;Given that we are looking to maximize this with respect to the coefficients, we can ignore the terms that don&amp;rsquo;t depend on the coefficients:&lt;/p&gt;
+
+&lt;div class=&#34;equation&#34;&gt;
+
+$ \underset{\theta}{\arg\max} \ \ e^{-\frac{1}{2\sigma^2} \sum_1^n(y_i - \hat{y_i})^2 -\frac{1}{2\tau^2} \sum_1^p\theta^2}$
+
+&lt;/div&gt;
+
+&lt;p&gt;And remember that we like to work with the log-likelihood instead of the likelihood, so now we have&lt;/p&gt;
+
+&lt;div class=&#34;equation&#34;&gt;
+
+$ \underset{\theta}{\arg\max} -\frac{1}{2\sigma^2} \sum_1^n(y_i - \hat{y_i})^2 -\frac{1}{2\tau^2} \sum_1^p\theta^2$
+
+&lt;/div&gt;
+
+&lt;p&gt;Multiplying by $2\sigma^2$ and pulling out the -1 we get:&lt;/p&gt;
+
+&lt;div class=&#34;equation&#34;&gt;
+
+$ \underset{\theta}{\arg\max} -1 (\sum_1^n(y_i - \hat{y_i})^2 + \frac{\sigma^2}{\tau^2} \sum_1^p\theta^2)$
+
+&lt;/div&gt;
+
+&lt;p&gt;And since maximizing $-x$ is equivalent to minimizing $x$, this is equivalent to:&lt;/p&gt;
+
+&lt;div class=&#34;equation&#34;&gt;
+
+$ \underset{\theta}{\arg\min} \sum_1^n(y_i - \hat{y_i})^2 + \frac{\sigma^2}{\tau^2} \sum_1^p\theta^2 $
+
+&lt;/div&gt;
+
+&lt;p&gt;And this is exactly what we have above for a regularized cost function, only with $ \frac{\sigma^2}{\tau^2} $ instead of $ \lambda $.&lt;/p&gt;
+
+&lt;p&gt;So we have shown that ridge regression is indeed equivalent to a maximum a posteriori estimate with a zero-mean Gaussian prior, with $\lambda$ proportional to $\tau^2$. Specifically, a lower variance on the prior for the weights (i.e. a more &lt;em&gt;constrained&lt;/em&gt; prior) is equivalent to a higher $\lambda$ value in the ridge regression solution.&lt;/p&gt;
+
+&lt;p&gt;Q.E.D. :)&lt;/p&gt;
+
+&lt;h2 id=&#34;in-conclusion:a3bf4783b942516f86178995501fdab1&#34;&gt;In conclusion&lt;/h2&gt;
+
+&lt;p&gt;We&amp;rsquo;ve looked at linear regression from both sides now - from the frequentist and Bayesian perspectives, and still somehow&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;No no no, this isn&amp;rsquo;t going to end like &lt;a href=&#34;https://www.youtube.com/watch?v=8DrRnI-1Ssg&#34;&gt;the song&lt;/a&gt; - I think we know linear regression fairly well after all that. However, there&amp;rsquo;s always more to learn and so I&amp;rsquo;ll leave you with some of the resources I&amp;rsquo;ve found to be most helpful in understanding this stuff.&lt;/p&gt;
+
+&lt;h2 id=&#34;further-reading:a3bf4783b942516f86178995501fdab1&#34;&gt;Further Reading&lt;/h2&gt;
+
+&lt;p&gt;If you don&amp;rsquo;t yet have a copy of &lt;a href=&#34;http://www-bcf.usc.edu/~gareth/ISL/getbook.html&#34;&gt;An Introduction to Statistical Learning&lt;/a&gt; by James, Witten, Hastie and Tibshirani, what are you waiting for? The whole thing is available as a freely downloadable PDF and provides the most crystal clear explanation of linear regression and regularization I&amp;rsquo;ve ever come across. Another freely downloadable book is &lt;a href=&#34;http://www.gaussianprocess.org/gpml/&#34;&gt;Gaussian Processes for Machine Learning&lt;/a&gt; by Rasmussen and Williams. I think this may have been the first place I was introduced to the relationship between MAP estimates and ridge regression. Kevin Murphy&amp;rsquo;s &lt;a href=&#34;https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020&#34;&gt;Machine Learning - a Probabilistic Approach&lt;/a&gt; provides a very complete explanation of this and a whole lot more - it is a pretty enormous tome, and while I do aspire to reading the whole thing&amp;hellip; well, it&amp;rsquo;ll take some time ;)&lt;/p&gt;
+
+&lt;p&gt;And finally, while reading textbooks is totally awesome and worthwhile and in fact my favourite way to get a handle on topics like this, nothing beats playing around with code to get a more complete understanding of the ideas. Cameron Davidson-Pilon&amp;rsquo;s &lt;a href=&#34;https://camdavidsonpilon.github.io/Probabilistic-Programming-and-Bayesian-Methods-for-Hackers/&#34;&gt;Probabilistic Programming &amp;amp; Bayesian Methods for Hackers&lt;/a&gt; is a fantastic introduction to Markov Chain Monte Carlo and the PyMC Python library. And it&amp;rsquo;s also available for free online!&lt;/p&gt;
+&lt;div class=&#34;footnotes&#34;&gt;
+
+&lt;hr /&gt;
+
+&lt;ol&gt;
+&lt;li id=&#34;fn:a3bf4783b942516f86178995501fdab1:matrixfootnote&#34;&gt;If you&amp;rsquo;re not yet familiar with matrix notation for linear regression, there&amp;rsquo;s a nice explanation &lt;a href=&#34;http://www.stat.purdue.edu/~jennings/stat514/stat512notes/topic3.pdf&#34;&gt;here&lt;/a&gt;.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:a3bf4783b942516f86178995501fdab1:matrixfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:a3bf4783b942516f86178995501fdab1:meanxyfootnote&#34;&gt;This follows from the fact that the residuals sum to 0
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:a3bf4783b942516f86178995501fdab1:meanxyfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:a3bf4783b942516f86178995501fdab1:calculusfootnote&#34;&gt;For an intuition about why this is the case, think about the single-parameter case. We can plot the cost, $J(\theta)$, on the y axis, against $\theta$ on the x axis, and we&amp;rsquo;d get a U-shaped curve. We&amp;rsquo;d be looking for the value of $\theta$ at the bottom of the curve. The bottom of the curve is the point at which the slope of the tangent equals 0. And since the derivative of $J(\theta)$ with respect to $\theta$ amounts to the slope of the tangent to the curve, we can set that derivative equal to 0 and solve for $\theta$. In the case of multiple parameters, we do this for each parameter while holding the others fixed (i.e. getting the partial derivatives). See the &lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics&#34;&gt;Wikipedia entry on linear regression&lt;/a&gt;) for details.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:a3bf4783b942516f86178995501fdab1:calculusfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:a3bf4783b942516f86178995501fdab1:normfootnote&#34;&gt;This fact is usually expressed in relation to standard normals, where in addition to subtracting the mean you can divide by the standard deviation, however for our purposes we are only interested in &lt;em&gt;shifting&lt;/em&gt; the distribution, not altering its shape.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:a3bf4783b942516f86178995501fdab1:normfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;/div&gt;
+</description>
+    </item>
     
     <item>
       <title>AI and Music</title>
