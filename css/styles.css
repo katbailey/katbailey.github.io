@@ -55,3 +55,8 @@ figure.half-size img {
   max-width: 50%;
   height: auto;
 }
+
+figure.profile-pic img {
+  width: auto;
+  height: auto;
+}
