@@ -6,8 +6,242 @@
     <description>Recent content in Posts on ohAI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 02 Jun 2016 07:32:46 -0600</lastBuildDate>
+    <lastBuildDate>Tue, 09 Aug 2016 09:00:03 -0700</lastBuildDate>
     <atom:link href="http://katbailey.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Gaussian Processes for Dummies</title>
+      <link>http://katbailey.github.io/post/gaussian-processes-for-dummies/</link>
+      <pubDate>Tue, 09 Aug 2016 09:00:03 -0700</pubDate>
+      
+      <guid>http://katbailey.github.io/post/gaussian-processes-for-dummies/</guid>
+      <description>&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/kernel_cookbook.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+&lt;p class=&#34;source&#34;&gt;Source: &lt;a href=&#34;http://www.cs.toronto.edu/~duvenaud/cookbook/index.html&#34;&gt;The Kernel Cookbook by David Duvenaud&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;It always amazes me how I can hear a statement uttered in the space of a few seconds about some aspect of machine learning that then takes me countless hours to understand. I first heard about Gaussian Processes on an episode of the &lt;a href=&#34;http://www.thetalkingmachines.com/&#34;&gt;Talking Machines&lt;/a&gt; podcast and thought it sounded like a really neat idea. I promptly procured myself a copy of the classic text on the subject, &lt;a href=&#34;http://www.gaussianprocess.org/gpml/&#34;&gt;Gaussian Processes for Machine Learning&lt;/a&gt; by Rasmussen and Williams, but my tenuous grasp on the Bayesian approach to machine learning meant I got stumped pretty quickly. That&amp;rsquo;s when I began the journey I described in my last post, &lt;a href=&#34;http://katbailey.github.io/post/from-both-sides-now-the-math-of-linear-regression/&#34;&gt;From both sides now: the math of linear regression&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Gaussian Processes (GPs) are the natural next step in that journey as they provide an alternative approach to regression problems. This post aims to present the essentials of GPs without going too far down the various rabbit holes into which they can lead you (e.g. understanding how to get the square root of a matrix.)&lt;/p&gt;
+
+&lt;p&gt;Recall that in the simple linear regression setting, we have a dependent variable y that we assume can be modeled as a function of an independent variable x, i.e. $ y = f(x) + \epsilon $ (where $ \epsilon $ is the irreducible error) but we assume further that the function $ f $ defines a linear relationship and so we are trying to find the parameters $ \theta_0 $ and $ \theta_1 $ which define the intercept and slope of the line respectively, i.e. $ y = \theta_0 + \theta_1x + \epsilon $. Bayesian linear regression provides a probabilistic approach to this by finding a distribution over the parameters that gets updated whenever new data points are observed. The GP approach, in contrast, is a &lt;em&gt;non-parametric&lt;/em&gt; approach, in that it finds a distribution over the possible &lt;strong&gt;functions&lt;/strong&gt; $ f(x) $ that are consistent with the observed data. As with all Bayesian methods it begins with a prior distribution and updates this as data points are observed, producing the posterior distribution over functions.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/all_the_functions.jpg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;To get an intuition about what this even means, think of the simple OLS line defined by an intercept and slope that does its best to fit your data.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/bad_least_squares.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;The problem is, this line simply isn&amp;rsquo;t adequate to the task, is it? You&amp;rsquo;d really like a curved line: instead of just 2 parameters $ \theta_0 $ and $ \theta_1 $ for the function $ \hat{y} = \theta_0 + \theta_1x$ it looks like a quadratic function would do the trick, i.e. $ \hat{y} = \theta_0 + \theta_1x + \theta_2x^2 $. Now we&amp;rsquo;d need to learn 3 parameters. But what if we don&amp;rsquo;t want to specify upfront how many parameters are involved? We&amp;rsquo;d like to consider every possible function that matches our data, with however many parameters are involved. That&amp;rsquo;s what non-parametric means: it&amp;rsquo;s not that there aren&amp;rsquo;t parameters, it&amp;rsquo;s that there are infinitely many parameters.&lt;/p&gt;
+
+&lt;p&gt;But of course we need a prior before we&amp;rsquo;ve seen any data. What might that look like? Well, we don&amp;rsquo;t really want ALL THE FUNCTIONS, that would be nuts. So let&amp;rsquo;s put some constraints on it. First of all, we&amp;rsquo;re only interested in a specific domain &amp;mdash; let&amp;rsquo;s say our x values only go from -5 to 5. Now we can say that within that domain we&amp;rsquo;d like to sample functions that produce an output whose mean is, say, 0 and that are &lt;em&gt;not too wiggly&lt;/em&gt;. Here&amp;rsquo;s an example of a very wiggly function:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/wiggly.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;And here&amp;rsquo;s a much smoother function:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/smooth.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;There&amp;rsquo;s a way to specify that smoothness: we use a &lt;strong&gt;covariance matrix&lt;/strong&gt; to ensure that values that are close together in input space will produce output values that are close together. This covariance matrix, along with a mean function to output the expected value of $ f(x) $ defines a Gaussian Process.&lt;/p&gt;
+
+&lt;p&gt;Here&amp;rsquo;s how Kevin Murphy explains it in the excellent textbook &lt;a href=&#34;https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020/&#34;&gt;Machine Learning: A Probabilistic Perspective&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;A GP defines a prior over functions, which can be converted into a posterior over functions once we have seen some data. Although it might seem difficult to represent a distrubtion over a function, it turns out that we only need to be able to define a distribution over the function&amp;rsquo;s values at a finite, but arbitrary, set of points, say &lt;code&gt;\( x_1,\dots,x_N \)&lt;/code&gt;. A GP assumes that &lt;code&gt;\( p(f(x_1),\dots,f(x_N)) \)&lt;/code&gt; is jointly Gaussian, with some mean $ \mu(x) $ and covariance $ \sum(x) $ given by $ \sum_{ij} = k(x_i, x_j) $, where k is a positive definite kernel function. The key idea is that if &lt;code&gt;\( x_i \)&lt;/code&gt; and &lt;code&gt;\( x_j\)&lt;/code&gt; are deemed by the kernel to be similar, then we expect the output of the function at those points to be similar, too.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The mathematical crux of GPs is the multivariate Gaussian distribution.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/Multivariate_Gaussian.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+
+&lt;p class=&#34;source&#34;&gt;Source: &lt;a href=&#34;https://en.wikipedia.org/wiki/Multivariate_normal_distribution&#34;&gt;Wikipedia&lt;/a&gt;&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s easiest to imagine the bivariate case, pictured here. The shape of the bell is determined by the covariance matrix. If we imagine looking at the bell from above and we see a perfect circle, this means these are two independent normally distributed variables &amp;mdash; their covariance is 0. If we assume a variance of 1 for each of the independent variables, then we get a covariance matrix of $ \Sigma = \begin{bmatrix} 1 &amp;amp; 0\\ 0 &amp;amp; 1 \end{bmatrix} $. The diagonal will simply hold the variance of each variable on its own, in this case both 1&amp;rsquo;s. Anything other than 0 in the top right would be mirrored in the bottom left and would indicate a correlation between the variables. This would give the bell a more oval shape when looking at it from above.&lt;/p&gt;
+
+&lt;p&gt;If we have the joint probability of variables $ x_1 $ and $ x_2 $ as follows:&lt;/p&gt;
+
+&lt;div&gt;$$
+
+\begin{pmatrix}
+x_1 \\
+x_2
+\end{pmatrix}
+
+\sim \mathcal{N}{\left(
+\begin{pmatrix}
+\mu_1 \\
+\mu_2
+\end{pmatrix}
+,
+\begin{pmatrix}
+\sigma_{11} &amp; \sigma_{12}\\
+\sigma_{21} &amp; \sigma_{22}\\
+\end{pmatrix}
+\right)}
+
+$$&lt;/div&gt;
+
+&lt;p&gt;it is possible to get the &lt;em&gt;conditional&lt;/em&gt; probability of one of the variables &lt;em&gt;given&lt;/em&gt; the other, and &lt;strong&gt;this is how, in a GP, we can derive the posterior from the prior and our observations&lt;/strong&gt;. It&amp;rsquo;s just that we&amp;rsquo;re not just talking about the joint probability of two variables, as in the bivariate case, but the joint probability of the values of $ f(x) $ for all the $ x $ values we&amp;rsquo;re looking at, e.g. real numbers between -5 and 5.&lt;/p&gt;
+
+&lt;p&gt;So, our posterior is the joint probability of our outcome values, some of which we have observed (denoted collectively by&lt;code&gt;$f$&lt;/code&gt;) and some of which we haven&amp;rsquo;t (denoted collectively by&lt;code&gt;$f_{*}$&lt;/code&gt;):&lt;/p&gt;
+
+&lt;div&gt;$$
+
+\begin{pmatrix}
+f \\
+f_{*}
+\end{pmatrix}
+
+\sim \mathcal{N}{\left(
+\begin{pmatrix}
+\mu \\
+\mu_{*}
+\end{pmatrix}
+,
+\begin{pmatrix}
+K &amp; K_{*}\\
+K_{*}^T &amp; K_{**}\\
+\end{pmatrix}
+\right)}
+
+$$&lt;/div&gt;
+
+&lt;p&gt;Here,&lt;code&gt;$K$&lt;/code&gt;is the matrix we get by applying the kernel function to our observed&lt;code&gt;$x$&lt;/code&gt;values, i.e. the similarity of each observed&lt;code&gt;$x$&lt;/code&gt;to each other observed&lt;code&gt;$x$&lt;/code&gt;.&lt;code&gt;$K_{*}$&lt;/code&gt;gets us the similarity of the training values to the test values whose output values we&amp;rsquo;re trying to estimate.&lt;code&gt;$K_{**}$&lt;/code&gt;gives the similarity of the test values to each other.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m well aware that things may be getting hard to follow at this point, so it&amp;rsquo;s worth reiterating what we&amp;rsquo;re actually trying to do here. There are some points&lt;code&gt;$x$&lt;/code&gt;for which we have observed the outcome&lt;code&gt;$f(x)$&lt;/code&gt;(denoted above as simply&lt;code&gt;$f$&lt;/code&gt;). There are some points&lt;code&gt;$x_{*}$&lt;/code&gt;for which we would like to estimate&lt;code&gt;$f(x_{*})$&lt;/code&gt;(denoted above as&lt;code&gt;$f_{*}$&lt;/code&gt;). So we are trying to get the probability distribution&lt;code&gt;$p(f_{*} | x_{*},x,f)$&lt;/code&gt;and we know that&lt;code&gt;$f$&lt;/code&gt;and&lt;code&gt;$f_{*}$&lt;/code&gt;together are jointly Gaussian as defined above.&lt;/p&gt;
+
+&lt;p&gt;About 4 pages of matrix algebra can get us from the joint distribution&lt;code&gt;$p(f, f_{*})$&lt;/code&gt;to the conditional&lt;code&gt;$p(f_{*} | f)$&lt;/code&gt;. I am conveniently going to skip past all that but if you&amp;rsquo;re interested in the gory details then the Kevin Murphy book is your friend. At any rate, what we end up with are the mean,&lt;code&gt;$\mu_{*}$&lt;/code&gt;and covariance matrix&lt;code&gt;$\Sigma_{*}$&lt;/code&gt;that define our distribution &lt;code&gt;$f_{*} \sim \mathcal{N}{\left(\mu_{*}, \Sigma_{*}\right)   }$&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we can sample from this distribution. Recall that when you have a univariate distribution&lt;code&gt;$x \sim \mathcal{N}{\left(\mu, \sigma^2\right)}$&lt;/code&gt;you can express this in relation to &lt;em&gt;standard normals&lt;/em&gt;, i.e. as&lt;code&gt;$x \sim \mu + \sigma(\mathcal{N}{\left(0, 1\right)}) $&lt;/code&gt;. And generating standard normals is something any decent mathematical programming language can do (incidently, there&amp;rsquo;s a very neat trick involved whereby uniform random variables are projected on to the CDF of a normal distribution, but I digress&amp;hellip;) We need the equivalent way to express our multivariate normal distribution in terms of standard normals:&lt;code&gt;$f_{*} \sim \mu + B\mathcal{N}{(0, I)}$&lt;/code&gt;, where B is the matrix such that&lt;code&gt;$BB^T = \Sigma_{*}$&lt;/code&gt;, i.e. the square root of our covariance matrix. We can use something called a &lt;a href=&#34;https://en.wikipedia.org/wiki/Cholesky_decomposition&#34;&gt;Cholesky decomposition&lt;/a&gt; to find this.&lt;/p&gt;
+
+&lt;p&gt;OK, enough math &amp;mdash; time for some code. The code presented here borrows heavily from two main sources: &lt;a href=&#34;http://www.cs.ubc.ca/~nando/540-2013/lectures.html&#34;&gt;Nando de Freitas&amp;rsquo; UBC Machine Learning lectures&lt;/a&gt; (code for GPs can be found &lt;a href=&#34;http://www.cs.ubc.ca/~nando/540-2013/lectures/gp.py&#34;&gt;here&lt;/a&gt;) and the &lt;a href=&#34;https://github.com/probml/pmtk3&#34;&gt;PMTK3 toolkit&lt;/a&gt;, which is the companion code to Kevin Murphy&amp;rsquo;s textbook &lt;a href=&#34;https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020/&#34;&gt;Machine Learning: A Probabilistic Perspective&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Below we define the points at which our functions will be evaluated, 50 evenly spaced points between -5 and 5. We also define the kernel function which uses the Squared Exponential, a.k.a Gaussian, a.k.a. Radial Basis Function kernel. It calculates the squared distance between points and converts it into a measure of similarity, controlled by a tuning parameter. Note that we are assuming a mean of 0 for our prior.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;import numpy as np
+import matplotlib.pyplot as pl
+
+# Test data
+n = 50
+Xtest = np.linspace(-5, 5, n).reshape(-1,1)
+
+# Define the kernel function
+def kernel(a, b, param):
+    sqdist = np.sum(a**2,1).reshape(-1,1) + np.sum(b**2,1) - 2*np.dot(a, b.T)
+    return np.exp(-.5 * (1/param) * sqdist)
+
+param = 0.1
+K_ss = kernel(Xtest, Xtest, param)
+
+# Get cholesky decomposition (square root) of the
+# covariance matrix
+L = np.linalg.cholesky(K_ss + 1e-15*np.eye(n))
+# Sample 3 sets of standard normals for our test points,
+# multiply them by the square root of the covariance matrix
+f_prior = np.dot(L, np.random.normal(size=(n,3)))
+
+# Now let&#39;s plot the 3 sampled functions.
+pl.plot(Xtest, f_prior)
+pl.axis([-5, 5, -3, 3])
+pl.title(&#39;Three samples from the GP prior&#39;)
+pl.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/output_prior.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Note that the K_ss variable here corresponds to&lt;code&gt;$K_{**}$&lt;/code&gt;in the equation above for the joint probability. It will be used again below, along with&lt;code&gt;$K$&lt;/code&gt;and&lt;code&gt;$K_{*}$&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Now we&amp;rsquo;ll observe some data. The actual function generating the&lt;code&gt;$y$&lt;/code&gt;values from our&lt;code&gt;$x$&lt;/code&gt;values, unbeknownst to our model, is the&lt;code&gt;$sin$&lt;/code&gt;function. We generate the output at our 5 training points, do the equivalent of the above-mentioned 4 pages of matrix algebra in a few lines of python code, sample from the posterior and plot it.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;# Noiseless training data
+Xtrain = np.array([-4, -3, -2, -1, 1]).reshape(5,1)
+ytrain = np.sin(Xtrain)
+
+# Apply the kernel function to our training points
+K = kernel(Xtrain, Xtrain, param)
+L = np.linalg.cholesky(K + 0.00005*np.eye(len(Xtrain)))
+
+# Compute the mean at our test points.
+K_s = kernel(Xtrain, Xtest, param)
+Lk = np.linalg.solve(L, K_s)
+mu = np.dot(Lk.T, np.linalg.solve(L, ytrain)).reshape((n,))
+
+# Compute the standard deviation so we can plot it
+s2 = np.diag(K_ss) - np.sum(Lk**2, axis=0)
+stdv = np.sqrt(s2)
+# Draw samples from the posterior at our test points.
+L = np.linalg.cholesky(K_ss + 1e-6*np.eye(n) - np.dot(Lk.T, Lk))
+f_post = mu.reshape(-1,1) + np.dot(L, np.random.normal(size=(n,3)))
+
+pl.plot(Xtrain, ytrain, &#39;bs&#39;, ms=8)
+pl.plot(Xtest, f_post)
+pl.gca().fill_between(Xtest.flat, mu-2*stdv, mu+2*stdv, color=&amp;quot;#dddddd&amp;quot;)
+pl.plot(Xtest, mu, &#39;r--&#39;, lw=2)
+pl.axis([-5, 5, -3, 3])
+pl.title(&#39;Three samples from the GP posterior&#39;)
+pl.show()
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/output_posterior.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;See how the training points (the blue squares) have &amp;ldquo;reined in&amp;rdquo; the set of possible functions: the ones we have sampled from the posterior all go through those points. The dotted red line shows the mean output and the grey area shows 2 standard deviations from the mean. Note that this is 0 at our training points (because we did not add any noise to our data). Also note how things start to go a bit wild again to the right of our last training point&lt;code&gt;$x = 1$&lt;/code&gt;&amp;mdash; that won&amp;rsquo;t get reined in until we observe some data over there.&lt;/p&gt;
+
+&lt;p&gt;This has been a very basic intro to Gaussian Processes &amp;mdash; it aimed to keep things as simple as possible to illustrate the main idea and hopefully whet the appetite for a more extensive treatment of the topic such as can be found in the &lt;a href=&#34;http://www.gaussianprocess.org/gpml/&#34;&gt;Rasmussen and Williams book&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>From both sides now: the math of linear regression</title>
