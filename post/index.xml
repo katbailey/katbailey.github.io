@@ -6,8 +6,42 @@
     <description>Recent content in Posts on ohAI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 09 Aug 2016 09:00:03 -0700</lastBuildDate>
+    <lastBuildDate>Mon, 12 Sep 2016 16:57:39 -0400</lastBuildDate>
     <atom:link href="http://katbailey.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Thoughts on data-driven language learning</title>
+      <link>http://katbailey.github.io/post/thoughts-on-data-driven-language-learning/</link>
+      <pubDate>Mon, 12 Sep 2016 16:57:39 -0400</pubDate>
+      
+      <guid>http://katbailey.github.io/post/thoughts-on-data-driven-language-learning/</guid>
+      <description>&lt;p&gt;I used to be a language pedant. I would bemoan the use of the word &amp;ldquo;presently&amp;rdquo; to mean &amp;ldquo;currently&amp;rdquo;, shudder at &amp;ldquo;between you and I&amp;rdquo;, gasp at the use of &amp;ldquo;literally&amp;rdquo; to mean&amp;hellip; &amp;ldquo;not literally&amp;rdquo; (&amp;ldquo;I literally peed my pants laughing.&amp;rdquo; &amp;ldquo;Orly?&amp;rdquo;) I would get particularly exasperated when I heard people use phrases that were clearly (to me) nonsensical but that &lt;em&gt;sounded&lt;/em&gt; almost correct. A classic example of this is when people say &amp;ldquo;The reason being is&amp;hellip;&amp;rdquo; or start a sentence with &amp;ldquo;As such, &amp;hellip;&amp;rdquo; when the word &amp;ldquo;such&amp;rdquo; does not refer to anything. The &lt;a href=&#34;http://blog.oxforddictionaries.com/2011/09/participles-how-not-to-dangle/&#34;&gt;dangling participle&lt;/a&gt; is another whole class of examples.&lt;/p&gt;
+
+&lt;p&gt;But now I actually find these usage tendencies quite fascinating (ok, I still shudder at &amp;ldquo;between you and I&amp;rdquo;.) They seem to indicate that people&amp;rsquo;s choice of words is based on what they&amp;rsquo;ve heard over and over, rather than on their employment of grammatical rules. And if they misremember what they heard they&amp;rsquo;ll say something that sounds roughly the same even if it&amp;rsquo;s ungrammatical. Or they&amp;rsquo;ll throw phrases into places where they sound like they might belong, even though they don&amp;rsquo;t. Then common mistakes like using &amp;ldquo;as such&amp;rdquo; to mean something similar to &amp;ldquo;therefore&amp;rdquo; proliferate and before you know it &amp;ldquo;literally&amp;rdquo; means &amp;ldquo;not literally&amp;rdquo;.&lt;/p&gt;
+
+&lt;p&gt;A recent &lt;a href=&#34;http://www.scientificamerican.com/article/evidence-rebuts-chomsky-s-theory-of-language-learning/&#34;&gt;article in Scientific American&lt;/a&gt; refutes Chomsky&amp;rsquo;s very influential Universal Grammar theory, which postulates the existence of a sort of toolkit for learning language that is hard-wired into our brains. This module is an instantiation of a grammar that all human languages conform to, according to the theory, and is what enables us to learn language. The Scientific American article introduces an alternative theory referred to simply as a usage-based theory of linguistics, which does away entirely with the need for any sort of hard-wired grammar toolkit in our brains in order to explain our ability to acquire language. Instead, the authors claim, children are born with a set of general purpose tools that allow them to perform tasks like object categorization, reading the intentions of others, and making analogies; and these are the tools used in language learning as well as in the performance of other non-language related tasks.&lt;/p&gt;
+
+&lt;p&gt;One argument they give that I find quite compelling talks about utterances of the form &amp;ldquo;Him a presidential candidate?!&amp;rdquo;, &amp;ldquo;Her go to the ballet?!,&amp;rdquo; &amp;ldquo;Him a doctor?!&amp;rdquo;, etc., and how we can produce infinitely many such utterances even though they are ungrammatical. The Universal Grammar theory has to jump through hoops to explain this, invoking a list of exceptions to grammatical rules in addition to the rules themselves&amp;hellip;&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;So the question becomes, are these utterances part of the core grammar or the list of exceptions? If they are not part of a core grammar, then they must be learned individually as separate items. But if children can learn these part-rule, part-exception utterances, then why can they not learn the rest of language the same way? In other words, why do they need universal grammar at all?&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;When theories have to introduce all kinds of complexities in order to cope with new evidence, that does seem like the right time to abandon them. At any rate, given my observations above about people shoving words and phrases that sound roughly appropriate into their sentences, without regard for correctness, I was obviously going to like this new usage-based theory :) But I like it for another reason also: it aligns beautifully with data-driven approaches to Natural Language Processing tasks such as machine translation.&lt;/p&gt;
+
+&lt;p&gt;In the 2009 paper &lt;a href=&#34;http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/35179.pdf&#34;&gt;The Unreasonable Effectiveness of Data&lt;/a&gt; by researchers at Google, the authors talk about how tasks where rules-based approaches have traditionally beaten statistical approaches usually succumb eventually when enough data is thrown at them. The more data you have, the less need you have of rules:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Instead of assuming that general patterns are more effective than memorizing specific phrases, today’s translation models introduce general rules only when they improve translation over just memorizing particular phrases (for instance, in rules for dates and numbers).&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Memorizing phrases is exactly what I think &lt;em&gt;people&lt;/em&gt; do. Now, I&amp;rsquo;m not suggesting that all of this means that Natural Language Understanding in AI will soon be a solved problem &amp;ndash; there&amp;rsquo;s still the issue of equipping machines with the ability to analogize, read communicative intentions, etc. &amp;ndash; but I do think it means we&amp;rsquo;ve only seen the tip of the iceberg when it comes to what the data-driven approach to NLU can achieve.&lt;/p&gt;
+
+&lt;p&gt;I&amp;rsquo;m particularly excited by the idea of &lt;em&gt;distributed word representations&lt;/em&gt;, a.k.a. &lt;em&gt;word embeddings&lt;/em&gt;, where you train a set of vectorized representations of words such that the relationships between words is captured by the mathematical relationships that hold between the vectors representing them. This idea, coupled with massive corpora, e.g. all of Wikipedia, leads to the creation of pre-trained sets of embeddings like &lt;a href=&#34;https://code.google.com/archive/p/word2vec&#34;&gt;word2vec&lt;/a&gt; and &lt;a href=&#34;http://nlp.stanford.edu/projects/glove/&#34;&gt;GloVe&lt;/a&gt;, which hold really rich representations of how words are used in a language. These pretrained embeddings can then be used for a wide range of downstream NLP tasks, e.g. &lt;a href=&#34;https://blog.keras.io/using-pre-trained-word-embeddings-in-a-keras-model.html&#34;&gt;text classification&lt;/a&gt;, &lt;a href=&#34;http://www.manzil.ml/res/Papers/2015_ACL_GLDA.pdf&#34;&gt;topic modeling&lt;/a&gt; and &lt;a href=&#34;http://vene.ro/blog/word-movers-distance-in-python.html&#34;&gt;document similarity&lt;/a&gt;.&lt;/p&gt;
+
+&lt;p&gt;Granted, these existing sets of embeddings may not capture the &amp;ldquo;not literally&amp;rdquo; sense of &amp;ldquo;literally&amp;rdquo;, but once we add Youtube comments to the training corpora and figure out the mathematics required to make a word vector mean the same thing as its opposite, we&amp;rsquo;ll be off to the races. Literally!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Gaussian Processes for Dummies</title>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Thoughts on data-driven language learning &middot; </title>
+
+  
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/styles.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/highlight/monokai_sublime.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://katbailey.github.io/touch-icon-144-precomposed.png">
+  <link href="http://katbailey.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+  <link href="http://katbailey.github.io/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      
+      
+      
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i = 0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>ohAI</h1>
+          <figure class="center profile-pic">
+      <a href="http://katbailey.github.io/about"><img src="/images/kat_sm.png" /></a>
+    </figure>
+      <p class="lead">Where I write about things vaguely (and sometimes even closely!) related to AI</p>
+    </div>
+    <ul class="sidebar-nav">
+
+      <li class="sidebar-nav-item"><a href="http://katbailey.github.io/">Home</a></li>
+            <li class="sidebar-nav-item"><a href="http://katbailey.github.io/about">About</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/katbailey"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      <a href="http://twitter.com/katherinebailey"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>&copy; 2016 Katherine Bailey</p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Thoughts on data-driven language learning</h1>
+    <span class="post-date">Sep 12, 2016 &middot; 5 minute read &middot; <a href="http://katbailey.github.io/post/thoughts-on-data-driven-language-learning/#disqus_thread">Comments</a>
+    
+    <br/>
+    
+    </span>
+    <p>I used to be a language pedant. I would bemoan the use of the word &ldquo;presently&rdquo; to mean &ldquo;currently&rdquo;, shudder at &ldquo;between you and I&rdquo;, gasp at the use of &ldquo;literally&rdquo; to mean&hellip; &ldquo;not literally&rdquo; (&ldquo;I literally peed my pants laughing.&rdquo; &ldquo;Orly?&rdquo;) I would get particularly exasperated when I heard people use phrases that were clearly (to me) nonsensical but that <em>sounded</em> almost correct. A classic example of this is when people say &ldquo;The reason being is&hellip;&rdquo; or start a sentence with &ldquo;As such, &hellip;&rdquo; when the word &ldquo;such&rdquo; does not refer to anything. The <a href="http://blog.oxforddictionaries.com/2011/09/participles-how-not-to-dangle/">dangling participle</a> is another whole class of examples.</p>
+
+<p>But now I actually find these usage tendencies quite fascinating (ok, I still shudder at &ldquo;between you and I&rdquo;.) They seem to indicate that people&rsquo;s choice of words is based on what they&rsquo;ve heard over and over, rather than on their employment of grammatical rules. And if they misremember what they heard they&rsquo;ll say something that sounds roughly the same even if it&rsquo;s ungrammatical. Or they&rsquo;ll throw phrases into places where they sound like they might belong, even though they don&rsquo;t. Then common mistakes like using &ldquo;as such&rdquo; to mean something similar to &ldquo;therefore&rdquo; proliferate and before you know it &ldquo;literally&rdquo; means &ldquo;not literally&rdquo;.</p>
+
+<p>A recent <a href="http://www.scientificamerican.com/article/evidence-rebuts-chomsky-s-theory-of-language-learning/">article in Scientific American</a> refutes Chomsky&rsquo;s very influential Universal Grammar theory, which postulates the existence of a sort of toolkit for learning language that is hard-wired into our brains. This module is an instantiation of a grammar that all human languages conform to, according to the theory, and is what enables us to learn language. The Scientific American article introduces an alternative theory referred to simply as a usage-based theory of linguistics, which does away entirely with the need for any sort of hard-wired grammar toolkit in our brains in order to explain our ability to acquire language. Instead, the authors claim, children are born with a set of general purpose tools that allow them to perform tasks like object categorization, reading the intentions of others, and making analogies; and these are the tools used in language learning as well as in the performance of other non-language related tasks.</p>
+
+<p>One argument they give that I find quite compelling talks about utterances of the form &ldquo;Him a presidential candidate?!&rdquo;, &ldquo;Her go to the ballet?!,&rdquo; &ldquo;Him a doctor?!&rdquo;, etc., and how we can produce infinitely many such utterances even though they are ungrammatical. The Universal Grammar theory has to jump through hoops to explain this, invoking a list of exceptions to grammatical rules in addition to the rules themselves&hellip;</p>
+
+<blockquote>
+<p>So the question becomes, are these utterances part of the core grammar or the list of exceptions? If they are not part of a core grammar, then they must be learned individually as separate items. But if children can learn these part-rule, part-exception utterances, then why can they not learn the rest of language the same way? In other words, why do they need universal grammar at all?</p>
+</blockquote>
+
+<p>When theories have to introduce all kinds of complexities in order to cope with new evidence, that does seem like the right time to abandon them. At any rate, given my observations above about people shoving words and phrases that sound roughly appropriate into their sentences, without regard for correctness, I was obviously going to like this new usage-based theory :) But I like it for another reason also: it aligns beautifully with data-driven approaches to Natural Language Processing tasks such as machine translation.</p>
+
+<p>In the 2009 paper <a href="http://static.googleusercontent.com/media/research.google.com/en//pubs/archive/35179.pdf">The Unreasonable Effectiveness of Data</a> by researchers at Google, the authors talk about how tasks where rules-based approaches have traditionally beaten statistical approaches usually succumb eventually when enough data is thrown at them. The more data you have, the less need you have of rules:</p>
+
+<blockquote>
+<p>Instead of assuming that general patterns are more effective than memorizing specific phrases, today’s translation models introduce general rules only when they improve translation over just memorizing particular phrases (for instance, in rules for dates and numbers).</p>
+</blockquote>
+
+<p>Memorizing phrases is exactly what I think <em>people</em> do. Now, I&rsquo;m not suggesting that all of this means that Natural Language Understanding in AI will soon be a solved problem &ndash; there&rsquo;s still the issue of equipping machines with the ability to analogize, read communicative intentions, etc. &ndash; but I do think it means we&rsquo;ve only seen the tip of the iceberg when it comes to what the data-driven approach to NLU can achieve.</p>
+
+<p>I&rsquo;m particularly excited by the idea of <em>distributed word representations</em>, a.k.a. <em>word embeddings</em>, where you train a set of vectorized representations of words such that the relationships between words is captured by the mathematical relationships that hold between the vectors representing them. This idea, coupled with massive corpora, e.g. all of Wikipedia, leads to the creation of pre-trained sets of embeddings like <a href="https://code.google.com/archive/p/word2vec">word2vec</a> and <a href="http://nlp.stanford.edu/projects/glove/">GloVe</a>, which hold really rich representations of how words are used in a language. These pretrained embeddings can then be used for a wide range of downstream NLP tasks, e.g. <a href="https://blog.keras.io/using-pre-trained-word-embeddings-in-a-keras-model.html">text classification</a>, <a href="http://www.manzil.ml/res/Papers/2015_ACL_GLDA.pdf">topic modeling</a> and <a href="http://vene.ro/blog/word-movers-distance-in-python.html">document similarity</a>.</p>
+
+<p>Granted, these existing sets of embeddings may not capture the &ldquo;not literally&rdquo; sense of &ldquo;literally&rdquo;, but once we add Youtube comments to the training corpora and figure out the mathematics required to make a word vector mean the same thing as its opposite, we&rsquo;ll be off to the races. Literally!</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "katbailey";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "katbailey";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="http://katbailey.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="http://katbailey.github.io/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+
+<script src="http://katbailey.github.io/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+
