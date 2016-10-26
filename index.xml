@@ -6,8 +6,58 @@
     <description>Recent content on ohAI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 12 Sep 2016 16:57:39 -0400</lastBuildDate>
+    <lastBuildDate>Mon, 24 Oct 2016 10:02:12 -0400</lastBuildDate>
     <atom:link href="http://katbailey.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Why Machine Learning is not a path to the Singularity</title>
+      <link>http://katbailey.github.io/post/why-machine-learning-is-not-a-path-to-the-singularity/</link>
+      <pubDate>Mon, 24 Oct 2016 10:02:12 -0400</pubDate>
+      
+      <guid>http://katbailey.github.io/post/why-machine-learning-is-not-a-path-to-the-singularity/</guid>
+      <description>&lt;p&gt;All of the advances in Artificial Intelligence that you ever hear about — whether it’s &lt;a href=&#34;http://www.wired.com/2016/03/googles-ai-wins-fifth-final-game-go-genius-lee-sedol/&#34;&gt;machines beating humans at Go&lt;/a&gt;, &lt;a href=&#34;https://research.googleblog.com/2016/09/a-neural-network-for-machine.html&#34;&gt;great advances in Machine Translation&lt;/a&gt;, self-driving cars, or anything else — are examples of weak AI. They are each focused on a single, narrowly defined task. Some would have you believe, even &lt;a href=&#34;http://observer.com/2015/08/stephen-hawking-elon-musk-and-bill-gates-warn-about-artificial-intelligence/&#34;&gt;fear&lt;/a&gt;, that these advances will inevitably lead to strong AI (human-level intelligence), which in turn will lead to a Superintelligence we’ll no longer control. The fear is even that such an entity will subjugate the human race and take over the world! Perhaps there are paths to this sort of Superintelligence, but weak AI — whether using Machine Learning or other techniques — isn’t one of them.&lt;/p&gt;
+
+&lt;p&gt;Among those convinced of the simple progression from weak AI to strong AI are Nick Bostrom, author of &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies&#34;&gt;SuperIntelligence: Paths, Dangers, Strategies&lt;/a&gt;&lt;/em&gt;, who recently &lt;a href=&#34;http://www.businessinsider.com/nick-bostrom-deepmind-is-winning-the-ai-race-2016-10&#34;&gt;told Business Insider&lt;/a&gt; that machines will reach human levels of intelligence within the next few decades, and neuroscientist / philosopher Sam Harris. Harris proclaimed in a &lt;a href=&#34;http://www.ted.com/talks/sam_harris_can_we_build_ai_without_losing_control_over_it&#34;&gt;recent TED talk&lt;/a&gt;,&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;as long as we continue to build systems of atoms that display more and more intelligent behavior, we will eventually build general intelligence into our machines.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;He even added that,&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Any progress is enough, we just need to keep going.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;The idea of an artificial Superintelligence arising as an inevitable consequence of continued technological progress was popularized (albeit more optimistically) by Ray Kurzweil. In his book, The Singularity is Near, Kurzweil offers page after page of exponential growth curves as evidence for this inevitability.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/exponential_progress.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;One thing that both the pessimistic and optimistic takes on the Singularity have in common is a complete lack of rigor in defining what they’re even talking about. Bostrom, disappointingly but perhaps also wisely, never attempts a definition of intelligence. Harris defines it as information processing and warns us that our continued improvements in information processing will just inevitably result in entities far more intelligent than us.&lt;/p&gt;
+
+&lt;p&gt;Let’s imagine these entities of the future that have arisen as a result of progress in weak AI. Imagine them as creatures, who can do things in the world (otherwise, how could they threaten us?). What are these creatures interested in? Whatever their interests, they must be interests that are better served with increased information processing capabilities. Now let’s flip the progress curve around to go back in time…&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/exponential_progress_reverse.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;Traveling back in time, the information processing ability of these creatures, which is what enables them to better serve their own interests than we can serve ours, decreases. So at each point we should have creatures with interests, i.e., with desires, motivations, etc., that they are less well able to serve, since they’ve got less “intelligence”. But we already know that’s not what we’ll find. Imagine we go all the way back to the present! All we’ll find is machines built by humans, with algorithms written by humans, all designed to serve the interests of humans. If our imagined superintelligent entities of the future existed — and remember, they’re supposed to be the descendants of current weak AI systems—then their past would exist right now. But it doesn’t.&lt;/p&gt;
+
+&lt;p&gt;Intelligence isn’t an end in itself; it’s a means to an end. We humans make use of our superior information processing abilities to survive and thrive in the world. This includes creating weak AI systems. If in the future there are other entities that can make similar use of such resources, then it’s the creation of those creatures, not the weak AI systems they’ll make use of, that marks the beginning of progress towards Superintelligence. After all, weak AI systems are essentially tools. They’re great for doing specific things, but they’re never going take over the world by themselves. For that sort of danger, you need a creature or an entity who looks at these tools and says, “I want to take over the world, and maybe I can use these tools to help me do that.”&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Thoughts on data-driven language learning</title>

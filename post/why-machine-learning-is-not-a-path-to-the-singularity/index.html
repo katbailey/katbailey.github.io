@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Why Machine Learning is not a path to the Singularity &middot; </title>
+
+  
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/styles.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/highlight/monokai_sublime.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://katbailey.github.io/touch-icon-144-precomposed.png">
+  <link href="http://katbailey.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+  <link href="http://katbailey.github.io/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      
+      
+      
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i = 0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>ohAI</h1>
+          <figure class="center profile-pic">
+      <a href="http://katbailey.github.io/about"><img src="/images/kat_sm.png" /></a>
+    </figure>
+      <p class="lead">Where I write about things vaguely (and sometimes even closely!) related to AI</p>
+    </div>
+    <ul class="sidebar-nav">
+
+      <li class="sidebar-nav-item"><a href="http://katbailey.github.io/">Home</a></li>
+            <li class="sidebar-nav-item"><a href="http://katbailey.github.io/about">About</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/katbailey"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      <a href="http://twitter.com/katherinebailey"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>&copy; 2016 Katherine Bailey</p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Why Machine Learning is not a path to the Singularity</h1>
+    <span class="post-date">Oct 24, 2016 &middot; 4 minute read &middot; <a href="http://katbailey.github.io/post/why-machine-learning-is-not-a-path-to-the-singularity/#disqus_thread">Comments</a>
+    
+    <br/>
+    
+    </span>
+    <p>All of the advances in Artificial Intelligence that you ever hear about — whether it’s <a href="http://www.wired.com/2016/03/googles-ai-wins-fifth-final-game-go-genius-lee-sedol/">machines beating humans at Go</a>, <a href="https://research.googleblog.com/2016/09/a-neural-network-for-machine.html">great advances in Machine Translation</a>, self-driving cars, or anything else — are examples of weak AI. They are each focused on a single, narrowly defined task. Some would have you believe, even <a href="http://observer.com/2015/08/stephen-hawking-elon-musk-and-bill-gates-warn-about-artificial-intelligence/">fear</a>, that these advances will inevitably lead to strong AI (human-level intelligence), which in turn will lead to a Superintelligence we’ll no longer control. The fear is even that such an entity will subjugate the human race and take over the world! Perhaps there are paths to this sort of Superintelligence, but weak AI — whether using Machine Learning or other techniques — isn’t one of them.</p>
+
+<p>Among those convinced of the simple progression from weak AI to strong AI are Nick Bostrom, author of <em><a href="https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies">SuperIntelligence: Paths, Dangers, Strategies</a></em>, who recently <a href="http://www.businessinsider.com/nick-bostrom-deepmind-is-winning-the-ai-race-2016-10">told Business Insider</a> that machines will reach human levels of intelligence within the next few decades, and neuroscientist / philosopher Sam Harris. Harris proclaimed in a <a href="http://www.ted.com/talks/sam_harris_can_we_build_ai_without_losing_control_over_it">recent TED talk</a>,</p>
+
+<blockquote>
+<p>as long as we continue to build systems of atoms that display more and more intelligent behavior, we will eventually build general intelligence into our machines.</p>
+</blockquote>
+
+<p>He even added that,</p>
+
+<blockquote>
+<p>Any progress is enough, we just need to keep going.</p>
+</blockquote>
+
+<p>The idea of an artificial Superintelligence arising as an inevitable consequence of continued technological progress was popularized (albeit more optimistically) by Ray Kurzweil. In his book, The Singularity is Near, Kurzweil offers page after page of exponential growth curves as evidence for this inevitability.</p>
+
+<p>
+<figure class="center">
+    
+        <img src="/images/exponential_progress.png" />
+    
+    
+</figure>
+</p>
+
+<p>One thing that both the pessimistic and optimistic takes on the Singularity have in common is a complete lack of rigor in defining what they’re even talking about. Bostrom, disappointingly but perhaps also wisely, never attempts a definition of intelligence. Harris defines it as information processing and warns us that our continued improvements in information processing will just inevitably result in entities far more intelligent than us.</p>
+
+<p>Let’s imagine these entities of the future that have arisen as a result of progress in weak AI. Imagine them as creatures, who can do things in the world (otherwise, how could they threaten us?). What are these creatures interested in? Whatever their interests, they must be interests that are better served with increased information processing capabilities. Now let’s flip the progress curve around to go back in time…</p>
+
+<p>
+<figure class="center">
+    
+        <img src="/images/exponential_progress_reverse.png" />
+    
+    
+</figure>
+</p>
+
+<p>Traveling back in time, the information processing ability of these creatures, which is what enables them to better serve their own interests than we can serve ours, decreases. So at each point we should have creatures with interests, i.e., with desires, motivations, etc., that they are less well able to serve, since they’ve got less “intelligence”. But we already know that’s not what we’ll find. Imagine we go all the way back to the present! All we’ll find is machines built by humans, with algorithms written by humans, all designed to serve the interests of humans. If our imagined superintelligent entities of the future existed — and remember, they’re supposed to be the descendants of current weak AI systems—then their past would exist right now. But it doesn’t.</p>
+
+<p>Intelligence isn’t an end in itself; it’s a means to an end. We humans make use of our superior information processing abilities to survive and thrive in the world. This includes creating weak AI systems. If in the future there are other entities that can make similar use of such resources, then it’s the creation of those creatures, not the weak AI systems they’ll make use of, that marks the beginning of progress towards Superintelligence. After all, weak AI systems are essentially tools. They’re great for doing specific things, but they’re never going take over the world by themselves. For that sort of danger, you need a creature or an entity who looks at these tools and says, “I want to take over the world, and maybe I can use these tools to help me do that.”</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "katbailey";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "katbailey";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="http://katbailey.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="http://katbailey.github.io/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+
+<script src="http://katbailey.github.io/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+
