@@ -6,8 +6,69 @@
     <description>Recent content on ohAI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Oct 2016 10:02:12 -0400</lastBuildDate>
+    <lastBuildDate>Thu, 27 Oct 2016 09:06:30 -0500</lastBuildDate>
     <atom:link href="http://katbailey.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Reframing the &#34;AI Effect&#34;</title>
+      <link>http://katbailey.github.io/post/reframing-the-ai-effect/</link>
+      <pubDate>Thu, 27 Oct 2016 09:06:30 -0500</pubDate>
+      
+      <guid>http://katbailey.github.io/post/reframing-the-ai-effect/</guid>
+      <description>&lt;p&gt;(&lt;a href=&#34;https://medium.com/@katherinebailey/reframing-the-ai-effect-c445f87ea98b#.fsdszp5fu&#34;&gt;This piece was originally posted on Medium&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/karpov.jpeg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;There’s a phenomenon known as the &lt;a href=&#34;https://en.wikipedia.org/wiki/AI_effect&#34;&gt;AI effect&lt;/a&gt;, whereby as soon as Artificial Intelligence (AI) researchers achieve a milestone long thought to signify the achievement of true artificial intelligence, e.g., beating a human at chess, it suddenly gets downgraded to not true AI. Kevin Kelly wrote in a &lt;a href=&#34;https://www.wired.com/2014/10/future-of-artificial-intelligence/&#34;&gt;Wired article in October 2014&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;In the past, we would have said only a superintelligent AI could drive a car, or beat a human at Jeopardy! or chess. But once AI did each of those things, we considered that achievement obviously mechanical and hardly worth the label of true intelligence. Every success in AI redefines it.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;Why does this happen? Why did people once think only a superintelligent AI could beat a human at chess? Because they thought the only way that chess could be played really well was how humans play it. And humans use numerous abilities in playing chess. Surely an AI would need all those abilities too. But then along came Deep Blue: a computer that could beat any human chess player in the world, but could do absolutely nothing else. Surely this wasn’t the holy grail we had sought! Nobody would claim this was a superintelligent entity!&lt;/p&gt;
+
+&lt;p&gt;A superintelligent AI is also called a strong AI, an AI with human-level (or greater) intelligence. This is in contrast to weak AIs, which are focused on narrowly defined tasks, like winning chess or Go.&lt;/p&gt;
+
+&lt;p&gt;A better way of thinking about the AI effect is to say that tasks we previously thought would require strong AI turned out to be possible with weak AI.&lt;/p&gt;
+
+&lt;p&gt;Some well-known AI researchers who note the AI effect might say “true AI is whatever hasn’t been done yet.” They distinguish between:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/ai_distinction_1.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;But this is the wrong way to frame the issue, because it makes it appear that all we need is time: if we just keep going, we’ll eventually solve everything and create strong AI. This means that every step we’re taking right now is seen as a step in that direction. I doubt many AI researchers actually believe this. It’s more like a defensive quip in the face of people’s apparent failure to be impressed enough at AI’s successes.&lt;/p&gt;
+
+&lt;p&gt;The useful distinction to make isn’t between what we’ve already solved and what we haven’t, which suggests that time is the only factor that makes a difference. Instead, the useful distinction is between:&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/ai_distinction_2.png&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;If we frame the issue this way, then even if we originally put a problem like “build something that can beat the best human at chess” in the box on the right, because we think it would require strong AI, once we actually solve it with weak AI, we just move it to the box on the left. Note that this doesn’t imply anything at all about our progress towards building a strong AI, whereas the original framing did.&lt;/p&gt;
+
+&lt;p&gt;The lack of a simple progression from weak AI to strong AI has important implications. For starters, it means we can stop worrying about a Superintelligence taking over the world, as I wrote about in &lt;a href=&#34;http://katbailey.github.io/post/why-machine-learning-is-not-a-path-to-the-singularity/&#34;&gt;Why Machine Learning is not a path to the Singularity&lt;/a&gt;. But it also means we should focus our AI efforts, frame our research questions, and operationalize everything we do in this field with a very clear conception of the problems we should be trying to solve and how they can be formulated as weak AI problems. If they can’t, then we shouldn’t waste our time or our budgets on them.&lt;/p&gt;
+
+&lt;p&gt;Unless of course you’re Google, in which case you start a &lt;a href=&#34;https://backchannel.com/google-our-assistant-will-trigger-the-next-era-of-ai-3c72a4d7bc75#.lkppf4545&#34;&gt;multi-year project which may or may not solve Natural Language Understanding&lt;/a&gt;. I will certainly be intrigued to follow the progress on that one!&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Why Machine Learning is not a path to the Singularity</title>
@@ -15,7 +76,9 @@
       <pubDate>Mon, 24 Oct 2016 10:02:12 -0400</pubDate>
       
       <guid>http://katbailey.github.io/post/why-machine-learning-is-not-a-path-to-the-singularity/</guid>
-      <description>&lt;p&gt;All of the advances in Artificial Intelligence that you ever hear about — whether it’s &lt;a href=&#34;http://www.wired.com/2016/03/googles-ai-wins-fifth-final-game-go-genius-lee-sedol/&#34;&gt;machines beating humans at Go&lt;/a&gt;, &lt;a href=&#34;https://research.googleblog.com/2016/09/a-neural-network-for-machine.html&#34;&gt;great advances in Machine Translation&lt;/a&gt;, self-driving cars, or anything else — are examples of weak AI. They are each focused on a single, narrowly defined task. Some would have you believe, even &lt;a href=&#34;http://observer.com/2015/08/stephen-hawking-elon-musk-and-bill-gates-warn-about-artificial-intelligence/&#34;&gt;fear&lt;/a&gt;, that these advances will inevitably lead to strong AI (human-level intelligence), which in turn will lead to a Superintelligence we’ll no longer control. The fear is even that such an entity will subjugate the human race and take over the world! Perhaps there are paths to this sort of Superintelligence, but weak AI — whether using Machine Learning or other techniques — isn’t one of them.&lt;/p&gt;
+      <description>&lt;p&gt;(&lt;a href=&#34;https://medium.com/@katherinebailey/why-machine-learning-is-not-a-path-to-the-singularity-540d957ef847#.je6h6x8cm&#34;&gt;This piece was originally posted on Medium&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;All of the advances in Artificial Intelligence that you ever hear about — whether it’s &lt;a href=&#34;http://www.wired.com/2016/03/googles-ai-wins-fifth-final-game-go-genius-lee-sedol/&#34;&gt;machines beating humans at Go&lt;/a&gt;, &lt;a href=&#34;https://research.googleblog.com/2016/09/a-neural-network-for-machine.html&#34;&gt;great advances in Machine Translation&lt;/a&gt;, self-driving cars, or anything else — are examples of weak AI. They are each focused on a single, narrowly defined task. Some would have you believe, even &lt;a href=&#34;http://observer.com/2015/08/stephen-hawking-elon-musk-and-bill-gates-warn-about-artificial-intelligence/&#34;&gt;fear&lt;/a&gt;, that these advances will inevitably lead to strong AI (human-level intelligence), which in turn will lead to a Superintelligence we’ll no longer control. The fear is even that such an entity will subjugate the human race and take over the world! Perhaps there are paths to this sort of Superintelligence, but weak AI — whether using Machine Learning or other techniques — isn’t one of them.&lt;/p&gt;
 
 &lt;p&gt;Among those convinced of the simple progression from weak AI to strong AI are Nick Bostrom, author of &lt;em&gt;&lt;a href=&#34;https://en.wikipedia.org/wiki/Superintelligence:_Paths,_Dangers,_Strategies&#34;&gt;SuperIntelligence: Paths, Dangers, Strategies&lt;/a&gt;&lt;/em&gt;, who recently &lt;a href=&#34;http://www.businessinsider.com/nick-bostrom-deepmind-is-winning-the-ai-race-2016-10&#34;&gt;told Business Insider&lt;/a&gt; that machines will reach human levels of intelligence within the next few decades, and neuroscientist / philosopher Sam Harris. Harris proclaimed in a &lt;a href=&#34;http://www.ted.com/talks/sam_harris_can_we_build_ai_without_losing_control_over_it&#34;&gt;recent TED talk&lt;/a&gt;,&lt;/p&gt;
 
