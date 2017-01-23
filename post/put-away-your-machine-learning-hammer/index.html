@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Put away your Machine Learning hammer, criminality is not a nail &middot; </title>
+
+  
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/styles.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/highlight/monokai_sublime.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://katbailey.github.io/touch-icon-144-precomposed.png">
+  <link href="http://katbailey.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+  <link href="http://katbailey.github.io/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      
+      
+      
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i = 0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>ohAI</h1>
+          <figure class="center profile-pic">
+      <a href="http://katbailey.github.io/about"><img src="/images/kat_sm.png" /></a>
+    </figure>
+      <p class="lead">Where I write about things vaguely (and sometimes even closely!) related to AI</p>
+    </div>
+    <ul class="sidebar-nav">
+
+      <li class="sidebar-nav-item"><a href="http://katbailey.github.io/">Home</a></li>
+            <li class="sidebar-nav-item"><a href="http://katbailey.github.io/about">About</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/katbailey"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      <a href="http://twitter.com/katherinebailey"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>&copy; 2017 Katherine Bailey</p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Put away your Machine Learning hammer, criminality is not a nail</h1>
+    <span class="post-date">Nov 29, 2016 &middot; 4 minute read &middot; <a href="http://katbailey.github.io/post/put-away-your-machine-learning-hammer/#disqus_thread">Comments</a>
+    
+    <br/>
+    
+    </span>
+    <p>(<a href="https://medium.com/@katherinebailey/put-away-your-machine-learning-hammer-criminality-is-not-a-nail-1309c84bb899#.4nrjg8l4n">This piece was originally posted on Medium</a>)</p>
+
+<p>Earlier this month, researchers claimed to have found evidence that criminality can be predicted from facial features. In <a href="https://arxiv.org/pdf/1611.04135v1.pdf">“Automated Inference on Criminality using Face Images,”</a> Xiaolin Wu and Xi Zhang describe how they trained classifiers using various machine learning techniques that were able to distinguish photos of criminals from photos of non-criminals with a high level of accuracy.</p>
+
+<p>The result these researchers found can be interpreted differently depending on what assumptions you bring to interpreting it, and what question you’re interested in answering. The authors simply assume there’s no bias in the criminal justice system, and thus that the criminals they have photos of are a representative sample of the criminals in the wider population (including those who have never been caught or convicted for their crimes). The question they’re interested in is whether there’s a correlation between facial features and criminality. And given their assumption, they take their result as evidence that there is such a correlation.</p>
+
+<p>But suppose instead you start from the assumption that there isn’t any relationship between facial features and criminality. In place of this question, you are interested in whether there’s bias in the criminal justice system. Then you’ll take Wu and Zhang’s result as evidence that there is such bias — i.e., that the criminal justice system is biased against people with certain facial features, thus explaining the difference between photos of convicted criminals and photos of people from the general population.</p>
+
+<p>The authors obviously never thought of this possibility.</p>
+
+<blockquote>
+<p>Unlike a human examiner/judge, a computer vision algorithm or classifier has absolutely no subjective baggages, having no emotions, no biases whatsoever due to past experience, race, religion, political doctrine, gender, age, etc., no mental fatigue, no preconditioning of a bad sleep or meal. The automated inference on criminality eliminates the variable of meta-accuracy (the competence of the human judge/examiner) all together.</p>
+</blockquote>
+
+<p>So humans are prone to bias, but this machine learning system isn’t? Despite the fact that the creation of the data set on which the system was trained had (biased) humans involved every step of the way, from the arrest to the conviction of each individual in it? The fact that the researchers didn’t notice this gaping hole in their logic is disconcerting to say the least. Even worse is that they seem to suggest that we should deploy a system like this in the real world. To do what exactly, the authors don’t say, but it probably wouldn’t be about targeting the right advertising at today’s discerning criminals. In the case of advertising, a false positive — an innocent person being identified as a criminal — wouldn’t have serious consequences. In more likely scenarios in which the system might be deployed, however, a false positive could have much worse results, e.g., unwarranted scrutiny of people who have done nothing wrong, or even worse, arrests of innocent people.</p>
+
+<p>Coverage of this paper has <a href="https://www.technologyreview.com/s/602955/neural-network-learns-to-identify-criminals-by-their-faces/?utm_campaign=socialflow&amp;utm_source=twitter&amp;utm_medium=post">drawn</a> <a href="http://www.telegraph.co.uk/technology/2016/11/24/minority-report-style-ai-learns-predict-people-criminals-facial/">parallels</a> with the movie Minority Report, where so-called pre-cogs have prior knowledge of crimes that will be committed in the future. But this comparison misses a crucial point. In the movie, the prediction made by the pre-cogs is always in relation to a particular crime’s being committed by a particular individual at a specified time in the future. And, as the movie suggests, it’s ethically problematic to arrest someone before they’ve actually committed a crime. But in the Wu and Zhang paper it’s even worse because a prediction amounts to nothing more than a statement such as, “this person’s features bear some similarity to the features of a lot of people who have been processed by the criminal justice system.” It says nothing whatsoever about whether this particular person has ever committed a crime.</p>
+
+<p>
+<figure class="left-align">
+    
+        <img src="/images/lambroso.jpg" />
+    
+    
+</figure>
+</p>
+
+<p>What is criminality? The state of having committed a crime? The tendency to commit crimes? <a href="https://en.wikipedia.org/wiki/Cesare_Lombroso">Cesare Lombroso</a>, the 19th century Italian criminologist who put forward the theory that born criminals could be identified by congenital defects, coined the term “criminaloid,” to describe a different type of criminal from a born criminal. A criminaloid was someone who just occasionally committed crimes, but did not have the physical features of a born criminal. Presumably this category was necessary in order to account for individuals who had been caught committing crimes but who did not have congenital defects. Even if you buy into such an idea of born criminals, surely there are also some people who have the facial features of criminals, yet who have never committed a crime. Should they be treated as though they have? Wu and Zhang don’t bother asking such questions, and their machine learning algorithms certainly won’t yield answers to them.</p>
+
+<p>Being proficient in the use of machine learning algorithms such as neural networks, a skill that’s in such incredibly high demand these days, must feel to some people almost god-like — even Thor-like! Maybe every single categorization task will start to look like a nail for Thor’s hammer. Cat pictures and handwritten digits are fair game as “nails.” Criminality is not.</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "katbailey";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "katbailey";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="http://katbailey.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="http://katbailey.github.io/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+
+<script src="http://katbailey.github.io/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+

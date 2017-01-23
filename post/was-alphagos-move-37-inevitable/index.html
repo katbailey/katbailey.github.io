@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Was AlphaGo&#39;s Move 37 Inevitable? &middot; </title>
+
+  
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/styles.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/highlight/monokai_sublime.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://katbailey.github.io/touch-icon-144-precomposed.png">
+  <link href="http://katbailey.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+  <link href="http://katbailey.github.io/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      
+      
+      
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i = 0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>ohAI</h1>
+          <figure class="center profile-pic">
+      <a href="http://katbailey.github.io/about"><img src="/images/kat_sm.png" /></a>
+    </figure>
+      <p class="lead">Where I write about things vaguely (and sometimes even closely!) related to AI</p>
+    </div>
+    <ul class="sidebar-nav">
+
+      <li class="sidebar-nav-item"><a href="http://katbailey.github.io/">Home</a></li>
+            <li class="sidebar-nav-item"><a href="http://katbailey.github.io/about">About</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/katbailey"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      <a href="http://twitter.com/katherinebailey"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>&copy; 2017 Katherine Bailey</p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Was AlphaGo&#39;s Move 37 Inevitable?</h1>
+    <span class="post-date">Jan 18, 2017 &middot; 5 minute read &middot; <a href="http://katbailey.github.io/post/was-alphagos-move-37-inevitable/#disqus_thread">Comments</a>
+    
+    <br/>
+    
+    </span>
+    <p>
+<figure class="center">
+    
+        <img src="/images/go_board.jpg" />
+    
+    
+</figure>
+</p>
+
+<p>This question is interesting to me both because of the way this particular move was reported on at the time, and because it works as a starting point for me to understand the inner workings of AlphaGo. I&rsquo;m talking, of course, about the AI that beat the human Go champion, Lee Sedol, last March. The famous &ldquo;move 37&rdquo; happened in the second game of the 5-game match, and was described by commentators, once they got over their initial shock, with words like &ldquo;beautiful&rdquo; and &ldquo;creative.&rdquo; It left Sedol utterly flumoxed, to the point where he had to spend 15 minutes contemplating his own next move.</p>
+
+<p>The question, which can be interpreted in different ways, is about randomness and probability. I&rsquo;ve read the <a href="http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html">paper in Nature</a> where the researchers explain the architecture of the system and how it was trained, and there are several places where there was randomness at play in AlphaGo, in addition to whatever randomness was at play at the deeper levels of training, e.g. stochastic gradient descent:</p>
+
+<ul>
+<li>Board positions from past human games used to train the policy network via supervised learning were randomly selected</li>
+<li>The output of this policy network is a probability distribution over actions that is sampled from during play</li>
+<li>The output of the faster rollout policy network is a probability distribution over actions that is sampled from during play</li>
+<li>Training of the second policy network where Reinforcement Learning (RL) is used and the system plays against previous iterations of itself uses randomly selected previous iterations of the policy network as opponents</li>
+<li>The output of the RL policy network is a probability distribution over actions that is sampled from during training of the value network. This value network outputs a simple scalar prediction of the outcome given a board position.</li>
+</ul>
+
+<p>A naïve interpretation of the question might be as follows: if we train two different instances of AlphaGo, would they each inevitably make move 37, given the state of the board as it was? Here the answer is clearly No, because of the various sources of randomness that are introduced during training. Even if we hold fixed the first point above, so that the two instances are trained on the exact same set of human game data, the move is still not inevitable, due to the other sources of randomness during training. As explained below, the value of move 37 must have been learned during the self-play part of training, but it could have happened that such moves were never explored during self-play, so the high potential value of the move would not have been learned.</p>
+
+<p>A more interesting version of the question is: given the AlphaGo instance <em>exactly as it had been trained prior to the match with Lee Sedol</em>, was it inevitable that it would make move 37? This holds fixed all of the randomness introduced during training so we only focus on the randomness during play. My understanding is that the sources of randomness introduced at this stage are the sampling of actions during Monte Carlo Tree Search (MCTS) simulations - both in sampling moves to evaluate and as part of the evaluation of each leaf node in the tree, when the fast rollout policy plays to the end of the game to deliver a prediction about the move.</p>
+
+<p>Move 37 must have had a very high action value, because it had to overcome a very low probability of being played by a human. The action value comes partly from the value network and partly from the prediction of the fast rollout policy that plays to the end of the game. Since the fast rollout policy is trained on human board positions, the high value of this action must have been discovered during self play, and so it was the value network derived from the RL policy network that assigned the high value. The same value network would do so again. Perhaps the fast rollout policy predicted a positive outcome, in which case an interesting question is whether there were other possible routes the fast rollout policy could have taken that would have resulted in a negative outcome prediction and whether in that case the high value from the value network would have sufficed to overcome that.</p>
+
+<p>And wasn&rsquo;t there also the chance that this move never would have been sampled during simulation? Although the prior probability assigned by the SL policy network becomes less and less important with the number of visits made to an action, I didn&rsquo;t find anything in the paper that suggests that every possible legal move is evaluated at least once by the value network.</p>
+
+<p>There was a lot of talk in the aftermath of the match about how surprising move 37 was because it was a move that no human player would ever have made and yet was deemed in hindsight to have been &ldquo;masterful.&rdquo; Is this really so surprising though? The system played millions of games against <em>itself</em> after having been trained on millions of human games. Given the complexity of Go, with the number of possible board positions far exceeding the number of atoms in the universe, I&rsquo;d have found it more surprising if this self-play had only led to mastery of the types of moves that had already been played by humans.</p>
+
+<p>At any rate, it seems clear that move 37 in game 2 was not inevitable - it could easily not have been chosen. I leave judgements as to its beauty to those more familiar with the game of Go. As to whether or not it deserves to be called &ldquo;creative,&rdquo; as long as we&rsquo;re ok with reducing the notion of creativity to sampling from probability distributions, I&rsquo;d have to say: Why not? :)</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "katbailey";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "katbailey";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="http://katbailey.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="http://katbailey.github.io/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+
+<script src="http://katbailey.github.io/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+

@@ -6,8 +6,88 @@
     <description>Recent content in Posts on ohAI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Oct 2016 09:06:30 -0500</lastBuildDate>
+    <lastBuildDate>Wed, 18 Jan 2017 19:34:24 -0500</lastBuildDate>
     <atom:link href="http://katbailey.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Was AlphaGo&#39;s Move 37 Inevitable?</title>
+      <link>http://katbailey.github.io/post/was-alphagos-move-37-inevitable/</link>
+      <pubDate>Wed, 18 Jan 2017 19:34:24 -0500</pubDate>
+      
+      <guid>http://katbailey.github.io/post/was-alphagos-move-37-inevitable/</guid>
+      <description>&lt;p&gt;
+&lt;figure class=&#34;center&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/go_board.jpg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;This question is interesting to me both because of the way this particular move was reported on at the time, and because it works as a starting point for me to understand the inner workings of AlphaGo. I&amp;rsquo;m talking, of course, about the AI that beat the human Go champion, Lee Sedol, last March. The famous &amp;ldquo;move 37&amp;rdquo; happened in the second game of the 5-game match, and was described by commentators, once they got over their initial shock, with words like &amp;ldquo;beautiful&amp;rdquo; and &amp;ldquo;creative.&amp;rdquo; It left Sedol utterly flumoxed, to the point where he had to spend 15 minutes contemplating his own next move.&lt;/p&gt;
+
+&lt;p&gt;The question, which can be interpreted in different ways, is about randomness and probability. I&amp;rsquo;ve read the &lt;a href=&#34;http://www.nature.com/nature/journal/v529/n7587/full/nature16961.html&#34;&gt;paper in Nature&lt;/a&gt; where the researchers explain the architecture of the system and how it was trained, and there are several places where there was randomness at play in AlphaGo, in addition to whatever randomness was at play at the deeper levels of training, e.g. stochastic gradient descent:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Board positions from past human games used to train the policy network via supervised learning were randomly selected&lt;/li&gt;
+&lt;li&gt;The output of this policy network is a probability distribution over actions that is sampled from during play&lt;/li&gt;
+&lt;li&gt;The output of the faster rollout policy network is a probability distribution over actions that is sampled from during play&lt;/li&gt;
+&lt;li&gt;Training of the second policy network where Reinforcement Learning (RL) is used and the system plays against previous iterations of itself uses randomly selected previous iterations of the policy network as opponents&lt;/li&gt;
+&lt;li&gt;The output of the RL policy network is a probability distribution over actions that is sampled from during training of the value network. This value network outputs a simple scalar prediction of the outcome given a board position.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;A naïve interpretation of the question might be as follows: if we train two different instances of AlphaGo, would they each inevitably make move 37, given the state of the board as it was? Here the answer is clearly No, because of the various sources of randomness that are introduced during training. Even if we hold fixed the first point above, so that the two instances are trained on the exact same set of human game data, the move is still not inevitable, due to the other sources of randomness during training. As explained below, the value of move 37 must have been learned during the self-play part of training, but it could have happened that such moves were never explored during self-play, so the high potential value of the move would not have been learned.&lt;/p&gt;
+
+&lt;p&gt;A more interesting version of the question is: given the AlphaGo instance &lt;em&gt;exactly as it had been trained prior to the match with Lee Sedol&lt;/em&gt;, was it inevitable that it would make move 37? This holds fixed all of the randomness introduced during training so we only focus on the randomness during play. My understanding is that the sources of randomness introduced at this stage are the sampling of actions during Monte Carlo Tree Search (MCTS) simulations - both in sampling moves to evaluate and as part of the evaluation of each leaf node in the tree, when the fast rollout policy plays to the end of the game to deliver a prediction about the move.&lt;/p&gt;
+
+&lt;p&gt;Move 37 must have had a very high action value, because it had to overcome a very low probability of being played by a human. The action value comes partly from the value network and partly from the prediction of the fast rollout policy that plays to the end of the game. Since the fast rollout policy is trained on human board positions, the high value of this action must have been discovered during self play, and so it was the value network derived from the RL policy network that assigned the high value. The same value network would do so again. Perhaps the fast rollout policy predicted a positive outcome, in which case an interesting question is whether there were other possible routes the fast rollout policy could have taken that would have resulted in a negative outcome prediction and whether in that case the high value from the value network would have sufficed to overcome that.&lt;/p&gt;
+
+&lt;p&gt;And wasn&amp;rsquo;t there also the chance that this move never would have been sampled during simulation? Although the prior probability assigned by the SL policy network becomes less and less important with the number of visits made to an action, I didn&amp;rsquo;t find anything in the paper that suggests that every possible legal move is evaluated at least once by the value network.&lt;/p&gt;
+
+&lt;p&gt;There was a lot of talk in the aftermath of the match about how surprising move 37 was because it was a move that no human player would ever have made and yet was deemed in hindsight to have been &amp;ldquo;masterful.&amp;rdquo; Is this really so surprising though? The system played millions of games against &lt;em&gt;itself&lt;/em&gt; after having been trained on millions of human games. Given the complexity of Go, with the number of possible board positions far exceeding the number of atoms in the universe, I&amp;rsquo;d have found it more surprising if this self-play had only led to mastery of the types of moves that had already been played by humans.&lt;/p&gt;
+
+&lt;p&gt;At any rate, it seems clear that move 37 in game 2 was not inevitable - it could easily not have been chosen. I leave judgements as to its beauty to those more familiar with the game of Go. As to whether or not it deserves to be called &amp;ldquo;creative,&amp;rdquo; as long as we&amp;rsquo;re ok with reducing the notion of creativity to sampling from probability distributions, I&amp;rsquo;d have to say: Why not? :)&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Put away your Machine Learning hammer, criminality is not a nail</title>
+      <link>http://katbailey.github.io/post/put-away-your-machine-learning-hammer/</link>
+      <pubDate>Tue, 29 Nov 2016 18:13:28 -0500</pubDate>
+      
+      <guid>http://katbailey.github.io/post/put-away-your-machine-learning-hammer/</guid>
+      <description>&lt;p&gt;(&lt;a href=&#34;https://medium.com/@katherinebailey/put-away-your-machine-learning-hammer-criminality-is-not-a-nail-1309c84bb899#.4nrjg8l4n&#34;&gt;This piece was originally posted on Medium&lt;/a&gt;)&lt;/p&gt;
+
+&lt;p&gt;Earlier this month, researchers claimed to have found evidence that criminality can be predicted from facial features. In &lt;a href=&#34;https://arxiv.org/pdf/1611.04135v1.pdf&#34;&gt;“Automated Inference on Criminality using Face Images,”&lt;/a&gt; Xiaolin Wu and Xi Zhang describe how they trained classifiers using various machine learning techniques that were able to distinguish photos of criminals from photos of non-criminals with a high level of accuracy.&lt;/p&gt;
+
+&lt;p&gt;The result these researchers found can be interpreted differently depending on what assumptions you bring to interpreting it, and what question you’re interested in answering. The authors simply assume there’s no bias in the criminal justice system, and thus that the criminals they have photos of are a representative sample of the criminals in the wider population (including those who have never been caught or convicted for their crimes). The question they’re interested in is whether there’s a correlation between facial features and criminality. And given their assumption, they take their result as evidence that there is such a correlation.&lt;/p&gt;
+
+&lt;p&gt;But suppose instead you start from the assumption that there isn’t any relationship between facial features and criminality. In place of this question, you are interested in whether there’s bias in the criminal justice system. Then you’ll take Wu and Zhang’s result as evidence that there is such bias — i.e., that the criminal justice system is biased against people with certain facial features, thus explaining the difference between photos of convicted criminals and photos of people from the general population.&lt;/p&gt;
+
+&lt;p&gt;The authors obviously never thought of this possibility.&lt;/p&gt;
+
+&lt;blockquote&gt;
+&lt;p&gt;Unlike a human examiner/judge, a computer vision algorithm or classifier has absolutely no subjective baggages, having no emotions, no biases whatsoever due to past experience, race, religion, political doctrine, gender, age, etc., no mental fatigue, no preconditioning of a bad sleep or meal. The automated inference on criminality eliminates the variable of meta-accuracy (the competence of the human judge/examiner) all together.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;So humans are prone to bias, but this machine learning system isn’t? Despite the fact that the creation of the data set on which the system was trained had (biased) humans involved every step of the way, from the arrest to the conviction of each individual in it? The fact that the researchers didn’t notice this gaping hole in their logic is disconcerting to say the least. Even worse is that they seem to suggest that we should deploy a system like this in the real world. To do what exactly, the authors don’t say, but it probably wouldn’t be about targeting the right advertising at today’s discerning criminals. In the case of advertising, a false positive — an innocent person being identified as a criminal — wouldn’t have serious consequences. In more likely scenarios in which the system might be deployed, however, a false positive could have much worse results, e.g., unwarranted scrutiny of people who have done nothing wrong, or even worse, arrests of innocent people.&lt;/p&gt;
+
+&lt;p&gt;Coverage of this paper has &lt;a href=&#34;https://www.technologyreview.com/s/602955/neural-network-learns-to-identify-criminals-by-their-faces/?utm_campaign=socialflow&amp;amp;utm_source=twitter&amp;amp;utm_medium=post&#34;&gt;drawn&lt;/a&gt; &lt;a href=&#34;http://www.telegraph.co.uk/technology/2016/11/24/minority-report-style-ai-learns-predict-people-criminals-facial/&#34;&gt;parallels&lt;/a&gt; with the movie Minority Report, where so-called pre-cogs have prior knowledge of crimes that will be committed in the future. But this comparison misses a crucial point. In the movie, the prediction made by the pre-cogs is always in relation to a particular crime’s being committed by a particular individual at a specified time in the future. And, as the movie suggests, it’s ethically problematic to arrest someone before they’ve actually committed a crime. But in the Wu and Zhang paper it’s even worse because a prediction amounts to nothing more than a statement such as, “this person’s features bear some similarity to the features of a lot of people who have been processed by the criminal justice system.” It says nothing whatsoever about whether this particular person has ever committed a crime.&lt;/p&gt;
+
+&lt;p&gt;
+&lt;figure class=&#34;left-align&#34;&gt;
+    
+        &lt;img src=&#34;http://katbailey.github.io/images/lambroso.jpg&#34; /&gt;
+    
+    
+&lt;/figure&gt;
+&lt;/p&gt;
+
+&lt;p&gt;What is criminality? The state of having committed a crime? The tendency to commit crimes? &lt;a href=&#34;https://en.wikipedia.org/wiki/Cesare_Lombroso&#34;&gt;Cesare Lombroso&lt;/a&gt;, the 19th century Italian criminologist who put forward the theory that born criminals could be identified by congenital defects, coined the term “criminaloid,” to describe a different type of criminal from a born criminal. A criminaloid was someone who just occasionally committed crimes, but did not have the physical features of a born criminal. Presumably this category was necessary in order to account for individuals who had been caught committing crimes but who did not have congenital defects. Even if you buy into such an idea of born criminals, surely there are also some people who have the facial features of criminals, yet who have never committed a crime. Should they be treated as though they have? Wu and Zhang don’t bother asking such questions, and their machine learning algorithms certainly won’t yield answers to them.&lt;/p&gt;
+
+&lt;p&gt;Being proficient in the use of machine learning algorithms such as neural networks, a skill that’s in such incredibly high demand these days, must feel to some people almost god-like — even Thor-like! Maybe every single categorization task will start to look like a nail for Thor’s hammer. Cat pictures and handwritten digits are fair game as “nails.” Criminality is not.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Reframing the &#34;AI Effect&#34;</title>
