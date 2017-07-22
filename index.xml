@@ -2,12 +2,70 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>ohAI</title>
-    <link>http://katbailey.github.io/</link>
+    <link>http://katbailey.github.io/index.xml</link>
     <description>Recent content on ohAI</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 23 Jan 2017 17:00:24 -0500</lastBuildDate>
+    <lastBuildDate>Sat, 22 Jul 2017 15:44:05 -0400</lastBuildDate>
     <atom:link href="http://katbailey.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>You Don’t Know What A.I. Is (an afternoon with Elon Musk)</title>
+      <link>http://katbailey.github.io/post/you-dont-know-what-ai-is/</link>
+      <pubDate>Sat, 22 Jul 2017 15:44:05 -0400</pubDate>
+      
+      <guid>http://katbailey.github.io/post/you-dont-know-what-ai-is/</guid>
+      <description>&lt;p&gt;Inspired by the Raymond Carver flavor of &lt;a href=&#34;https://opendatascience.com/blog/what-we-talk-about-when-we-talk-about-ai/&#34;&gt;this post by Tom Davenport on Artificial Intelligence&lt;/a&gt;, here’s my take on Elon Musk’s warnings to a room full of governors about A.I. and the future of humanity. It is based on Raymond Carver’s &lt;a href=&#34;https://bukowskiforum.com/threads/you-dont-know-what-love-is-an-evening-with-charles-bukowski-by-raymond-carver.126/&#34;&gt;You Don’t Know What Love Is (an evening with Charles Bukowski)&lt;/a&gt;.
+&lt;pre&gt;
+
+You don&#39;t know what A.I. is Musk said 
+I&#39;m 46 years old look at me 
+There isn&#39;t one of you in this room
+would recognize A.I. if it stepped up
+and slapped you in the face
+I&#39;m telling you what it is 
+but you aren&#39;t listening
+
+I have access to cutting-edge A.I. tech
+I know what&#39;s it like
+What do any of you know about A.I.
+
+I put on my classical music each morning 
+and sit down in front of my laptop 
+I light a cigar and I smoke it like this see 
+and I say Musk you&#39;re a lucky man 
+Musk you&#39;ve gone through it all 
+and you&#39;re a lucky man 
+and the blue smoke drifts across the table
+
+With A.I we&#39;re summoning the demon 
+In all those stories there’s the guy with the 
+pentagram and the holy water, it’s like – 
+yeah, he’s sure he can control the demon
+Doesn’t work out
+
+I see a couple of governors in this room but 
+I don&#39;t see any philosophers 
+I&#39;m not surprised
+You have to have read Asimov&#39;s Foundation series 
+to be a true philosopher
+
+Shit I&#39;m 46 years old and I&#39;m afraid
+
+There&#39;s only one philosopher in this room tonight 
+only one philosopher in this town tonight 
+maybe only one real philosopher in this country tonight 
+and that&#39;s me
+
+This guy LeCun he says 
+Musk 
+and I say What and he says 
+I think you&#39;re full of shit
+
+&lt;/pre&gt;
+&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Was AlphaGo&#39;s Move 37 Inevitable?</title>
@@ -15,14 +73,14 @@
       <pubDate>Mon, 23 Jan 2017 17:00:24 -0500</pubDate>
       
       <guid>http://katbailey.github.io/post/was-alphagos-move-37-inevitable/</guid>
-      <description>&lt;p&gt;
+      <description>
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/go_board.jpg&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;This question is interesting to me both because of the way this particular move was reported on at the time, and because it works as a starting point for me to understand the inner workings of AlphaGo. I&amp;rsquo;m talking, of course, about the AI that beat the human Go champion, Lee Sedol, last March. The famous &amp;ldquo;move 37&amp;rdquo; happened in the second game of the 5-game match, and was described by commentators, once they got over their initial shock, with words like &amp;ldquo;beautiful&amp;rdquo; and &amp;ldquo;creative.&amp;rdquo; It left Sedol utterly flumoxed, to the point where he had to spend 15 minutes contemplating his own next move.&lt;/p&gt;
 
@@ -74,14 +132,14 @@
 
 &lt;p&gt;Coverage of this paper has &lt;a href=&#34;https://www.technologyreview.com/s/602955/neural-network-learns-to-identify-criminals-by-their-faces/?utm_campaign=socialflow&amp;amp;utm_source=twitter&amp;amp;utm_medium=post&#34;&gt;drawn&lt;/a&gt; &lt;a href=&#34;http://www.telegraph.co.uk/technology/2016/11/24/minority-report-style-ai-learns-predict-people-criminals-facial/&#34;&gt;parallels&lt;/a&gt; with the movie Minority Report, where so-called pre-cogs have prior knowledge of crimes that will be committed in the future. But this comparison misses a crucial point. In the movie, the prediction made by the pre-cogs is always in relation to a particular crime’s being committed by a particular individual at a specified time in the future. And, as the movie suggests, it’s ethically problematic to arrest someone before they’ve actually committed a crime. But in the Wu and Zhang paper it’s even worse because a prediction amounts to nothing more than a statement such as, “this person’s features bear some similarity to the features of a lot of people who have been processed by the criminal justice system.” It says nothing whatsoever about whether this particular person has ever committed a crime.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;left-align&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/lambroso.jpg&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;What is criminality? The state of having committed a crime? The tendency to commit crimes? &lt;a href=&#34;https://en.wikipedia.org/wiki/Cesare_Lombroso&#34;&gt;Cesare Lombroso&lt;/a&gt;, the 19th century Italian criminologist who put forward the theory that born criminals could be identified by congenital defects, coined the term “criminaloid,” to describe a different type of criminal from a born criminal. A criminaloid was someone who just occasionally committed crimes, but did not have the physical features of a born criminal. Presumably this category was necessary in order to account for individuals who had been caught committing crimes but who did not have congenital defects. Even if you buy into such an idea of born criminals, surely there are also some people who have the facial features of criminals, yet who have never committed a crime. Should they be treated as though they have? Wu and Zhang don’t bother asking such questions, and their machine learning algorithms certainly won’t yield answers to them.&lt;/p&gt;
 
@@ -97,14 +155,14 @@
       <guid>http://katbailey.github.io/post/reframing-the-ai-effect/</guid>
       <description>&lt;p&gt;(&lt;a href=&#34;https://medium.com/@katherinebailey/reframing-the-ai-effect-c445f87ea98b#.fsdszp5fu&#34;&gt;This piece was originally posted on Medium&lt;/a&gt;)&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/karpov.jpeg&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;There’s a phenomenon known as the &lt;a href=&#34;https://en.wikipedia.org/wiki/AI_effect&#34;&gt;AI effect&lt;/a&gt;, whereby as soon as Artificial Intelligence (AI) researchers achieve a milestone long thought to signify the achievement of true artificial intelligence, e.g., beating a human at chess, it suddenly gets downgraded to not true AI. Kevin Kelly wrote in a &lt;a href=&#34;https://www.wired.com/2014/10/future-of-artificial-intelligence/&#34;&gt;Wired article in October 2014&lt;/a&gt;:&lt;/p&gt;
 
@@ -120,27 +178,27 @@
 
 &lt;p&gt;Some well-known AI researchers who note the AI effect might say “true AI is whatever hasn’t been done yet.” They distinguish between:&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/ai_distinction_1.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;But this is the wrong way to frame the issue, because it makes it appear that all we need is time: if we just keep going, we’ll eventually solve everything and create strong AI. This means that every step we’re taking right now is seen as a step in that direction. I doubt many AI researchers actually believe this. It’s more like a defensive quip in the face of people’s apparent failure to be impressed enough at AI’s successes.&lt;/p&gt;
 
 &lt;p&gt;The useful distinction to make isn’t between what we’ve already solved and what we haven’t, which suggests that time is the only factor that makes a difference. Instead, the useful distinction is between:&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/ai_distinction_2.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;If we frame the issue this way, then even if we originally put a problem like “build something that can beat the best human at chess” in the box on the right, because we think it would require strong AI, once we actually solve it with weak AI, we just move it to the box on the left. Note that this doesn’t imply anything at all about our progress towards building a strong AI, whereas the original framing did.&lt;/p&gt;
 
@@ -174,27 +232,27 @@
 
 &lt;p&gt;The idea of an artificial Superintelligence arising as an inevitable consequence of continued technological progress was popularized (albeit more optimistically) by Ray Kurzweil. In his book, The Singularity is Near, Kurzweil offers page after page of exponential growth curves as evidence for this inevitability.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/exponential_progress.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;One thing that both the pessimistic and optimistic takes on the Singularity have in common is a complete lack of rigor in defining what they’re even talking about. Bostrom, disappointingly but perhaps also wisely, never attempts a definition of intelligence. Harris defines it as information processing and warns us that our continued improvements in information processing will just inevitably result in entities far more intelligent than us.&lt;/p&gt;
 
 &lt;p&gt;Let’s imagine these entities of the future that have arisen as a result of progress in weak AI. Imagine them as creatures, who can do things in the world (otherwise, how could they threaten us?). What are these creatures interested in? Whatever their interests, they must be interests that are better served with increased information processing capabilities. Now let’s flip the progress curve around to go back in time…&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/exponential_progress_reverse.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Traveling back in time, the information processing ability of these creatures, which is what enables them to better serve their own interests than we can serve ours, decreases. So at each point we should have creatures with interests, i.e., with desires, motivations, etc., that they are less well able to serve, since they’ve got less “intelligence”. But we already know that’s not what we’ll find. Imagine we go all the way back to the present! All we’ll find is machines built by humans, with algorithms written by humans, all designed to serve the interests of humans. If our imagined superintelligent entities of the future existed — and remember, they’re supposed to be the descendants of current weak AI systems—then their past would exist right now. But it doesn’t.&lt;/p&gt;
 
@@ -258,49 +316,49 @@
 
 &lt;p&gt;Recall that in the simple linear regression setting, we have a dependent variable y that we assume can be modeled as a function of an independent variable x, i.e. $ y = f(x) + \epsilon $ (where $ \epsilon $ is the irreducible error) but we assume further that the function $ f $ defines a linear relationship and so we are trying to find the parameters $ \theta_0 $ and $ \theta_1 $ which define the intercept and slope of the line respectively, i.e. $ y = \theta_0 + \theta_1x + \epsilon $. Bayesian linear regression provides a probabilistic approach to this by finding a distribution over the parameters that gets updated whenever new data points are observed. The GP approach, in contrast, is a &lt;em&gt;non-parametric&lt;/em&gt; approach, in that it finds a distribution over the possible &lt;strong&gt;functions&lt;/strong&gt; $ f(x) $ that are consistent with the observed data. As with all Bayesian methods it begins with a prior distribution and updates this as data points are observed, producing the posterior distribution over functions.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/all_the_functions.jpg&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;To get an intuition about what this even means, think of the simple OLS line defined by an intercept and slope that does its best to fit your data.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/bad_least_squares.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;The problem is, this line simply isn&amp;rsquo;t adequate to the task, is it? You&amp;rsquo;d really like a curved line: instead of just 2 parameters $ \theta_0 $ and $ \theta_1 $ for the function $ \hat{y} = \theta_0 + \theta_1x$ it looks like a quadratic function would do the trick, i.e. $ \hat{y} = \theta_0 + \theta_1x + \theta_2x^2 $. Now we&amp;rsquo;d need to learn 3 parameters. But what if we don&amp;rsquo;t want to specify upfront how many parameters are involved? We&amp;rsquo;d like to consider every possible function that matches our data, with however many parameters are involved. That&amp;rsquo;s what non-parametric means: it&amp;rsquo;s not that there aren&amp;rsquo;t parameters, it&amp;rsquo;s that there are infinitely many parameters.&lt;/p&gt;
 
 &lt;p&gt;But of course we need a prior before we&amp;rsquo;ve seen any data. What might that look like? Well, we don&amp;rsquo;t really want ALL THE FUNCTIONS, that would be nuts. So let&amp;rsquo;s put some constraints on it. First of all, we&amp;rsquo;re only interested in a specific domain &amp;mdash; let&amp;rsquo;s say our x values only go from -5 to 5. Now we can say that within that domain we&amp;rsquo;d like to sample functions that produce an output whose mean is, say, 0 and that are &lt;em&gt;not too wiggly&lt;/em&gt;. Here&amp;rsquo;s an example of a very wiggly function:&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/wiggly.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;And here&amp;rsquo;s a much smoother function:&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/smooth.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;There&amp;rsquo;s a way to specify that smoothness: we use a &lt;strong&gt;covariance matrix&lt;/strong&gt; to ensure that values that are close together in input space will produce output values that are close together. This covariance matrix, along with a mean function to output the expected value of $ f(x) $ defines a Gaussian Process.&lt;/p&gt;
 
@@ -413,14 +471,14 @@ pl.title(&#39;Three samples from the GP prior&#39;)
 pl.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/output_prior.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Note that the K_ss variable here corresponds to&lt;code&gt;$K_{**}$&lt;/code&gt;in the equation above for the joint probability. It will be used again below, along with&lt;code&gt;$K$&lt;/code&gt;and&lt;code&gt;$K_{*}$&lt;/code&gt;&lt;/p&gt;
 
@@ -455,14 +513,14 @@ pl.title(&#39;Three samples from the GP posterior&#39;)
 pl.show()
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/output_posterior.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;See how the training points (the blue squares) have &amp;ldquo;reined in&amp;rdquo; the set of possible functions: the ones we have sampled from the posterior all go through those points. The dotted red line shows the mean output and the grey area shows 2 standard deviations from the mean. Note that this is 0 at our training points (because we did not add any noise to our data). Also note how things start to go a bit wild again to the right of our last training point&lt;code&gt;$x = 1$&lt;/code&gt;&amp;mdash; that won&amp;rsquo;t get reined in until we observe some data over there.&lt;/p&gt;
 
@@ -482,18 +540,18 @@ pl.show()
 
 &lt;p&gt;If you have a basic undestanding of linear regression expressed as $ \hat{Y} = \theta_0 + \theta_1X$, but don&amp;rsquo;t have a background in statistics and find statements like &amp;ldquo;ridge regression is equivalent to the maximum a posteriori (MAP) estimate with a zero-mean Gaussian prior&amp;rdquo; bewildering, then this post is for you. (And yes, it&amp;rsquo;s for me as much as it&amp;rsquo;s for you because I was there not long ago.) With a superficial goal of understanding that somewhat obtuse statement, its main objective is to explore the topic, starting from the standard formulation of linear regression, moving on to the probabilistic approach (maximum likelihood formulation) and from there to Bayesian linear regression.&lt;/p&gt;
 
-&lt;p&gt;I&amp;rsquo;ll use the $\theta$ character throughout to refer to the coefficients (weights) of a regression model, either explicitly broken out as $\theta_0$ and $\theta_1$ for intercept and slope respectively, or just $\theta$ referring to the vector of coefficients. I&amp;rsquo;ll usually use the expression $\theta^Tx_i$ for the prediction a model gives at $x_i$, the assumption being that a 1 has been added to the vector of values at $x_i$. &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:a3bf4783b942516f86178995501fdab1:matrixfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:a3bf4783b942516f86178995501fdab1:matrixfootnote&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;ll use the $\theta$ character throughout to refer to the coefficients (weights) of a regression model, either explicitly broken out as $\theta_0$ and $\theta_1$ for intercept and slope respectively, or just $\theta$ referring to the vector of coefficients. I&amp;rsquo;ll usually use the expression $\theta^Tx_i$ for the prediction a model gives at $x_i$, the assumption being that a 1 has been added to the vector of values at $x_i$. &lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:matrixfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:matrixfootnote&#34;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;what-s-in-a-line:a3bf4783b942516f86178995501fdab1&#34;&gt;What&amp;rsquo;s in a line?&lt;/h1&gt;
+&lt;h1 id=&#34;what-s-in-a-line&#34;&gt;What&amp;rsquo;s in a line?&lt;/h1&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/least_squares_sm.jpg&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;In the single predictor case, we know that the least squares fit is the line that minimizes the sum of the squared distances between observed data and predicted values, i.e. it minimizes the Residual Sum of Squares (RSS):
 &lt;div class=&#34;equation&#34;&gt;
@@ -512,15 +570,15 @@ $y_i = \theta_0 + \theta_1x_i + \epsilon_i$
 
 &lt;p&gt;These residuals are pretty important in how we reason about our model. For now we&amp;rsquo;ll just note that by definition they must have an expected value (mean) of 0.&lt;/p&gt;
 
-&lt;p&gt;What else can we say about this line? It defines a particular relationship between the predictor and the outcome. Specifically, the slope of the line is the correlation between outcome values and predictor values, multiplied by the ratio of their standard deviations. So we know how to calculate $\theta_1$ from our data. What about $\theta_0$? Well, we know that the line goes through the point (mean(x), mean(y))&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:a3bf4783b942516f86178995501fdab1:meanxyfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:a3bf4783b942516f86178995501fdab1:meanxyfootnote&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;, and once we know the slope of a line and a single point it goes through we can find the intercept by working back along the slope from that point: $\theta_0 = \bar{y} - \theta_1\bar{x}$&lt;/p&gt;
+&lt;p&gt;What else can we say about this line? It defines a particular relationship between the predictor and the outcome. Specifically, the slope of the line is the correlation between outcome values and predictor values, multiplied by the ratio of their standard deviations. So we know how to calculate $\theta_1$ from our data. What about $\theta_0$? Well, we know that the line goes through the point (mean(x), mean(y))&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:meanxyfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:meanxyfootnote&#34;&gt;2&lt;/a&gt;&lt;/sup&gt;, and once we know the slope of a line and a single point it goes through we can find the intercept by working back along the slope from that point: $\theta_0 = \bar{y} - \theta_1\bar{x}$&lt;/p&gt;
 
 &lt;p&gt;In the multiple regression scenario, where we have p predictors, we model the outcome as:&lt;/p&gt;
 
 &lt;p&gt;$ \hat{y_i} = \theta_0 + \theta_1x_1 + \theta_2x_2 + &amp;hellip; + \theta_px_p $&lt;/p&gt;
 
-&lt;p&gt;In this setting it&amp;rsquo;s not quite as straight-forward to derive the coefficients as in the single predictor case. Instead, we need to use calculus and get the partial derivative of our cost function with respect to each parameter and solve for that parameter when setting its derivative to 0.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:a3bf4783b942516f86178995501fdab1:calculusfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:a3bf4783b942516f86178995501fdab1:calculusfootnote&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;In this setting it&amp;rsquo;s not quite as straight-forward to derive the coefficients as in the single predictor case. Instead, we need to use calculus and get the partial derivative of our cost function with respect to each parameter and solve for that parameter when setting its derivative to 0.&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:calculusfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:calculusfootnote&#34;&gt;3&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
-&lt;h1 id=&#34;from-minimization-to-maximization:a3bf4783b942516f86178995501fdab1&#34;&gt;From minimization to maximization&lt;/h1&gt;
+&lt;h1 id=&#34;from-minimization-to-maximization&#34;&gt;From minimization to maximization&lt;/h1&gt;
 
 &lt;p&gt;If we ever want to understand linear regression from a Bayesian perspective we need to start thinking probabilistically. We need to flip things over and instead of thinking about the line &lt;strong&gt;minimizing&lt;/strong&gt; a cost, think about it as &lt;strong&gt;maximizing&lt;/strong&gt; the likelihood of the observed data. As we&amp;rsquo;ll see, this amounts to the exact same thing - mathematically speaking - it&amp;rsquo;s just a different way of looking at it.&lt;/p&gt;
 
@@ -534,16 +592,16 @@ We want to find values of $\theta$ that maximize this result.&lt;/p&gt;
 
 &lt;p&gt;How do we calculate each of these probabilities?&lt;/p&gt;
 
-&lt;h1 id=&#34;know-thy-normal-distribution:a3bf4783b942516f86178995501fdab1&#34;&gt;Know thy Normal distribution&lt;/h1&gt;
+&lt;h1 id=&#34;know-thy-normal-distribution&#34;&gt;Know thy Normal distribution&lt;/h1&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/normal_dist.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;We noted earlier that the residuals from our least squares fit have a mean of 0. Well we can go one step and say that they are &lt;em&gt;normally distributed&lt;/em&gt; with a mean of 0, i.e.
 &lt;div class=&#34;equation&#34;&gt;&lt;/p&gt;
@@ -557,7 +615,7 @@ Here&amp;rsquo;s the function that defines the normal, or Gaussian, distribution
 &lt;p&gt;$\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x - \mu)^2}{2\sigma^2} }$&lt;/p&gt;
 
 &lt;p&gt;&lt;/div&gt;
-It&amp;rsquo;s not the friendliest looking function, but there&amp;rsquo;s really no way around it: you have to learn this function off because you&amp;rsquo;ll need to be able to recognize it when you see it in equations. A handy fact about the normal distribution is that if $ X \sim \mathcal{N}(\mu, \sigma^2)$ and $Y \sim \mathcal{N}(0, \sigma^2)$ then $ X = \mu + Y$&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:a3bf4783b942516f86178995501fdab1:normfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:a3bf4783b942516f86178995501fdab1:normfootnote&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+It&amp;rsquo;s not the friendliest looking function, but there&amp;rsquo;s really no way around it: you have to learn this function off because you&amp;rsquo;ll need to be able to recognize it when you see it in equations. A handy fact about the normal distribution is that if $ X \sim \mathcal{N}(\mu, \sigma^2)$ and $Y \sim \mathcal{N}(0, \sigma^2)$ then $ X = \mu + Y$&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:normfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:normfootnote&#34;&gt;4&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 
 &lt;p&gt;Back to calculating the probabilities of our observed y values&amp;hellip; if each $y_i$ is $\theta^Tx_i + \epsilon_i$ and $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, we can also say that
 &lt;div class=&#34;equation&#34;&gt;&lt;/p&gt;
@@ -598,18 +656,18 @@ Anything look familiar there? Yay - it&amp;rsquo;s our RSS! Hopefully you can se
 
 &lt;p&gt;And to get a visual feel for this likelihood, here&amp;rsquo;s a contour plot:&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/contour_plot_sm.jpg&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;This was produced based on the same data I generated for the linear regression line above. I plugged the Xs and Ys and a series of possible $(\theta_0,\theta_1)$ pairs into the log_likelihood function above to get the log-likelihood of each combination. The original data were generated with an intercept of 4 and a slope of 8 (i.e. y = 4 + 8x + noise.)&lt;/p&gt;
 
-&lt;h1 id=&#34;bayesian-inference:a3bf4783b942516f86178995501fdab1&#34;&gt;Bayesian Inference&lt;/h1&gt;
+&lt;h1 id=&#34;bayesian-inference&#34;&gt;Bayesian Inference&lt;/h1&gt;
 
 &lt;p&gt;Now that we&amp;rsquo;re thinking in terms of likelihood of data, we can start to adopt a Bayesian mindset.&lt;/p&gt;
 
@@ -649,27 +707,27 @@ $\text{posterior} \propto \text{likelihood x prior}$
 
 &lt;p&gt;The way I like to think of it is that the data is like a magnet that attracts probability mass.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/magnet_normal_prior.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;On the left you see samples from the prior distribution I gave for the intercept parameter, $\theta_0$: normally distruted with mean 0 and standard deviation 1. I then used &lt;a href=&#34;https://github.com/pymc-devs/pymc&#34;&gt;PyMC&lt;/a&gt;, a Python module for doing &lt;a href=&#34;https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo&#34;&gt;Markov Chain Monte Carlo&lt;/a&gt; sampling, to come up with the posterior distribution on the right. The mean (and the mode) of this posterior distribution is 3.95, close to the true parameter of 4. This is our maximum a posteriori (MAP) estimate for the $\theta_0$ parameter.&lt;/p&gt;
 
 &lt;p&gt;But before we continue on our journey to understand what MAP estimates have to do with ridge regression, we must finish our exploration of regression in the Bayesian setting. It&amp;rsquo;s interesting to see what happens if instead of using a prior that&amp;rsquo;s normally distributed with mean 0 and standard deviation of 1, we give it a uniform prior between -2 and 2.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/magnet_uniform_prior.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;No matter how strong that magnet, i.e. no matter how much data we gather, the posterior will never assign a non-zero probability to any value greater than 2. So obviously it&amp;rsquo;s important to choose a sensible prior.&lt;/p&gt;
 
@@ -685,14 +743,14 @@ $\text{posterior} \propto \text{likelihood x prior}$
 
 &lt;p&gt;The beauty of this is that it retains information about the level of uncertainty around each prediction.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/uncertainty.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;The further away we get from our training data, the greater the margin of error around our predictions.&lt;/p&gt;
 
@@ -700,18 +758,18 @@ $\text{posterior} \propto \text{likelihood x prior}$
 
 &lt;p&gt;Anyway, back to statistics.&lt;/p&gt;
 
-&lt;h2 id=&#34;map-estimates-and-ridge-regression:a3bf4783b942516f86178995501fdab1&#34;&gt;MAP estimates and Ridge Regression&lt;/h2&gt;
+&lt;h2 id=&#34;map-estimates-and-ridge-regression&#34;&gt;MAP estimates and Ridge Regression&lt;/h2&gt;
 
 &lt;p&gt;It&amp;rsquo;s finally time to make sense of that statement about the relationship between ridge regression and MAP estimates. Ridge regression is about penalizing large values of parameters in order to prevent over-fitting to your training data. Here&amp;rsquo;s an example from Kevin Murphy&amp;rsquo;s companion code to his textbook on machine learning. We have generated some dummy data where the true function that produces y from x is a second-order polynomial function ($ y = ax + bx^2 $.) But we are trying to fit a 14-degree polynomial to the data.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/overfitting.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;The green line represents predictions for the test set based on the weights learned for the training set. The red line represents the true values of the test set. We can see that the green line fits the training values very well, but it does this by being very &amp;ldquo;loopy&amp;rdquo; - due to some weights having extremely high positive values and others having extreme negative values. This makes it go wildly wrong on some of the test data. If we penalize extreme values, this forces the model to fit the data in a way that&amp;rsquo;s more likely to generalize to unseen data. With ridge regression, we do this by adding the sum of the squared parameters to the cost that we&amp;rsquo;re minimizing:
 &lt;div class=&#34;equation&#34;&gt;
@@ -773,13 +831,13 @@ $ \underset{\theta}{\arg\min} \sum_1^n(y_i - \hat{y_i})^2 + \frac{\sigma^2}{\tau
 
 &lt;p&gt;Q.E.D. :)&lt;/p&gt;
 
-&lt;h2 id=&#34;in-conclusion:a3bf4783b942516f86178995501fdab1&#34;&gt;In conclusion&lt;/h2&gt;
+&lt;h2 id=&#34;in-conclusion&#34;&gt;In conclusion&lt;/h2&gt;
 
 &lt;p&gt;We&amp;rsquo;ve looked at linear regression from both sides now - from the frequentist and Bayesian perspectives, and still somehow&amp;hellip;&lt;/p&gt;
 
 &lt;p&gt;No no no, this isn&amp;rsquo;t going to end like &lt;a href=&#34;https://www.youtube.com/watch?v=8DrRnI-1Ssg&#34;&gt;the song&lt;/a&gt; - I think we know linear regression fairly well after all that. However, there&amp;rsquo;s always more to learn and so I&amp;rsquo;ll leave you with some of the resources I&amp;rsquo;ve found to be most helpful in understanding this stuff.&lt;/p&gt;
 
-&lt;h2 id=&#34;further-reading:a3bf4783b942516f86178995501fdab1&#34;&gt;Further Reading&lt;/h2&gt;
+&lt;h2 id=&#34;further-reading&#34;&gt;Further Reading&lt;/h2&gt;
 
 &lt;p&gt;If you don&amp;rsquo;t yet have a copy of &lt;a href=&#34;http://www-bcf.usc.edu/~gareth/ISL/getbook.html&#34;&gt;An Introduction to Statistical Learning&lt;/a&gt; by James, Witten, Hastie and Tibshirani, what are you waiting for? The whole thing is available as a freely downloadable PDF and provides the most crystal clear explanation of linear regression and regularization I&amp;rsquo;ve ever come across. Another freely downloadable book is &lt;a href=&#34;http://www.gaussianprocess.org/gpml/&#34;&gt;Gaussian Processes for Machine Learning&lt;/a&gt; by Rasmussen and Williams. I think this may have been the first place I was introduced to the relationship between MAP estimates and ridge regression. Kevin Murphy&amp;rsquo;s &lt;a href=&#34;https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020&#34;&gt;Machine Learning - a Probabilistic Approach&lt;/a&gt; provides a very complete explanation of this and a whole lot more - it is a pretty enormous tome, and while I do aspire to reading the whole thing&amp;hellip; well, it&amp;rsquo;ll take some time ;)&lt;/p&gt;
 
@@ -789,14 +847,14 @@ $ \underset{\theta}{\arg\min} \sum_1^n(y_i - \hat{y_i})^2 + \frac{\sigma^2}{\tau
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:a3bf4783b942516f86178995501fdab1:matrixfootnote&#34;&gt;If you&amp;rsquo;re not yet familiar with matrix notation for linear regression, there&amp;rsquo;s a nice explanation &lt;a href=&#34;http://www.stat.purdue.edu/~jennings/stat514/stat512notes/topic3.pdf&#34;&gt;here&lt;/a&gt;.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:a3bf4783b942516f86178995501fdab1:matrixfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:a3bf4783b942516f86178995501fdab1:meanxyfootnote&#34;&gt;This follows from the fact that the residuals sum to 0
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:a3bf4783b942516f86178995501fdab1:meanxyfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:a3bf4783b942516f86178995501fdab1:calculusfootnote&#34;&gt;For an intuition about why this is the case, think about the single-parameter case. We can plot the cost, $J(\theta)$, on the y axis, against $\theta$ on the x axis, and we&amp;rsquo;d get a U-shaped curve. We&amp;rsquo;d be looking for the value of $\theta$ at the bottom of the curve. The bottom of the curve is the point at which the slope of the tangent equals 0. And since the derivative of $J(\theta)$ with respect to $\theta$ amounts to the slope of the tangent to the curve, we can set that derivative equal to 0 and solve for $\theta$. In the case of multiple parameters, we do this for each parameter while holding the others fixed (i.e. getting the partial derivatives). See the &lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics&#34;&gt;Wikipedia entry on linear regression&lt;/a&gt;) for details.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:a3bf4783b942516f86178995501fdab1:calculusfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;li id=&#34;fn:a3bf4783b942516f86178995501fdab1:normfootnote&#34;&gt;This fact is usually expressed in relation to standard normals, where in addition to subtracting the mean you can divide by the standard deviation, however for our purposes we are only interested in &lt;em&gt;shifting&lt;/em&gt; the distribution, not altering its shape.
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:a3bf4783b942516f86178995501fdab1:normfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:matrixfootnote&#34;&gt;If you&amp;rsquo;re not yet familiar with matrix notation for linear regression, there&amp;rsquo;s a nice explanation &lt;a href=&#34;http://www.stat.purdue.edu/~jennings/stat514/stat512notes/topic3.pdf&#34;&gt;here&lt;/a&gt;.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:matrixfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:meanxyfootnote&#34;&gt;This follows from the fact that the residuals sum to 0
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:meanxyfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:calculusfootnote&#34;&gt;For an intuition about why this is the case, think about the single-parameter case. We can plot the cost, $J(\theta)$, on the y axis, against $\theta$ on the x axis, and we&amp;rsquo;d get a U-shaped curve. We&amp;rsquo;d be looking for the value of $\theta$ at the bottom of the curve. The bottom of the curve is the point at which the slope of the tangent equals 0. And since the derivative of $J(\theta)$ with respect to $\theta$ amounts to the slope of the tangent to the curve, we can set that derivative equal to 0 and solve for $\theta$. In the case of multiple parameters, we do this for each parameter while holding the others fixed (i.e. getting the partial derivatives). See the &lt;a href=&#34;https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics)&#34;&gt;Wikipedia entry on linear regression&lt;/a&gt; for details.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:calculusfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:normfootnote&#34;&gt;This fact is usually expressed in relation to standard normals, where in addition to subtracting the mean you can divide by the standard deviation, however for our purposes we are only interested in &lt;em&gt;shifting&lt;/em&gt; the distribution, not altering its shape.
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:normfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -826,10 +884,10 @@ $ \underset{\theta}{\arg\min} \sum_1^n(y_i - \hat{y_i})^2 + \frac{\sigma^2}{\tau
 
 &lt;p&gt;EMI might be able to produce 1000 different Chaconnes based on Bach&amp;rsquo;s entire works, but given the choice, I&amp;rsquo;d rather listen to the original 1000 times over. As for the intelligent, human-like machine that might one day exist, it&amp;rsquo;s as unlikely to ever produce anything Bach-like as a human composer is today: it might produce something comparable in depth and power, but the lack of understanding will most likely be on my part this time.&lt;/p&gt;
 
-&lt;p&gt;&lt;div class=&#34;embed video-player&#34;&gt;
+&lt;div class=&#34;embed video-player&#34;&gt;
 &lt;iframe class=&#34;youtube-player&#34; type=&#34;text/html&#34; width=&#34;640&#34; height=&#34;385&#34; src=&#34;http://www.youtube.com/embed/QqA3qQMKueA&#34; allowfullscreen frameborder=&#34;0&#34;&gt;
 &lt;/iframe&gt;
-&lt;/div&gt;&lt;/p&gt;
+&lt;/div&gt;
 </description>
     </item>
     
@@ -853,30 +911,30 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
 
 &lt;p&gt;AIs are still pretty stupid and can&amp;rsquo;t answer questions like the one above. At their core, they are machine learning algorithms (possibly multiple algorithms feeding into each other). Machine learning involves training a machine to learn from data and make predictions about new data. It&amp;rsquo;s about math, statistics and lots and lots of data.&lt;/p&gt;
 
-&lt;h2 id=&#34;the-question-tay-is-really-answering:20a4829f9cb79389360a21a53910b571&#34;&gt;The question Tay is really answering&lt;/h2&gt;
+&lt;h2 id=&#34;the-question-tay-is-really-answering&#34;&gt;The question Tay is really answering&lt;/h2&gt;
 
 &lt;p&gt;In the case of an AI that has been trained using data from real human conversations, be they from Twitter, YouTube or what have you, the question it is actually answering when I ask it &amp;ldquo;As a woman, should I work in technology?&amp;rdquo; is more like &amp;ldquo;&lt;strong&gt;What is the most common response to the question&lt;/strong&gt; &lt;em&gt;As a woman, should I work in technology?&lt;/em&gt;&amp;rdquo; And if all the responses it has ever seen are from sexist jerks, then this is the correct answer - way to go Tay! :D&lt;/p&gt;
 
 &lt;p&gt;Very often there won&amp;rsquo;t be a difference between the answers to these different questions and that&amp;rsquo;s when the AI will seem smart.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/questions.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;This question-answering behavior is in contrast to AI systems like Apple&amp;rsquo;s Siri, which use machine learning only to understand the question but not to generate the response. To answer questions, Siri consults the &lt;a href=&#34;https://en.wikipedia.org/wiki/Wolfram_Alpha&#34;&gt;Wolfram Alpha&lt;/a&gt; knowledge engine.&lt;/p&gt;
 
-&lt;h2 id=&#34;machine-learning-always-involves-uncertainty:20a4829f9cb79389360a21a53910b571&#34;&gt;Machine Learning always involves uncertainty&lt;/h2&gt;
+&lt;h2 id=&#34;machine-learning-always-involves-uncertainty&#34;&gt;Machine Learning always involves uncertainty&lt;/h2&gt;
 
 &lt;p&gt;I can&amp;rsquo;t actually pose my question to Tay as the chatbot is &lt;a href=&#34;https://twitter.com/tayandyou&#34;&gt;taking a break&lt;/a&gt; but when I asked Siri about whether women make good software engineers, I had to re-phrase the question several times before it would even attempt a response, and its response in the end was to google the question. In a scenario like this, the level of uncertainty is clear to the user - uncertainty about the question being asked, and uncertainty in the answer, which is a list of Google search results that may or may not be what you are looking for. (As an aside, &lt;a href=&#34;http://www.slate.com/articles/technology/cover_story/2016/04/alexa_cortana_and_siri_aren_t_novelties_anymore_they_re_our_terrifyingly.html?wpsrc=sh_all_dt_tw_top&#34;&gt;this Slate article&lt;/a&gt; raises some interesting questions about the trust issues involved when an AI answers a question by quoting verbatim from a single source like Wikipedia without saying this is where it got the answer from.)&lt;/p&gt;
 
 &lt;p&gt;Siri is probably no less sophisticated an AI system than Tay - it&amp;rsquo;s just more upfront about the level of uncertainty involved when you interact with it. Both systems are examples of &lt;strong&gt;weak AI&lt;/strong&gt;, which is also called &lt;em&gt;narrow&lt;/em&gt; AI, because it&amp;rsquo;s the type of AI that is focused on one very specific and narrow task. &lt;strong&gt;Strong AI&lt;/strong&gt;, on the other hand, also called &lt;strong&gt;Artificial General Intelligence&lt;/strong&gt;, is about human-like intelligence, and there is absolutely no reason to believe that all the sophisticated weak AIs in the world are a basis for producing strong AI.&lt;/p&gt;
 
-&lt;h2 id=&#34;weak-ai-and-the-objective-function:20a4829f9cb79389360a21a53910b571&#34;&gt;Weak AI and the Objective Function&lt;/h2&gt;
+&lt;h2 id=&#34;weak-ai-and-the-objective-function&#34;&gt;Weak AI and the Objective Function&lt;/h2&gt;
 
 &lt;p&gt;The difference between weak AI and strong AI is pretty important, especially in order to understand what is bemoaned as the &amp;ldquo;moving the goal posts&amp;rdquo; problem in the perception of AI. Kevin Kelly wrote in a &lt;a href=&#34;http://www.wired.com/2014/10/future-of-artificial-intelligence/&#34;&gt;Wired article in October 2014&lt;/a&gt;:&lt;/p&gt;
 
@@ -892,18 +950,18 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
 
 &lt;p&gt;With all that said, this is still really really impressive stuff!&lt;/p&gt;
 
-&lt;h2 id=&#34;objective-function-goggles:20a4829f9cb79389360a21a53910b571&#34;&gt;Objective Function Goggles&lt;/h2&gt;
+&lt;h2 id=&#34;objective-function-goggles&#34;&gt;Objective Function Goggles&lt;/h2&gt;
 
 &lt;p&gt;To examine Tay with an objective eye, we need to put on our Objective Function Goggles (OFGs). The idea for these goggles comes from a professor I once had for symbolic logic, who encouraged us to don &amp;ldquo;Boolean Goggles&amp;rdquo; when assessing the validity of an argument.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/goggles.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;The reason for the goggles is so that if the premises in the argument were something less palatable (e.g. &amp;ldquo;if it&amp;rsquo;s raining then the grass is blue&amp;rdquo;) we would not get tripped up by their meaning and just focus on whether the logic is valid.&lt;/p&gt;
 
@@ -916,14 +974,14 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
 &lt;li&gt;Does Tay engage in conversation with interlocutors in a way that suggests it has understood the values of those interlocutors?&lt;/li&gt;
 &lt;/ul&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/OFGs.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;It&amp;rsquo;s reasonable to answer Yes to all of these questions. Presumably there are separate pieces to Tay - perhaps some sentiment analysis and other Natural Language Processing (NLP) techniques are applied on the tweets it receives. Once it has processed those, it needs to generate responses using some probabilistic model. At each step it is obviously performing well.&lt;/p&gt;
 
@@ -933,7 +991,7 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
 
 &lt;p&gt;Tay may be an impressively smart piece of Machine Learning, but it makes for a very dumb human. It is an Artificial Stupidity (or &lt;strong&gt;A&lt;/strong&gt;rtificially &lt;strong&gt;S&lt;/strong&gt;tupid &lt;strong&gt;S&lt;/strong&gt;ystem?)&lt;/p&gt;
 
-&lt;h2 id=&#34;should-we-be-worried-about-weak-ai:20a4829f9cb79389360a21a53910b571&#34;&gt;Should we be worried about weak AI?&lt;/h2&gt;
+&lt;h2 id=&#34;should-we-be-worried-about-weak-ai&#34;&gt;Should we be worried about weak AI?&lt;/h2&gt;
 
 &lt;p&gt;George Dvorsky, transhumanist and Chair of the Board for the Institute for Ethics and Emerging Technologies, has &lt;a href=&#34;http://io9.gizmodo.com/how-much-longer-before-our-first-ai-catastrophe-464043243&#34;&gt;written about the dangers of weak AI&lt;/a&gt;, but focuses mostly on what can happen when artificial intelligence &amp;ldquo;gets it wrong&amp;rdquo;:&lt;/p&gt;
 
@@ -947,13 +1005,13 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
 
 &lt;p&gt;Dvorsky talks about critical decisions now being in the hands of machines, but really the critical decision is whether to deploy that machine for a particular task in the first place. And that decision is always squarely in the hands of humans.&lt;/p&gt;
 
-&lt;h2 id=&#34;imputing-intelligence-to-machines-and-responding-emotionally:20a4829f9cb79389360a21a53910b571&#34;&gt;Imputing intelligence to machines and responding emotionally&lt;/h2&gt;
+&lt;h2 id=&#34;imputing-intelligence-to-machines-and-responding-emotionally&#34;&gt;Imputing intelligence to machines and responding emotionally&lt;/h2&gt;
 
 &lt;p&gt;The other potential source of trouble when it comes to weak AI has also more to do with human behavior than the behavior of the AIs. It has to do with how we naturally respond to AIs.&lt;/p&gt;
 
 &lt;p&gt;Leaving aside AIs for a moment, meet Tubbs the cat from popular Japanese game &lt;a href=&#34;https://en.wikipedia.org/wiki/Neko_Atsume&#34;&gt;Neko Atsume&lt;/a&gt;.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;half-size center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/tubbs.jpg&#34; alt=&#34;This is the only thing you&amp;#39;ll ever see Tubbs doing&#34; /&gt;
@@ -969,7 +1027,7 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
     &lt;/figcaption&gt;
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Apparently people have &lt;a href=&#34;http://www.buzzfeed.com/natalyalobanova/protect-tubbs-at-all-costs&#34;&gt;quite strong feelings&lt;/a&gt; about Tubbs, and he&amp;rsquo;s just a  bunch of pixels, not even animated! (Yes, I totally did just make up a reason to include a picture of Tubbs in my blog post.)&lt;/p&gt;
 
@@ -1017,11 +1075,11 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
 
 &lt;p&gt;And I&amp;rsquo;ll leave you with a simple trick for assessing whether something is an example of strong AI&amp;hellip;&lt;/p&gt;
 
-&lt;h2 id=&#34;binary-classifier-for-strong-ai:20a4829f9cb79389360a21a53910b571&#34;&gt;Binary classifier for strong AI&lt;/h2&gt;
+&lt;h2 id=&#34;binary-classifier-for-strong-ai&#34;&gt;Binary classifier for strong AI&lt;/h2&gt;
 
 &lt;p&gt;A binary classifier is an algorithm that can distinguish members of a class from non-members - its output is a simple &lt;code&gt;true&lt;/code&gt; or &lt;code&gt;false&lt;/code&gt; for each input. Various machine learning techniques can be used to train binary classifiers, including neural networks.&lt;/p&gt;
 
-&lt;p&gt;Here&amp;rsquo;s a binary classifier that tells you whether &lt;code&gt;x&lt;/code&gt; (the latest amazing piece of AI technology) is an example of strong AI and thus a harbinger of the Singularity. It has been trained on a highly sophisticated convolutional neural network&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:20a4829f9cb79389360a21a53910b571:cnnfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:20a4829f9cb79389360a21a53910b571:cnnfootnote&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; with hundreds of layers and thousands of nodes. &lt;strong&gt;100% accuracy guaranteed!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s a binary classifier that tells you whether &lt;code&gt;x&lt;/code&gt; (the latest amazing piece of AI technology) is an example of strong AI and thus a harbinger of the Singularity. It has been trained on a highly sophisticated convolutional neural network&lt;sup class=&#34;footnote-ref&#34; id=&#34;fnref:cnnfootnote&#34;&gt;&lt;a rel=&#34;footnote&#34; href=&#34;#fn:cnnfootnote&#34;&gt;1&lt;/a&gt;&lt;/sup&gt; with hundreds of layers and thousands of nodes. &lt;strong&gt;100% accuracy guaranteed!&lt;/strong&gt;&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;def isStrongAI(x):
   return False
@@ -1033,8 +1091,8 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
 &lt;hr /&gt;
 
 &lt;ol&gt;
-&lt;li id=&#34;fn:20a4829f9cb79389360a21a53910b571:cnnfootnote&#34;&gt;Tongue firmly in cheek
- &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:20a4829f9cb79389360a21a53910b571:cnnfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;li id=&#34;fn:cnnfootnote&#34;&gt;Tongue firmly in cheek
+ &lt;a class=&#34;footnote-return&#34; href=&#34;#fnref:cnnfootnote&#34;&gt;&lt;sup&gt;[return]&lt;/sup&gt;&lt;/a&gt;&lt;/li&gt;
 &lt;/ol&gt;
 &lt;/div&gt;
 </description>
@@ -1050,11 +1108,11 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
 
 &lt;p&gt;I&amp;rsquo;ve been working on building a content recommender in TensorFlow using matrix factorization, following the approach described in the article &lt;a href=&#34;https://datajobs.com/data-science-repo/Recommender-Systems-%5BNetflix%5D.pdf&#34;&gt;Matrix Factorization Techniques for Recommender Systems&lt;/a&gt; (MFTRS). I haven&amp;rsquo;t come across any discussion of this particular use case in TensorFlow but it seems like an ideal job for it. I&amp;rsquo;ll explain briefly here what matrix factorization is in the context of recommender systems (although I highly &lt;em&gt;cough&lt;/em&gt; recommend reading the MFTRS article) and how things needed to be set up to do this in TensorFlow. Then I&amp;rsquo;ll show the code I wrote to train the model and the resulting TensorFlow computation graph produced by TensorBoard.&lt;/p&gt;
 
-&lt;h2 id=&#34;the-basics:eb1147f7685f7b4fdbf640a27bbc705e&#34;&gt;The basics&lt;/h2&gt;
+&lt;h2 id=&#34;the-basics&#34;&gt;The basics&lt;/h2&gt;
 
 &lt;p&gt;A matrix of ratings with users as rows and items as columns might look something like this:&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;matrices center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/matrix.png&#34; alt=&#34;A matrix of user/item ratings&#34; /&gt;
@@ -1070,20 +1128,20 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
     &lt;/figcaption&gt;
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;We see for example that user 1 has given item 2 a rating of 3.&lt;/p&gt;
 
 &lt;p&gt;What matrix factorization does is to come up with two smaller matrices, one representing users and one representing items, which when multiplied together will produce roughly this matrix of ratings, ignoring the 0 entries.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/matrix_factorization.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;So if our original matrix is m x n, where m is the number of users and n is the number of items, we need an m x d matrix and a d x n matrix as our factors, where d is chosen to be small enough for the computation to be efficient and large enough to represent the number of dimensions along which interactions between users and items are likely to vary in some significant way. In the above illustration we have d = 2. The predicted rating by a given user for a given item is then the dot product of the vector representing the user and the vector representing the item. In the MFTRS article, this is expressed as:&lt;/p&gt;
 
@@ -1091,11 +1149,11 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
 
 &lt;p&gt;where $ \hat{r_{ui}} $ denotes the predicted rating for user u and item i and $ q_i^Tp_u $ denotes the dot product of the vector representing item i and the vector representing user u.&lt;/p&gt;
 
-&lt;h2 id=&#34;user-bias-item-bias-and-average-rating:eb1147f7685f7b4fdbf640a27bbc705e&#34;&gt;User bias, item bias and average rating&lt;/h2&gt;
+&lt;h2 id=&#34;user-bias-item-bias-and-average-rating&#34;&gt;User bias, item bias and average rating&lt;/h2&gt;
 
 &lt;p&gt;We need to add bias into the mix. Each user&amp;rsquo;s average rating will be different from the average rating across all users. And the average rating of a particular item will be somewhat different from the average across all items.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/add_bias.png&#34; alt=&#34;Adding user and item bias&#34; /&gt;
@@ -1111,7 +1169,7 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
     &lt;/figcaption&gt;
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;Adding a column vector of user bias to the user matrix and matching it with a row vector of 1s in the item matrix has the effect that the rating prediction for a given user/item pair will now have that user&amp;rsquo;s bias added on. Similarly, adding a row vector of item biases to items and a matching column vector of 1s to users will add the item bias to the prediction.&lt;/p&gt;
 
@@ -1123,19 +1181,19 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
 
 &lt;p&gt;But the overall mean rating can be added on after we do the matrix multiplication.&lt;/p&gt;
 
-&lt;h2 id=&#34;objective-function-and-regularization:eb1147f7685f7b4fdbf640a27bbc705e&#34;&gt;Objective Function and Regularization&lt;/h2&gt;
+&lt;h2 id=&#34;objective-function-and-regularization&#34;&gt;Objective Function and Regularization&lt;/h2&gt;
 
 &lt;p&gt;The objective function, or cost function, used in this approach is simply the sum of squared distances between predicted ratings and actual ratings, so this is what we need to minimize. But in order to prevent over-fitting to the training data we need to constrain the learned values for our user and item features by penalizing high values. We do this by multiplying the sum of the squares of the elements of the user and item matrices by a configurable regularization parameter and including this in our cost function. We&amp;rsquo;ll use gradient descent to minimize the cost.&lt;/p&gt;
 
-&lt;h2 id=&#34;accuracy:eb1147f7685f7b4fdbf640a27bbc705e&#34;&gt;Accuracy&lt;/h2&gt;
+&lt;h2 id=&#34;accuracy&#34;&gt;Accuracy&lt;/h2&gt;
 
 &lt;p&gt;The metric I decided on for accuracy was to calculate the fraction of predicted ratings that were within some threshold of the real rating. I used a threshold of 0.5 when evaluating accuracy. Note that this type of absolute threshold works fine if the ratings are on a fixed scale, e.g. 1-5, but for something like the Million Song Dataset, where &amp;ldquo;ratings&amp;rdquo; are actually listen counts, a percentage based threshold would need to be used.&lt;/p&gt;
 
-&lt;h2 id=&#34;sparse-representation-of-matrices:eb1147f7685f7b4fdbf640a27bbc705e&#34;&gt;Sparse representation of matrices&lt;/h2&gt;
+&lt;h2 id=&#34;sparse-representation-of-matrices&#34;&gt;Sparse representation of matrices&lt;/h2&gt;
 
 &lt;p&gt;The ratings matrix is sparse, meaning most of the values are 0, because each user has only rated a small number of items. The concept of a sparse matrix can actually be translated to a different data structure that retains only information about the non-zero values, making it a much more memory-efficient represenation of the same information. One way is to define a vector of row indices, i, a vector of column indices, j, and a vector of values for each (i,j) pair. So only the (i,j) pairs that have values are included. Using this format, known as coordinate list or COO, the above ratings would be expressed as follows:&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;matrices center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/coo.png&#34; alt=&#34;The same ratings in COO sparse matrix format&#34; /&gt;
@@ -1151,13 +1209,13 @@ This is an imagined conversation between &lt;a href=&#34;https://www.tay.ai&#34;
     &lt;/figcaption&gt;
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;The dataset I worked with was the Movie Lens dataset, available &lt;a href=&#34;http://grouplens.org/datasets/movielens/100k/&#34;&gt;here&lt;/a&gt;. Only the u.data file was needed to train the model. This contains 100,000 ratings from 943 users of 1,682 movies. If we expressed this as a full matrix, we&amp;rsquo;d have 943 x 1,682 = 1,586,126 values to store in memory while doing computations on them. But doing it this way we only have to work with 100,000 x 3 = 300,000 values.&lt;/p&gt;
 
 &lt;p&gt;The user_ids and item_ids in this dataset are already serial IDs, so we have users 1 through 943 and items 1 through 1682. Subracting 1 from each ID allows us to use them as matrix indices. They also need to be ordered first by user index, then by item index for faster access.&lt;/p&gt;
 
-&lt;h2 id=&#34;the-code:eb1147f7685f7b4fdbf640a27bbc705e&#34;&gt;The Code&lt;/h2&gt;
+&lt;h2 id=&#34;the-code&#34;&gt;The Code&lt;/h2&gt;
 
 &lt;p&gt;The code below assumes we have training ratings and validation ratings in the above COO format and have extracted the individual columns as the row_indices, col_indices and rating_values variables, in the case of the training set, and variables suffixed with _val for the validation set. For more complete example code, see the Beaker notebook &lt;a href=&#34;https://pub.beakernotebook.com/#/publications/56df05ac-4f52-46fe-a22d-4f604391a577&#34;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
@@ -1274,7 +1332,7 @@ with tf.name_scope(&amp;quot;final_model&amp;quot;) as scope:
 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;computation-graph:eb1147f7685f7b4fdbf640a27bbc705e&#34;&gt;Computation Graph&lt;/h2&gt;
+&lt;h2 id=&#34;computation-graph&#34;&gt;Computation Graph&lt;/h2&gt;
 
 &lt;p&gt;Here is the overall computation graph produced by this code as visualized by TensorBoard. Click the image to enlarge it.
 &lt;a href=&#34;#&#34; data-featherlight=&#34;/images/graph_unexpanded.png&#34;&gt;
@@ -1288,7 +1346,7 @@ with tf.name_scope(&amp;quot;final_model&amp;quot;) as scope:
 &lt;/a&gt;
 &lt;/p&gt;
 
-&lt;h2 id=&#34;results-and-next-steps:eb1147f7685f7b4fdbf640a27bbc705e&#34;&gt;Results and Next Steps&lt;/h2&gt;
+&lt;h2 id=&#34;results-and-next-steps&#34;&gt;Results and Next Steps&lt;/h2&gt;
 
 &lt;p&gt;OK, this is the part where I come clean and admit that I have not yet spent sufficient time tweaking all the tweakable things to train a model that performs satisfactorily on unseen data. Very disappointingly, I haven&amp;rsquo;t seen better than 42% accuracy on the validation set. With an accuracy threshold of 0.5, this means that only roughly two out of five predicted ratings were within 0.5 of the actual rating. Not very impressive :(.&lt;/p&gt;
 
@@ -1314,20 +1372,20 @@ with tf.name_scope(&amp;quot;final_model&amp;quot;) as scope:
 
 &lt;p&gt;There&amp;rsquo;s a pretty impressive selection of high-quality podcasts out there these days on topics in data science. Here are four that I am really enjoying right now, along with my take on what is good about each of them.&lt;/p&gt;
 
-&lt;h2 id=&#34;not-so-standard-deviations:6faa704a913ba6d911650b2542fcebc9&#34;&gt;Not So Standard Deviations&lt;/h2&gt;
+&lt;h2 id=&#34;not-so-standard-deviations&#34;&gt;Not So Standard Deviations&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;https://soundcloud.com/nssd-podcast&#34;&gt;NSSD podcast on SoundCloud&lt;/a&gt; Two very smart people with PhDs in biostatistics, one still in academia and the other working as a data scientist for Etsy, Roger and Hilary sure do ramble on but the ramblings are great :) They cover all sorts of topics, always at least loosely related to data science and my favourite things about the podcast are 1. the discussions about differences between academia and industry when it comes to data science and 2. how unafraid they both are to wander into topics they admit to knowing very little about and just wonder curiously aloud about them. Very accessible and enjoyable.&lt;/p&gt;
 
-&lt;h2 id=&#34;partially-derivative:6faa704a913ba6d911650b2542fcebc9&#34;&gt;Partially Derivative&lt;/h2&gt;
+&lt;h2 id=&#34;partially-derivative&#34;&gt;Partially Derivative&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.partiallyderivative.com/&#34;&gt;partiallyderivative.com&lt;/a&gt; When I first started listening to this show I thought the guys were a bit too bro-tastic for me to be able to listen to them for long. They are terribly silly but they cover so many interesting data science related news stories with a great balance between serious stories and utterly trivial and hilarious ones (e.g. about someone training a model to predict when Game of Thrones characters will die, or someone writing a program that uses Markov chains to generate pretentious craft beer reviews). When listening to this podcast I regularly find myself bursting out laughing in spite of myself.&lt;/p&gt;
 
-&lt;h2 id=&#34;data-skeptic:6faa704a913ba6d911650b2542fcebc9&#34;&gt;Data Skeptic&lt;/h2&gt;
+&lt;h2 id=&#34;data-skeptic&#34;&gt;Data Skeptic&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://dataskeptic.com/&#34;&gt;dataskeptic.com&lt;/a&gt;
 This one alternates its format between full length episodes where the presenter, Kyle, interviews people working or doing research in data science, and mini-episodes where he explains topics to his wife, a non data scientist, in ways someone not from the field can understand. Personally I prefer the interview episodes - highlights so far have been the interview with Gordon Pennycook on his research into people&amp;rsquo;s susceptibility to &amp;ldquo;pseudo-profound bullshit&amp;rdquo;, and the interview with Thomas Levi, former physicist and current lead data scientist at Plenty of Fish.&lt;/p&gt;
 
-&lt;h2 id=&#34;talking-machines:6faa704a913ba6d911650b2542fcebc9&#34;&gt;Talking Machines&lt;/h2&gt;
+&lt;h2 id=&#34;talking-machines&#34;&gt;Talking Machines&lt;/h2&gt;
 
 &lt;p&gt;&lt;a href=&#34;http://www.thetalkingmachines.com/&#34;&gt;thetalkingmachines.com&lt;/a&gt; OK this one is my absolute favourite. It is an extremely high quality production, both in terms of content and how it is put together. There&amp;rsquo;s a set format, where they start out with an exploration of a particular topic in machine learning, e.g. Gaussian processes, active learning, expectation maximization, to name a few they&amp;rsquo;ve covered. Then they&amp;rsquo;ll answer a question that came in from a listener, before moving on to the &amp;ldquo;meat&amp;rdquo; of the show, which is an interview with someone, usually an academic, doing research in machine learning. Among those they&amp;rsquo;ve interviewed are Geoff Hinton, Andrew Ng, Yann LeCun, Nando de Freitas and Claudia Perlich. I always feel just a little bit smarter after listening to an episode of Talking Machines.&lt;/p&gt;
 </description>
@@ -1341,14 +1399,14 @@ This one alternates its format between full length episodes where the presenter,
       <guid>http://katbailey.github.io/post/machine-learning-talk/</guid>
       <description>&lt;p&gt;Here are the &amp;ldquo;slides&amp;rdquo; from a talk I gave on machine learning last week. The idea is to give an overview of the different topics and how they fit together. I may end up building on it as I learn about more facets of ML.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     &lt;a href=&#34;http://katbailey.github.io/ml&#34;&gt;
         &lt;img src=&#34;http://katbailey.github.io/images/mlwords.png&#34; /&gt;
     &lt;/a&gt;
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;In case you&amp;rsquo;re wondering, the slides were created using &lt;a href=&#34;https://github.com/regebro/hovercraft&#34;&gt;Hovercraft&lt;/a&gt; which is a python tool for creating impress.js slides but authoring them in reStructuredText instead of HTML.&lt;/p&gt;
 </description>
@@ -1371,7 +1429,7 @@ This one alternates its format between full length episodes where the presenter,
 
 &lt;p&gt;A set of weights is applied to one layer to get to the next, until you reach the output layer, and training a neural network is about learning what these weights should be.&lt;/p&gt;
 
-&lt;h3 id=&#34;a-little-background:14c7068255137565e326b1d24878d8a5&#34;&gt;A little background&lt;/h3&gt;
+&lt;h3 id=&#34;a-little-background&#34;&gt;A little background&lt;/h3&gt;
 
 &lt;p&gt;I recently took &lt;a href=&#34;https://www.coursera.org/learn/machine-learning&#34;&gt;Andrew Ng&amp;rsquo;s Coursera course on Machine Learning&lt;/a&gt;. It&amp;rsquo;s taught through matlab and goes into the math behind classic machine learning algorithms such as neural networks. But I&amp;rsquo;ve been noticing that a lot of the newer code and tutorials out there for learning neural nets (e.g. Google&amp;rsquo;s TensorFlow tutorial) are in Python. So I thought, wouldn&amp;rsquo;t it be a fun exercise to port my matlab neural net to python and then learn about all the new libraries there are in python for doing this stuff, one of which is called Lasagne. Because layers :)&lt;/p&gt;
 
@@ -1385,7 +1443,7 @@ This one alternates its format between full length episodes where the presenter,
 
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; This is not a tutorial. It is simply an exploration, by a non-expert, of the topic of training neural nets in python. There are lots of great tutorials on this stuff, e.g. the ones mentioned below for Lasagne and TensorFlow, and also &lt;a href=&#34;http://rasbt.github.io/mlxtend/docs/classifier/neuralnet_mlp/&#34;&gt;this one&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3 id=&#34;initial-setup:14c7068255137565e326b1d24878d8a5&#34;&gt;Initial Setup&lt;/h3&gt;
+&lt;h3 id=&#34;initial-setup&#34;&gt;Initial Setup&lt;/h3&gt;
 
 &lt;p&gt;Load some required libraries, extract the data from the matlab file and split it into training, validation and test sets.&lt;/p&gt;
 
@@ -1411,7 +1469,7 @@ y_train, y_val = y_train[:-1000], y_train[-1000:]
 &lt;pre&gt;&lt;code class=&#34;language-python&#34;&gt;plt.imshow(X_train[1202].reshape((20, 20), order=&#39;F&#39;), cmap=&#39;Greys&#39;,  interpolation=&#39;nearest&#39;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/example_four.png&#34; alt=&#34;A number four from the training examples&#34; /&gt;
@@ -1427,9 +1485,9 @@ y_train, y_val = y_train[:-1000], y_train[-1000:]
     &lt;/figcaption&gt;
     
 &lt;/figure&gt;
-&lt;/p&gt;
 
-&lt;h2 id=&#34;1-naïve-neural-net:14c7068255137565e326b1d24878d8a5&#34;&gt;1. Naïve neural net&lt;/h2&gt;
+
+&lt;h2 id=&#34;1-naïve-neural-net&#34;&gt;1. Naïve neural net&lt;/h2&gt;
 
 &lt;p&gt;This is where I just port the code I wrote in Matlab for the Coursera Machine Learning course into python. And where I learned that multiplying large matrices in Python is to be avoided :) More on that below, first here&amp;rsquo;s the code:&lt;/p&gt;
 
@@ -1570,7 +1628,7 @@ sum(np.where(y_train == pred_train, 1, 0))/float(X_train.shape[0])
 
 &lt;p&gt;I did some profiling using the awesome &lt;a href=&#34;https://github.com/rkern/line_profiler&#34;&gt;line_profiler&lt;/a&gt; to try to ascertain what the problem was. This helped me identify a few places where my code could be made more efficient - for example, initially I still had a for loop in the cost function - gasp! The first thing you learn in neural net school is the importance of using vectorized approaches to the computations. Anyway after I had fixed a few things like that it soon became clear to me that things weren&amp;rsquo;t getting hung inside any of my functions but in the optimization function itself. To cut a long story short, it was having to do a matrix multiplication where the matrices were 23860x23860. This number comes from the &amp;ldquo;unrolled&amp;rdquo; and concatenated weight vectors (with bias added on): (785 * 30) + (31*10). I have 16GB of RAM on my local machine, but that is apparently not enough for this operation to be run in Python. Both Theano and TensorFlow do all the heavy lifting in C, and this makes an enormous difference, as we&amp;rsquo;ll see.&lt;/p&gt;
 
-&lt;h3 id=&#34;results-after-50-iterations-and-no-regularization:14c7068255137565e326b1d24878d8a5&#34;&gt;Results after 50 iterations and no regularization&lt;/h3&gt;
+&lt;h3 id=&#34;results-after-50-iterations-and-no-regularization&#34;&gt;Results after 50 iterations and no regularization&lt;/h3&gt;
 
 &lt;p&gt;Training set:&lt;/p&gt;
 
@@ -1601,7 +1659,7 @@ sum(np.where(y_test == predictions, 1, 0))/float(X_test.shape[0])
 
 &lt;p&gt;Not bad for just 50 iterations!&lt;/p&gt;
 
-&lt;h2 id=&#34;2-using-theano-and-lasagne:14c7068255137565e326b1d24878d8a5&#34;&gt;2. Using Theano and Lasagne&lt;/h2&gt;
+&lt;h2 id=&#34;2-using-theano-and-lasagne&#34;&gt;2. Using Theano and Lasagne&lt;/h2&gt;
 
 &lt;p&gt;This code is adapted from the &lt;a href=&#34;http://lasagne.readthedocs.org/en/latest/user/tutorial.html&#34;&gt;Lasagne tutorial&lt;/a&gt; (specifically the multi-layer perceptron.) I turned it into a function that works on the smaller data set and includes parameters for specifying:&lt;/p&gt;
 
@@ -1799,11 +1857,11 @@ Epoch 4 of 500 took 496.489s
   validation accuracy:          89.30 %
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;the-dangers-of-over-fitting:14c7068255137565e326b1d24878d8a5&#34;&gt;The dangers of over-fitting&lt;/h2&gt;
+&lt;h2 id=&#34;the-dangers-of-over-fitting&#34;&gt;The dangers of over-fitting&lt;/h2&gt;
 
 &lt;p&gt;To explain what over-fitting is, let&amp;rsquo;s imagine an extreme example. Let&amp;rsquo;s say we only have a very small set of training example images with which to train our neural net. Now imagine that it happens to be the case that almost every number 7 example has the stem crossed, like this example:&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure class=&#34;center&#34;&gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/seven_stem.png&#34; alt=&#34;A seven example with a crossed stem&#34; /&gt;
@@ -1819,13 +1877,13 @@ Epoch 4 of 500 took 496.489s
     &lt;/figcaption&gt;
     
 &lt;/figure&gt;
-&lt;/p&gt;
 
-&lt;p&gt;When you train on these examples the model will not generalize well to new examples that do not have this feature. We could say that it would give &lt;em&gt;too much weight&lt;/em&gt; to this crossed stem feature. A great measure against over-fitting is having lots and lots of data to train your model on, because the more data you have the less likely you are to have this type of scenario. But beyond getting more data, there are a couple of other ways to minimize this over-fitting problem. The standard way is to use regularization, where you penalize the weights such that minimizing the cost necessarily means shrinking the weights towards 0. Read more about regularization &lt;a href=&#34;https://en.wikipedia.org/wiki/Regularization_(mathematics&#34;&gt;here&lt;/a&gt;). However, &lt;a href=&#34;http://arxiv.org/abs/1207.0580&#34;&gt;Hinton et al&lt;/a&gt; came up with a solution for neural nets that works by &amp;ldquo;randomly omitting half of the feature detectors on each training case&amp;rdquo;. It&amp;rsquo;s called dropout and it is very effective.&lt;/p&gt;
+
+&lt;p&gt;When you train on these examples the model will not generalize well to new examples that do not have this feature. We could say that it would give &lt;em&gt;too much weight&lt;/em&gt; to this crossed stem feature. A great measure against over-fitting is having lots and lots of data to train your model on, because the more data you have the less likely you are to have this type of scenario. But beyond getting more data, there are a couple of other ways to minimize this over-fitting problem. The standard way is to use regularization, where you penalize the weights such that minimizing the cost necessarily means shrinking the weights towards 0. Read more about regularization &lt;a href=&#34;https://en.wikipedia.org/wiki/Regularization_(mathematics)&#34;&gt;here&lt;/a&gt;. However, &lt;a href=&#34;http://arxiv.org/abs/1207.0580&#34;&gt;Hinton et al&lt;/a&gt; came up with a solution for neural nets that works by &amp;ldquo;randomly omitting half of the feature detectors on each training case&amp;rdquo;. It&amp;rsquo;s called dropout and it is very effective.&lt;/p&gt;
 
 &lt;p&gt;The graph below shows what happens to our validation error, as compared with the training error if we perform no regularization and do not include dropout layers in our model.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/500_800_noreg_nodropout.png&#34; alt=&#34;No dropout, no regularization&#34; /&gt;
@@ -1841,7 +1899,7 @@ Epoch 4 of 500 took 496.489s
     &lt;/figcaption&gt;
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;And here&amp;rsquo;s what happens with 20% dropout on the input layer and 50% on the hidden layer. Still no regularization.
 
@@ -1893,7 +1951,7 @@ plt.xlabel(&amp;quot;Num epochs&amp;quot;)
 plt.ylabel(&amp;quot;Cost&amp;quot;) 
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;h2 id=&#34;3-using-tensorflow:14c7068255137565e326b1d24878d8a5&#34;&gt;3. Using TensorFlow&lt;/h2&gt;
+&lt;h2 id=&#34;3-using-tensorflow&#34;&gt;3. Using TensorFlow&lt;/h2&gt;
 
 &lt;p&gt;In this last section I achieve little more than proving to myself that I can get enough of a handle on things as to be able to adapt the TensorFlow tutorial to my Coursera data set. Go me.&lt;/p&gt;
 
@@ -2076,7 +2134,7 @@ accuracy: 0.95200002
 
 &lt;p&gt;With the second layer I generally get around 95% accuracy on the test set, without it around 94%. I need to do a lot more experimenting to get a real handle on how to tweak these layers though. And I need to do a lot more reading to understand convolution and pooling better.&lt;/p&gt;
 
-&lt;h3 id=&#34;further-reading:14c7068255137565e326b1d24878d8a5&#34;&gt;Further reading&lt;/h3&gt;
+&lt;h3 id=&#34;further-reading&#34;&gt;Further reading&lt;/h3&gt;
 
 &lt;p&gt;As mentioned at the start, this exercise has mostly just made me realize how much I have yet to learn about this field. Here&amp;rsquo;s what I have on my reading list:&lt;/p&gt;
 
@@ -2109,44 +2167,16 @@ accuracy: 0.95200002
 
 &lt;p&gt;So exciting in fact, that I think I might actually manage to write about it on some kind of a regular basis. Hence this blog.&lt;/p&gt;
 
-&lt;p&gt;
+
 &lt;figure &gt;
     
         &lt;img src=&#34;http://katbailey.github.io/images/kat_med.png&#34; /&gt;
     
     
 &lt;/figure&gt;
-&lt;/p&gt;
+
 
 &lt;p&gt;For those interested, this blog was built using &lt;a href=&#34;https://gohugo.io/&#34;&gt;Hugo&lt;/a&gt;, which I must say is a joy to use.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Welch&#39;s T-test in Go</title>
-      <link>http://katbailey.github.io/post/welch-t-test-golang/</link>
-      <pubDate>Thu, 15 Oct 2015 21:04:38 -0700</pubDate>
-      
-      <guid>http://katbailey.github.io/post/welch-t-test-golang/</guid>
-      <description>&lt;p&gt;I wrote some code for doing a Welch&amp;rsquo;s T-Test in Go. You can read up on what a Welch&amp;rsquo;s t-test is &lt;a href=&#34;https://en.wikipedia.org/wiki/Welch%27s_t_test&#34;&gt;here&lt;/a&gt; but in short it&amp;rsquo;s a significance test for the difference between two treatments (like in an A/B test) where the distributions may have unequal variances.&lt;/p&gt;
-
-&lt;pre&gt;
-
-                 * *
-               *     *
-              *       *
-             *         *
-            *           *    
-           *            **   
-          *             ***  
-        *               *****
-  * * *                 ***********
- -----------------|-----|-----------
- &lt;/pre&gt;
-
-&lt;p&gt;So if you are doing an A/B test and you have the mean and variance of each treatment, you can get a confidence measure for whether the mean of one is truly higher than the mean of the other.&lt;/p&gt;
-
-&lt;p&gt;Here&amp;rsquo;s the code: &lt;a href=&#34;https://github.com/katbailey/welchttest&#34;&gt;https://github.com/katbailey/welchttest&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
