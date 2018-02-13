@@ -113,11 +113,11 @@
 
 <p>I&rsquo;ve been working on building a content recommender in TensorFlow using matrix factorization, following the approach described in the article <a href="https://datajobs.com/data-science-repo/Recommender-Systems-%5BNetflix%5D.pdf">Matrix Factorization Techniques for Recommender Systems</a> (MFTRS). I haven&rsquo;t come across any discussion of this particular use case in TensorFlow but it seems like an ideal job for it. I&rsquo;ll explain briefly here what matrix factorization is in the context of recommender systems (although I highly <em>cough</em> recommend reading the MFTRS article) and how things needed to be set up to do this in TensorFlow. Then I&rsquo;ll show the code I wrote to train the model and the resulting TensorFlow computation graph produced by TensorBoard.</p>
 
-<h2 id="the-basics:eb1147f7685f7b4fdbf640a27bbc705e">The basics</h2>
+<h2 id="the-basics">The basics</h2>
 
 <p>A matrix of ratings with users as rows and items as columns might look something like this:</p>
 
-<p>
+
 <figure class="matrices center">
     
         <img src="/images/matrix.png" alt="A matrix of user/item ratings" />
@@ -133,20 +133,20 @@
     </figcaption>
     
 </figure>
-</p>
+
 
 <p>We see for example that user 1 has given item 2 a rating of 3.</p>
 
 <p>What matrix factorization does is to come up with two smaller matrices, one representing users and one representing items, which when multiplied together will produce roughly this matrix of ratings, ignoring the 0 entries.</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/matrix_factorization.png" />
     
     
 </figure>
-</p>
+
 
 <p>So if our original matrix is m x n, where m is the number of users and n is the number of items, we need an m x d matrix and a d x n matrix as our factors, where d is chosen to be small enough for the computation to be efficient and large enough to represent the number of dimensions along which interactions between users and items are likely to vary in some significant way. In the above illustration we have d = 2. The predicted rating by a given user for a given item is then the dot product of the vector representing the user and the vector representing the item. In the MFTRS article, this is expressed as:</p>
 
@@ -154,11 +154,11 @@
 
 <p>where $ \hat{r_{ui}} $ denotes the predicted rating for user u and item i and $ q_i^Tp_u $ denotes the dot product of the vector representing item i and the vector representing user u.</p>
 
-<h2 id="user-bias-item-bias-and-average-rating:eb1147f7685f7b4fdbf640a27bbc705e">User bias, item bias and average rating</h2>
+<h2 id="user-bias-item-bias-and-average-rating">User bias, item bias and average rating</h2>
 
 <p>We need to add bias into the mix. Each user&rsquo;s average rating will be different from the average rating across all users. And the average rating of a particular item will be somewhat different from the average across all items.</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/add_bias.png" alt="Adding user and item bias" />
@@ -174,7 +174,7 @@
     </figcaption>
     
 </figure>
-</p>
+
 
 <p>Adding a column vector of user bias to the user matrix and matching it with a row vector of 1s in the item matrix has the effect that the rating prediction for a given user/item pair will now have that user&rsquo;s bias added on. Similarly, adding a row vector of item biases to items and a matching column vector of 1s to users will add the item bias to the prediction.</p>
 
@@ -186,19 +186,19 @@
 
 <p>But the overall mean rating can be added on after we do the matrix multiplication.</p>
 
-<h2 id="objective-function-and-regularization:eb1147f7685f7b4fdbf640a27bbc705e">Objective Function and Regularization</h2>
+<h2 id="objective-function-and-regularization">Objective Function and Regularization</h2>
 
 <p>The objective function, or cost function, used in this approach is simply the sum of squared distances between predicted ratings and actual ratings, so this is what we need to minimize. But in order to prevent over-fitting to the training data we need to constrain the learned values for our user and item features by penalizing high values. We do this by multiplying the sum of the squares of the elements of the user and item matrices by a configurable regularization parameter and including this in our cost function. We&rsquo;ll use gradient descent to minimize the cost.</p>
 
-<h2 id="accuracy:eb1147f7685f7b4fdbf640a27bbc705e">Accuracy</h2>
+<h2 id="accuracy">Accuracy</h2>
 
 <p>The metric I decided on for accuracy was to calculate the fraction of predicted ratings that were within some threshold of the real rating. I used a threshold of 0.5 when evaluating accuracy. Note that this type of absolute threshold works fine if the ratings are on a fixed scale, e.g. 1-5, but for something like the Million Song Dataset, where &ldquo;ratings&rdquo; are actually listen counts, a percentage based threshold would need to be used.</p>
 
-<h2 id="sparse-representation-of-matrices:eb1147f7685f7b4fdbf640a27bbc705e">Sparse representation of matrices</h2>
+<h2 id="sparse-representation-of-matrices">Sparse representation of matrices</h2>
 
 <p>The ratings matrix is sparse, meaning most of the values are 0, because each user has only rated a small number of items. The concept of a sparse matrix can actually be translated to a different data structure that retains only information about the non-zero values, making it a much more memory-efficient represenation of the same information. One way is to define a vector of row indices, i, a vector of column indices, j, and a vector of values for each (i,j) pair. So only the (i,j) pairs that have values are included. Using this format, known as coordinate list or COO, the above ratings would be expressed as follows:</p>
 
-<p>
+
 <figure class="matrices center">
     
         <img src="/images/coo.png" alt="The same ratings in COO sparse matrix format" />
@@ -214,13 +214,13 @@
     </figcaption>
     
 </figure>
-</p>
+
 
 <p>The dataset I worked with was the Movie Lens dataset, available <a href="http://grouplens.org/datasets/movielens/100k/">here</a>. Only the u.data file was needed to train the model. This contains 100,000 ratings from 943 users of 1,682 movies. If we expressed this as a full matrix, we&rsquo;d have 943 x 1,682 = 1,586,126 values to store in memory while doing computations on them. But doing it this way we only have to work with 100,000 x 3 = 300,000 values.</p>
 
 <p>The user_ids and item_ids in this dataset are already serial IDs, so we have users 1 through 943 and items 1 through 1682. Subracting 1 from each ID allows us to use them as matrix indices. They also need to be ordered first by user index, then by item index for faster access.</p>
 
-<h2 id="the-code:eb1147f7685f7b4fdbf640a27bbc705e">The Code</h2>
+<h2 id="the-code">The Code</h2>
 
 <p>The code below assumes we have training ratings and validation ratings in the above COO format and have extracted the individual columns as the row_indices, col_indices and rating_values variables, in the case of the training set, and variables suffixed with _val for the validation set. For more complete example code, see the Beaker notebook <a href="https://pub.beakernotebook.com/#/publications/56df05ac-4f52-46fe-a22d-4f604391a577">here</a>.</p>
 
@@ -337,7 +337,7 @@ with tf.name_scope(&quot;final_model&quot;) as scope:
 
 </code></pre>
 
-<h2 id="computation-graph:eb1147f7685f7b4fdbf640a27bbc705e">Computation Graph</h2>
+<h2 id="computation-graph">Computation Graph</h2>
 
 <p>Here is the overall computation graph produced by this code as visualized by TensorBoard. Click the image to enlarge it.
 <a href="#" data-featherlight="/images/graph_unexpanded.png">
@@ -351,7 +351,7 @@ with tf.name_scope(&quot;final_model&quot;) as scope:
 </a>
 </p>
 
-<h2 id="results-and-next-steps:eb1147f7685f7b4fdbf640a27bbc705e">Results and Next Steps</h2>
+<h2 id="results-and-next-steps">Results and Next Steps</h2>
 
 <p>OK, this is the part where I come clean and admit that I have not yet spent sufficient time tweaking all the tweakable things to train a model that performs satisfactorily on unseen data. Very disappointingly, I haven&rsquo;t seen better than 42% accuracy on the validation set. With an accuracy threshold of 0.5, this means that only roughly two out of five predicted ratings were within 0.5 of the actual rating. Not very impressive :(.</p>
 

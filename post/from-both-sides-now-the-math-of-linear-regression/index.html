@@ -115,18 +115,18 @@
 
 <p>If you have a basic undestanding of linear regression expressed as $ \hat{Y} = \theta_0 + \theta_1X$, but don&rsquo;t have a background in statistics and find statements like &ldquo;ridge regression is equivalent to the maximum a posteriori (MAP) estimate with a zero-mean Gaussian prior&rdquo; bewildering, then this post is for you. (And yes, it&rsquo;s for me as much as it&rsquo;s for you because I was there not long ago.) With a superficial goal of understanding that somewhat obtuse statement, its main objective is to explore the topic, starting from the standard formulation of linear regression, moving on to the probabilistic approach (maximum likelihood formulation) and from there to Bayesian linear regression.</p>
 
-<p>I&rsquo;ll use the $\theta$ character throughout to refer to the coefficients (weights) of a regression model, either explicitly broken out as $\theta_0$ and $\theta_1$ for intercept and slope respectively, or just $\theta$ referring to the vector of coefficients. I&rsquo;ll usually use the expression $\theta^Tx_i$ for the prediction a model gives at $x_i$, the assumption being that a 1 has been added to the vector of values at $x_i$. <sup class="footnote-ref" id="fnref:a3bf4783b942516f86178995501fdab1:matrixfootnote"><a rel="footnote" href="#fn:a3bf4783b942516f86178995501fdab1:matrixfootnote">1</a></sup></p>
+<p>I&rsquo;ll use the $\theta$ character throughout to refer to the coefficients (weights) of a regression model, either explicitly broken out as $\theta_0$ and $\theta_1$ for intercept and slope respectively, or just $\theta$ referring to the vector of coefficients. I&rsquo;ll usually use the expression $\theta^Tx_i$ for the prediction a model gives at $x_i$, the assumption being that a 1 has been added to the vector of values at $x_i$. <sup class="footnote-ref" id="fnref:matrixfootnote"><a rel="footnote" href="#fn:matrixfootnote">1</a></sup></p>
 
-<h1 id="what-s-in-a-line:a3bf4783b942516f86178995501fdab1">What&rsquo;s in a line?</h1>
+<h1 id="what-s-in-a-line">What&rsquo;s in a line?</h1>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/least_squares_sm.jpg" />
     
     
 </figure>
-</p>
+
 
 <p>In the single predictor case, we know that the least squares fit is the line that minimizes the sum of the squared distances between observed data and predicted values, i.e. it minimizes the Residual Sum of Squares (RSS):
 <div class="equation">
@@ -145,15 +145,15 @@ $y_i = \theta_0 + \theta_1x_i + \epsilon_i$
 
 <p>These residuals are pretty important in how we reason about our model. For now we&rsquo;ll just note that by definition they must have an expected value (mean) of 0.</p>
 
-<p>What else can we say about this line? It defines a particular relationship between the predictor and the outcome. Specifically, the slope of the line is the correlation between outcome values and predictor values, multiplied by the ratio of their standard deviations. So we know how to calculate $\theta_1$ from our data. What about $\theta_0$? Well, we know that the line goes through the point (mean(x), mean(y))<sup class="footnote-ref" id="fnref:a3bf4783b942516f86178995501fdab1:meanxyfootnote"><a rel="footnote" href="#fn:a3bf4783b942516f86178995501fdab1:meanxyfootnote">2</a></sup>, and once we know the slope of a line and a single point it goes through we can find the intercept by working back along the slope from that point: $\theta_0 = \bar{y} - \theta_1\bar{x}$</p>
+<p>What else can we say about this line? It defines a particular relationship between the predictor and the outcome. Specifically, the slope of the line is the correlation between outcome values and predictor values, multiplied by the ratio of their standard deviations. So we know how to calculate $\theta_1$ from our data. What about $\theta_0$? Well, we know that the line goes through the point (mean(x), mean(y))<sup class="footnote-ref" id="fnref:meanxyfootnote"><a rel="footnote" href="#fn:meanxyfootnote">2</a></sup>, and once we know the slope of a line and a single point it goes through we can find the intercept by working back along the slope from that point: $\theta_0 = \bar{y} - \theta_1\bar{x}$</p>
 
 <p>In the multiple regression scenario, where we have p predictors, we model the outcome as:</p>
 
 <p>$ \hat{y_i} = \theta_0 + \theta_1x_1 + \theta_2x_2 + &hellip; + \theta_px_p $</p>
 
-<p>In this setting it&rsquo;s not quite as straight-forward to derive the coefficients as in the single predictor case. Instead, we need to use calculus and get the partial derivative of our cost function with respect to each parameter and solve for that parameter when setting its derivative to 0.<sup class="footnote-ref" id="fnref:a3bf4783b942516f86178995501fdab1:calculusfootnote"><a rel="footnote" href="#fn:a3bf4783b942516f86178995501fdab1:calculusfootnote">3</a></sup></p>
+<p>In this setting it&rsquo;s not quite as straight-forward to derive the coefficients as in the single predictor case. Instead, we need to use calculus and get the partial derivative of our cost function with respect to each parameter and solve for that parameter when setting its derivative to 0.<sup class="footnote-ref" id="fnref:calculusfootnote"><a rel="footnote" href="#fn:calculusfootnote">3</a></sup></p>
 
-<h1 id="from-minimization-to-maximization:a3bf4783b942516f86178995501fdab1">From minimization to maximization</h1>
+<h1 id="from-minimization-to-maximization">From minimization to maximization</h1>
 
 <p>If we ever want to understand linear regression from a Bayesian perspective we need to start thinking probabilistically. We need to flip things over and instead of thinking about the line <strong>minimizing</strong> a cost, think about it as <strong>maximizing</strong> the likelihood of the observed data. As we&rsquo;ll see, this amounts to the exact same thing - mathematically speaking - it&rsquo;s just a different way of looking at it.</p>
 
@@ -167,16 +167,16 @@ We want to find values of $\theta$ that maximize this result.</p>
 
 <p>How do we calculate each of these probabilities?</p>
 
-<h1 id="know-thy-normal-distribution:a3bf4783b942516f86178995501fdab1">Know thy Normal distribution</h1>
+<h1 id="know-thy-normal-distribution">Know thy Normal distribution</h1>
 
-<p>
+
 <figure >
     
         <img src="/images/normal_dist.png" />
     
     
 </figure>
-</p>
+
 
 <p>We noted earlier that the residuals from our least squares fit have a mean of 0. Well we can go one step and say that they are <em>normally distributed</em> with a mean of 0, i.e.
 <div class="equation"></p>
@@ -190,7 +190,7 @@ Here&rsquo;s the function that defines the normal, or Gaussian, distribution:
 <p>$\frac{1}{\sigma\sqrt{2\pi}}e^{-\frac{(x - \mu)^2}{2\sigma^2} }$</p>
 
 <p></div>
-It&rsquo;s not the friendliest looking function, but there&rsquo;s really no way around it: you have to learn this function off because you&rsquo;ll need to be able to recognize it when you see it in equations. A handy fact about the normal distribution is that if $ X \sim \mathcal{N}(\mu, \sigma^2)$ and $Y \sim \mathcal{N}(0, \sigma^2)$ then $ X = \mu + Y$<sup class="footnote-ref" id="fnref:a3bf4783b942516f86178995501fdab1:normfootnote"><a rel="footnote" href="#fn:a3bf4783b942516f86178995501fdab1:normfootnote">4</a></sup></p>
+It&rsquo;s not the friendliest looking function, but there&rsquo;s really no way around it: you have to learn this function off because you&rsquo;ll need to be able to recognize it when you see it in equations. A handy fact about the normal distribution is that if $ X \sim \mathcal{N}(\mu, \sigma^2)$ and $Y \sim \mathcal{N}(0, \sigma^2)$ then $ X = \mu + Y$<sup class="footnote-ref" id="fnref:normfootnote"><a rel="footnote" href="#fn:normfootnote">4</a></sup></p>
 
 <p>Back to calculating the probabilities of our observed y values&hellip; if each $y_i$ is $\theta^Tx_i + \epsilon_i$ and $\epsilon_i \sim \mathcal{N}(0, \sigma^2)$, we can also say that
 <div class="equation"></p>
@@ -231,18 +231,18 @@ Anything look familiar there? Yay - it&rsquo;s our RSS! Hopefully you can see th
 
 <p>And to get a visual feel for this likelihood, here&rsquo;s a contour plot:</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/contour_plot_sm.jpg" />
     
     
 </figure>
-</p>
+
 
 <p>This was produced based on the same data I generated for the linear regression line above. I plugged the Xs and Ys and a series of possible $(\theta_0,\theta_1)$ pairs into the log_likelihood function above to get the log-likelihood of each combination. The original data were generated with an intercept of 4 and a slope of 8 (i.e. y = 4 + 8x + noise.)</p>
 
-<h1 id="bayesian-inference:a3bf4783b942516f86178995501fdab1">Bayesian Inference</h1>
+<h1 id="bayesian-inference">Bayesian Inference</h1>
 
 <p>Now that we&rsquo;re thinking in terms of likelihood of data, we can start to adopt a Bayesian mindset.</p>
 
@@ -282,27 +282,27 @@ $\text{posterior} \propto \text{likelihood x prior}$
 
 <p>The way I like to think of it is that the data is like a magnet that attracts probability mass.</p>
 
-<p>
+
 <figure >
     
         <img src="/images/magnet_normal_prior.png" />
     
     
 </figure>
-</p>
+
 
 <p>On the left you see samples from the prior distribution I gave for the intercept parameter, $\theta_0$: normally distruted with mean 0 and standard deviation 1. I then used <a href="https://github.com/pymc-devs/pymc">PyMC</a>, a Python module for doing <a href="https://en.wikipedia.org/wiki/Markov_chain_Monte_Carlo">Markov Chain Monte Carlo</a> sampling, to come up with the posterior distribution on the right. The mean (and the mode) of this posterior distribution is 3.95, close to the true parameter of 4. This is our maximum a posteriori (MAP) estimate for the $\theta_0$ parameter.</p>
 
 <p>But before we continue on our journey to understand what MAP estimates have to do with ridge regression, we must finish our exploration of regression in the Bayesian setting. It&rsquo;s interesting to see what happens if instead of using a prior that&rsquo;s normally distributed with mean 0 and standard deviation of 1, we give it a uniform prior between -2 and 2.</p>
 
-<p>
+
 <figure >
     
         <img src="/images/magnet_uniform_prior.png" />
     
     
 </figure>
-</p>
+
 
 <p>No matter how strong that magnet, i.e. no matter how much data we gather, the posterior will never assign a non-zero probability to any value greater than 2. So obviously it&rsquo;s important to choose a sensible prior.</p>
 
@@ -318,14 +318,14 @@ $\text{posterior} \propto \text{likelihood x prior}$
 
 <p>The beauty of this is that it retains information about the level of uncertainty around each prediction.</p>
 
-<p>
+
 <figure >
     
         <img src="/images/uncertainty.png" />
     
     
 </figure>
-</p>
+
 
 <p>The further away we get from our training data, the greater the margin of error around our predictions.</p>
 
@@ -333,18 +333,18 @@ $\text{posterior} \propto \text{likelihood x prior}$
 
 <p>Anyway, back to statistics.</p>
 
-<h2 id="map-estimates-and-ridge-regression:a3bf4783b942516f86178995501fdab1">MAP estimates and Ridge Regression</h2>
+<h2 id="map-estimates-and-ridge-regression">MAP estimates and Ridge Regression</h2>
 
 <p>It&rsquo;s finally time to make sense of that statement about the relationship between ridge regression and MAP estimates. Ridge regression is about penalizing large values of parameters in order to prevent over-fitting to your training data. Here&rsquo;s an example from Kevin Murphy&rsquo;s companion code to his textbook on machine learning. We have generated some dummy data where the true function that produces y from x is a second-order polynomial function ($ y = ax + bx^2 $.) But we are trying to fit a 14-degree polynomial to the data.</p>
 
-<p>
+
 <figure >
     
         <img src="/images/overfitting.png" />
     
     
 </figure>
-</p>
+
 
 <p>The green line represents predictions for the test set based on the weights learned for the training set. The red line represents the true values of the test set. We can see that the green line fits the training values very well, but it does this by being very &ldquo;loopy&rdquo; - due to some weights having extremely high positive values and others having extreme negative values. This makes it go wildly wrong on some of the test data. If we penalize extreme values, this forces the model to fit the data in a way that&rsquo;s more likely to generalize to unseen data. With ridge regression, we do this by adding the sum of the squared parameters to the cost that we&rsquo;re minimizing:
 <div class="equation">
@@ -406,13 +406,13 @@ $ \underset{\theta}{\arg\min} \sum_1^n(y_i - \hat{y_i})^2 + \frac{\sigma^2}{\tau
 
 <p>Q.E.D. :)</p>
 
-<h2 id="in-conclusion:a3bf4783b942516f86178995501fdab1">In conclusion</h2>
+<h2 id="in-conclusion">In conclusion</h2>
 
 <p>We&rsquo;ve looked at linear regression from both sides now - from the frequentist and Bayesian perspectives, and still somehow&hellip;</p>
 
 <p>No no no, this isn&rsquo;t going to end like <a href="https://www.youtube.com/watch?v=8DrRnI-1Ssg">the song</a> - I think we know linear regression fairly well after all that. However, there&rsquo;s always more to learn and so I&rsquo;ll leave you with some of the resources I&rsquo;ve found to be most helpful in understanding this stuff.</p>
 
-<h2 id="further-reading:a3bf4783b942516f86178995501fdab1">Further Reading</h2>
+<h2 id="further-reading">Further Reading</h2>
 
 <p>If you don&rsquo;t yet have a copy of <a href="http://www-bcf.usc.edu/~gareth/ISL/getbook.html">An Introduction to Statistical Learning</a> by James, Witten, Hastie and Tibshirani, what are you waiting for? The whole thing is available as a freely downloadable PDF and provides the most crystal clear explanation of linear regression and regularization I&rsquo;ve ever come across. Another freely downloadable book is <a href="http://www.gaussianprocess.org/gpml/">Gaussian Processes for Machine Learning</a> by Rasmussen and Williams. I think this may have been the first place I was introduced to the relationship between MAP estimates and ridge regression. Kevin Murphy&rsquo;s <a href="https://www.amazon.com/Machine-Learning-Probabilistic-Perspective-Computation/dp/0262018020">Machine Learning - a Probabilistic Approach</a> provides a very complete explanation of this and a whole lot more - it is a pretty enormous tome, and while I do aspire to reading the whole thing&hellip; well, it&rsquo;ll take some time ;)</p>
 
@@ -422,14 +422,14 @@ $ \underset{\theta}{\arg\min} \sum_1^n(y_i - \hat{y_i})^2 + \frac{\sigma^2}{\tau
 <hr />
 
 <ol>
-<li id="fn:a3bf4783b942516f86178995501fdab1:matrixfootnote">If you&rsquo;re not yet familiar with matrix notation for linear regression, there&rsquo;s a nice explanation <a href="http://www.stat.purdue.edu/~jennings/stat514/stat512notes/topic3.pdf">here</a>.
- <a class="footnote-return" href="#fnref:a3bf4783b942516f86178995501fdab1:matrixfootnote"><sup>[return]</sup></a></li>
-<li id="fn:a3bf4783b942516f86178995501fdab1:meanxyfootnote">This follows from the fact that the residuals sum to 0
- <a class="footnote-return" href="#fnref:a3bf4783b942516f86178995501fdab1:meanxyfootnote"><sup>[return]</sup></a></li>
-<li id="fn:a3bf4783b942516f86178995501fdab1:calculusfootnote">For an intuition about why this is the case, think about the single-parameter case. We can plot the cost, $J(\theta)$, on the y axis, against $\theta$ on the x axis, and we&rsquo;d get a U-shaped curve. We&rsquo;d be looking for the value of $\theta$ at the bottom of the curve. The bottom of the curve is the point at which the slope of the tangent equals 0. And since the derivative of $J(\theta)$ with respect to $\theta$ amounts to the slope of the tangent to the curve, we can set that derivative equal to 0 and solve for $\theta$. In the case of multiple parameters, we do this for each parameter while holding the others fixed (i.e. getting the partial derivatives). See the <a href="https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics">Wikipedia entry on linear regression</a>) for details.
- <a class="footnote-return" href="#fnref:a3bf4783b942516f86178995501fdab1:calculusfootnote"><sup>[return]</sup></a></li>
-<li id="fn:a3bf4783b942516f86178995501fdab1:normfootnote">This fact is usually expressed in relation to standard normals, where in addition to subtracting the mean you can divide by the standard deviation, however for our purposes we are only interested in <em>shifting</em> the distribution, not altering its shape.
- <a class="footnote-return" href="#fnref:a3bf4783b942516f86178995501fdab1:normfootnote"><sup>[return]</sup></a></li>
+<li id="fn:matrixfootnote">If you&rsquo;re not yet familiar with matrix notation for linear regression, there&rsquo;s a nice explanation <a href="http://www.stat.purdue.edu/~jennings/stat514/stat512notes/topic3.pdf">here</a>.
+ <a class="footnote-return" href="#fnref:matrixfootnote"><sup>[return]</sup></a></li>
+<li id="fn:meanxyfootnote">This follows from the fact that the residuals sum to 0
+ <a class="footnote-return" href="#fnref:meanxyfootnote"><sup>[return]</sup></a></li>
+<li id="fn:calculusfootnote">For an intuition about why this is the case, think about the single-parameter case. We can plot the cost, $J(\theta)$, on the y axis, against $\theta$ on the x axis, and we&rsquo;d get a U-shaped curve. We&rsquo;d be looking for the value of $\theta$ at the bottom of the curve. The bottom of the curve is the point at which the slope of the tangent equals 0. And since the derivative of $J(\theta)$ with respect to $\theta$ amounts to the slope of the tangent to the curve, we can set that derivative equal to 0 and solve for $\theta$. In the case of multiple parameters, we do this for each parameter while holding the others fixed (i.e. getting the partial derivatives). See the <a href="https://en.wikipedia.org/wiki/Linear_least_squares_(mathematics)">Wikipedia entry on linear regression</a> for details.
+ <a class="footnote-return" href="#fnref:calculusfootnote"><sup>[return]</sup></a></li>
+<li id="fn:normfootnote">This fact is usually expressed in relation to standard normals, where in addition to subtracting the mean you can divide by the standard deviation, however for our purposes we are only interested in <em>shifting</em> the distribution, not altering its shape.
+ <a class="footnote-return" href="#fnref:normfootnote"><sup>[return]</sup></a></li>
 </ol>
 </div>
 

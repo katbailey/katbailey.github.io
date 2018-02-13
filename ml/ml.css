@@ -59,13 +59,20 @@ a {
     color: #f60048;
 }
 
-
 .hidden {
     display: none;
 }
 
 div#singularity strong {
     font-size: 200%;
+}
+
+div#arrow:not(.active) { 
+    opacity: 0; 
+}
+
+div#recommenders:not(.active) {
+    opacity: 0.5;
 }
 
 div#supervised-unsupervised p, div#supervised-unsupervised-1 p, div#regression-classification p, div#regression-classification-1 p, div#title p {
@@ -86,7 +93,7 @@ div#gradient-descent {
     background-position: 0px 0px;
 }
 
-div#gradient-descent h1, div#linear-other h1, div#deep-learning h1, div#training-test h1, div#cross-validation h1, div#bayesian-ml h1, div#nlp h1 {
+div#gradient-descent h1, div#linear-other h1, div#deep-learning h1, div#training-test h1, div#cross-validation h1, div#bayesian-ml h1, div#bayesian-ml2 h1, div#nlp h1 {
     font-size: 150%;
 }
 

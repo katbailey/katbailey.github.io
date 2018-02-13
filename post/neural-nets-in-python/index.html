@@ -117,7 +117,7 @@
 
 <p>A set of weights is applied to one layer to get to the next, until you reach the output layer, and training a neural network is about learning what these weights should be.</p>
 
-<h3 id="a-little-background:14c7068255137565e326b1d24878d8a5">A little background</h3>
+<h3 id="a-little-background">A little background</h3>
 
 <p>I recently took <a href="https://www.coursera.org/learn/machine-learning">Andrew Ng&rsquo;s Coursera course on Machine Learning</a>. It&rsquo;s taught through matlab and goes into the math behind classic machine learning algorithms such as neural networks. But I&rsquo;ve been noticing that a lot of the newer code and tutorials out there for learning neural nets (e.g. Google&rsquo;s TensorFlow tutorial) are in Python. So I thought, wouldn&rsquo;t it be a fun exercise to port my matlab neural net to python and then learn about all the new libraries there are in python for doing this stuff, one of which is called Lasagne. Because layers :)</p>
 
@@ -131,7 +131,7 @@
 
 <p><strong>Note:</strong> This is not a tutorial. It is simply an exploration, by a non-expert, of the topic of training neural nets in python. There are lots of great tutorials on this stuff, e.g. the ones mentioned below for Lasagne and TensorFlow, and also <a href="http://rasbt.github.io/mlxtend/docs/classifier/neuralnet_mlp/">this one</a>.</p>
 
-<h3 id="initial-setup:14c7068255137565e326b1d24878d8a5">Initial Setup</h3>
+<h3 id="initial-setup">Initial Setup</h3>
 
 <p>Load some required libraries, extract the data from the matlab file and split it into training, validation and test sets.</p>
 
@@ -157,7 +157,7 @@ y_train, y_val = y_train[:-1000], y_train[-1000:]
 <pre><code class="language-python">plt.imshow(X_train[1202].reshape((20, 20), order='F'), cmap='Greys',  interpolation='nearest')
 </code></pre>
 
-<p>
+
 <figure >
     
         <img src="/images/example_four.png" alt="A number four from the training examples" />
@@ -173,9 +173,9 @@ y_train, y_val = y_train[:-1000], y_train[-1000:]
     </figcaption>
     
 </figure>
-</p>
 
-<h2 id="1-naïve-neural-net:14c7068255137565e326b1d24878d8a5">1. Naïve neural net</h2>
+
+<h2 id="1-naïve-neural-net">1. Naïve neural net</h2>
 
 <p>This is where I just port the code I wrote in Matlab for the Coursera Machine Learning course into python. And where I learned that multiplying large matrices in Python is to be avoided :) More on that below, first here&rsquo;s the code:</p>
 
@@ -316,7 +316,7 @@ sum(np.where(y_train == pred_train, 1, 0))/float(X_train.shape[0])
 
 <p>I did some profiling using the awesome <a href="https://github.com/rkern/line_profiler">line_profiler</a> to try to ascertain what the problem was. This helped me identify a few places where my code could be made more efficient - for example, initially I still had a for loop in the cost function - gasp! The first thing you learn in neural net school is the importance of using vectorized approaches to the computations. Anyway after I had fixed a few things like that it soon became clear to me that things weren&rsquo;t getting hung inside any of my functions but in the optimization function itself. To cut a long story short, it was having to do a matrix multiplication where the matrices were 23860x23860. This number comes from the &ldquo;unrolled&rdquo; and concatenated weight vectors (with bias added on): (785 * 30) + (31*10). I have 16GB of RAM on my local machine, but that is apparently not enough for this operation to be run in Python. Both Theano and TensorFlow do all the heavy lifting in C, and this makes an enormous difference, as we&rsquo;ll see.</p>
 
-<h3 id="results-after-50-iterations-and-no-regularization:14c7068255137565e326b1d24878d8a5">Results after 50 iterations and no regularization</h3>
+<h3 id="results-after-50-iterations-and-no-regularization">Results after 50 iterations and no regularization</h3>
 
 <p>Training set:</p>
 
@@ -347,7 +347,7 @@ sum(np.where(y_test == predictions, 1, 0))/float(X_test.shape[0])
 
 <p>Not bad for just 50 iterations!</p>
 
-<h2 id="2-using-theano-and-lasagne:14c7068255137565e326b1d24878d8a5">2. Using Theano and Lasagne</h2>
+<h2 id="2-using-theano-and-lasagne">2. Using Theano and Lasagne</h2>
 
 <p>This code is adapted from the <a href="http://lasagne.readthedocs.org/en/latest/user/tutorial.html">Lasagne tutorial</a> (specifically the multi-layer perceptron.) I turned it into a function that works on the smaller data set and includes parameters for specifying:</p>
 
@@ -545,11 +545,11 @@ Epoch 4 of 500 took 496.489s
   validation accuracy:          89.30 %
 </code></pre>
 
-<h2 id="the-dangers-of-over-fitting:14c7068255137565e326b1d24878d8a5">The dangers of over-fitting</h2>
+<h2 id="the-dangers-of-over-fitting">The dangers of over-fitting</h2>
 
 <p>To explain what over-fitting is, let&rsquo;s imagine an extreme example. Let&rsquo;s say we only have a very small set of training example images with which to train our neural net. Now imagine that it happens to be the case that almost every number 7 example has the stem crossed, like this example:</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/seven_stem.png" alt="A seven example with a crossed stem" />
@@ -565,13 +565,13 @@ Epoch 4 of 500 took 496.489s
     </figcaption>
     
 </figure>
-</p>
 
-<p>When you train on these examples the model will not generalize well to new examples that do not have this feature. We could say that it would give <em>too much weight</em> to this crossed stem feature. A great measure against over-fitting is having lots and lots of data to train your model on, because the more data you have the less likely you are to have this type of scenario. But beyond getting more data, there are a couple of other ways to minimize this over-fitting problem. The standard way is to use regularization, where you penalize the weights such that minimizing the cost necessarily means shrinking the weights towards 0. Read more about regularization <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics">here</a>). However, <a href="http://arxiv.org/abs/1207.0580">Hinton et al</a> came up with a solution for neural nets that works by &ldquo;randomly omitting half of the feature detectors on each training case&rdquo;. It&rsquo;s called dropout and it is very effective.</p>
+
+<p>When you train on these examples the model will not generalize well to new examples that do not have this feature. We could say that it would give <em>too much weight</em> to this crossed stem feature. A great measure against over-fitting is having lots and lots of data to train your model on, because the more data you have the less likely you are to have this type of scenario. But beyond getting more data, there are a couple of other ways to minimize this over-fitting problem. The standard way is to use regularization, where you penalize the weights such that minimizing the cost necessarily means shrinking the weights towards 0. Read more about regularization <a href="https://en.wikipedia.org/wiki/Regularization_(mathematics)">here</a>. However, <a href="http://arxiv.org/abs/1207.0580">Hinton et al</a> came up with a solution for neural nets that works by &ldquo;randomly omitting half of the feature detectors on each training case&rdquo;. It&rsquo;s called dropout and it is very effective.</p>
 
 <p>The graph below shows what happens to our validation error, as compared with the training error if we perform no regularization and do not include dropout layers in our model.</p>
 
-<p>
+
 <figure >
     
         <img src="/images/500_800_noreg_nodropout.png" alt="No dropout, no regularization" />
@@ -587,7 +587,7 @@ Epoch 4 of 500 took 496.489s
     </figcaption>
     
 </figure>
-</p>
+
 
 <p>And here&rsquo;s what happens with 20% dropout on the input layer and 50% on the hidden layer. Still no regularization.
 
@@ -639,7 +639,7 @@ plt.xlabel(&quot;Num epochs&quot;)
 plt.ylabel(&quot;Cost&quot;) 
 </code></pre>
 
-<h2 id="3-using-tensorflow:14c7068255137565e326b1d24878d8a5">3. Using TensorFlow</h2>
+<h2 id="3-using-tensorflow">3. Using TensorFlow</h2>
 
 <p>In this last section I achieve little more than proving to myself that I can get enough of a handle on things as to be able to adapt the TensorFlow tutorial to my Coursera data set. Go me.</p>
 
@@ -822,7 +822,7 @@ accuracy: 0.95200002
 
 <p>With the second layer I generally get around 95% accuracy on the test set, without it around 94%. I need to do a lot more experimenting to get a real handle on how to tweak these layers though. And I need to do a lot more reading to understand convolution and pooling better.</p>
 
-<h3 id="further-reading:14c7068255137565e326b1d24878d8a5">Further reading</h3>
+<h3 id="further-reading">Further reading</h3>
 
 <p>As mentioned at the start, this exercise has mostly just made me realize how much I have yet to learn about this field. Here&rsquo;s what I have on my reading list:</p>
 
