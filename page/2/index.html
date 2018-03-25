@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
 <head>
-	<meta name="generator" content="Hugo 0.18.1" />
+	<meta name="generator" content="Hugo 0.37.1" />
   <link href="http://gmpg.org/xfn/11" rel="profile">
   <meta http-equiv="content-type" content="text/html; charset=utf-8">
 
@@ -53,11 +53,11 @@
 
   <script type="text/x-mathjax-config">
     MathJax.Hub.Queue(function() {
-      
-      
-      
+      // Fix <code> tags after MathJax finishes running. This is a
+      // hack to overcome a shortcoming of Markdown. Discussion at
+      // https://github.com/mojombo/jekyll/issues/199
       var all = MathJax.Hub.getAllJax(), i;
-      for(i = 0; i < all.length; i += 1) {
+      for(i = 0; i &lt; all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
       }
     });
@@ -97,7 +97,7 @@
 
     
 
-    <p>&copy; 2017 Katherine Bailey</p>
+    <p>&copy; 2018 Katherine Bailey</p>
   </div>
 </div>
 
@@ -105,6 +105,21 @@
 <div class="content container">
   <div class="posts">
     
+    
+    <div class="post">
+      <h1 class="post-title">
+        <a href="http://katbailey.github.io/post/tay-and-the-danger-of-artificial-stupidity/">Tay and the Dangers of Artificial Stupidity</a>
+      </h1>
+      <span class="post-date">Apr 12, 2016
+      
+      <br/>
+      
+      </span>
+      
+      This is an imagined conversation between Tay, Microsoft&rsquo;s AI chatbot, and me. Tay was let loose on Twitter a couple of weeks ago to pretty disastrous effect. It was trained by a bunch of racists to say racist things. It could just as easily have been trained by a bunch of sexists to say sexist things, hence my imagined conversation above. The conversation is completely unrealistic though - I would never take career advice from an AI!
+      <a href="http://katbailey.github.io/post/tay-and-the-danger-of-artificial-stupidity/">Read On &rarr;</a>
+      
+    </div>
     
     <div class="post">
       <h1 class="post-title">
@@ -148,7 +163,7 @@ Not So Standard Deviations NSSD podcast on SoundCloud Two very smart people with
       </span>
       
       Here are the &ldquo;slides&rdquo; from a talk I gave on machine learning last week. The idea is to give an overview of the different topics and how they fit together. I may end up building on it as I learn about more facets of ML.
-  In case you&rsquo;re wondering, the slides were created using Hovercraft which is a python tool for creating impress.js slides but authoring them in reStructuredText instead of HTML.
+   In case you&rsquo;re wondering, the slides were created using Hovercraft which is a python tool for creating impress.js slides but authoring them in reStructuredText instead of HTML.
       <a href="http://katbailey.github.io/post/machine-learning-talk/">Read On &rarr;</a>
       
     </div>
@@ -180,35 +195,54 @@ And what of my understanding of neural nets as a result of this exercise? After 
     </div>
     
     
+
+<ul class="pagination">
     
-    <ul class="pagination">
-        
-        <li>
-            <a href="/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
-        </li>
-        
-        <li
-        >
-        <a href="/" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
-        </li>
-        
-        <li
-        ><a href="/">1</a></li>
-        
-        <li
-        class="active"><a href="/page/2/">2</a></li>
-        
-        <li
-        class="disabled">
-        <a href="" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
-        </li>
-        
-        <li>
-            <a href="/page/2/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
-        </li>
-        
-    </ul>
+    <li>
+        <a href="/" aria-label="First"><span aria-hidden="true">&laquo;&laquo;</span></a>
+    </li>
     
+    <li
+    >
+    <a href="/" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>
+    </li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li
+    ><a href="/">1</a></li>
+    
+    
+    
+    
+    
+    
+        
+        
+    
+    
+    <li
+    class="active"><a href="/page/2/">2</a></li>
+    
+    
+    <li
+    class="disabled">
+    <a href="" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>
+    </li>
+    
+    <li>
+        <a href="/page/2/" aria-label="Last"><span aria-hidden="true">&raquo;&raquo;</span></a>
+    </li>
+    
+</ul>
+
   </div>
 </div>
 

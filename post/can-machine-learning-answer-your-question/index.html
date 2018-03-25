@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>Can Machine Learning Answer Your Question? &middot; </title>
+
+  
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/styles.css">
+  <link rel="stylesheet" href="http://katbailey.github.io/css/highlight/monokai_sublime.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="http://katbailey.github.io/touch-icon-144-precomposed.png">
+  <link href="http://katbailey.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+  <link href="http://katbailey.github.io/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript"
+  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+  </script>
+
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Queue(function() {
+      // Fix <code> tags after MathJax finishes running. This is a
+      // hack to overcome a shortcoming of Markdown. Discussion at
+      // https://github.com/mojombo/jekyll/issues/199
+      var all = MathJax.Hub.getAllJax(), i;
+      for(i = 0; i &lt; all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+      }
+    });
+  </script>
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>ohAI</h1>
+          <figure class="center profile-pic">
+      <a href="http://katbailey.github.io/about"><img src="/images/kat_sm.png" /></a>
+    </figure>
+      <p class="lead">Where I write about things vaguely (and sometimes even closely!) related to AI</p>
+    </div>
+    <ul class="sidebar-nav">
+
+      <li class="sidebar-nav-item"><a href="http://katbailey.github.io/">Home</a></li>
+            <li class="sidebar-nav-item"><a href="http://katbailey.github.io/about">About</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/katbailey"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      <a href="http://twitter.com/katherinebailey"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>&copy; 2018 Katherine Bailey</p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>Can Machine Learning Answer Your Question?</h1>
+    <span class="post-date">Nov 29, 2017 &middot; 5 minute read &middot; <a href="http://katbailey.github.io/post/can-machine-learning-answer-your-question/#disqus_thread">Comments</a>
+    
+    <br/>
+    
+    </span>
+    
+
+<p>(<a href="https://medium.com/@katherinebailey/can-machine-learning-answer-your-question-709ddcebe92c">This piece was originally posted on Medium</a>)</p>
+
+
+<figure class="center">
+    
+        <img src="/images/oracle.jpeg" />
+    
+    
+</figure>
+
+
+<p><em>This post aims to make it easier for stakeholders looking to enhance processes with Machine Learning capabilities to formulate their question as a Machine Learning question in order to get the conversation with data scientists off to the right start.</em></p>
+
+<p>More and more business functions are looking to Machine Learning (ML) to solve problems. Sometimes the motivation can be questionable: “We should figure out a way to use ML for this because because every business these days should be using ML,” or “I want to use TensorFlow to solve this problem because TensorFlow is cool.” There are those who would see questionable motivation behind <em>any</em> decision to use ML because they are just sick and tired of hearing about it in today’s AI-crazed climate. But they risk missing out on opportunities to solve a problem when ML really is the best approach.</p>
+
+<p>I’ve made the mistake in the past of pushing back too hard when someone came to me with a proposal to use ML to solve a problem because they couldn’t formulate it as an ML problem. I shouldn’t expect an engineer or a marketer to understand what “supervised learning” is. However, I do need to be able to see what a solution to their problem might look like were it to be implemented, before I can start working on such a thing. And often this is very far from clear when the problem is first put to me.</p>
+
+<p>A lot of time can be wasted if the answer to the question “Can ML solve this problem?” doesn’t get answered right off the bat. The answer may well turn out to be “No”, but it’s possible that this realization isn’t reached until many meetings have already been had between stakeholders and data scientists, where the stakeholders were assuming the data scientists could perform some “magic” to solve their problem, and the data scientists were assuming it was a problem solvable by ML in the first place (otherwise, why would the stakeholders have come to them?). When the stakeholders are senior executives and the data scientists are relatively junior this is more likely to happen.</p>
+
+<h2 id="start-with-the-finished-system">Start with the finished system</h2>
+
+<p>In order for the data scientists to be able to establish right away whether Machine Learning is a good fit for a particular problem, they need to get as clear a picture as possible of what the stakeholders have in mind, and this is best done by starting with the imagined finished system. The data scientist can say, <em>OK, let’s imagine we’ve built a wonderfully accurate ML model and it is now in production and being used as part of your business process…</em></p>
+
+
+<figure class="center">
+    
+        <img src="/images/diagram_ml_system.png" />
+    
+    
+</figure>
+
+
+<p><em>What are you asking it and what is it telling you?</em> The “ordinary” processing step on the left is preparing the question and the one on the right is doing something with the answer. We can ignore for now all questions regarding how the ML model was trained, what the training data looked like, etc. We just want to get at how it will be used to enhance some business process.</p>
+
+<p>Here are some basic examples of questions that are well suited to ML techniques:</p>
+
+<br/><em>1st step:</em> feed image to ML black box<br/><em><strong>Question:</em></strong> is this an image of a hotdog?<br/><em><strong>Answer:</em></strong> yes<br/><em><strong>Next step:</em></strong> display “hotdog” label under image for display on web site<br/>
+
+<br/><em>1st step:</em> send properties of site visitor to ML black box<br/><em><strong>Question:</em></strong> how likely is this visitor to purchase something?<br/><em><strong>Answer:</em></strong> 0.67<br/><em>Next step:</em> send an email to the visitor with a coupon code<br/>
+
+<br/><em>1st step:</em> send properties of site visitor to ML black box<br/><em><strong>Question:</em></strong> which cluster does this visitor belong to?<br/><em><strong>Answer:</em></strong> cluster #2<br/><em>Next step:</em> display content targeted at cluster #2<br/>
+
+<p><br/><em><1st step:</em> send CPU, memory, disk usage, etc. metrics to ML black box<br/><em><strong>Question:</em></strong> how likely is a server outage in the next 5 minutes?<br/><em><strong>Answer:</em></strong> 0.002<br/><em>Next step:</em> do nothing<br/><br/>
+Note that the question is always about some input data: <em>Given this image, is it a hotdog?</em> or <em>Given this server data, how likely is an outage?</em> As a stakeholder, if you can make sure the question you’re trying to answer is in this kind of format, the data scientist will have an easier time getting to what the input and output will be of their ML model. Here are some examples of questions that don’t work as ML questions:</p>
+
+<p>Q: What are some new guidelines for how we should write content to better engage our users?</p>
+
+<p>Q: Why are sales of my product declining?</p>
+
+<p>First of all, neither of these questions relates to an input, e.g. a particular piece of content. The first, moreover, is expecting the ML system to come up with “new guidelines.” Now, there are ML algorithms that are generative in nature, i.e. they can be used to generate paintings, dialogs, even movie scripts. However, in these cases the thing being generated is the end product, not something that can be used as information to be acted upon in a subsequent step. In other words, currently you can <strong>either</strong> get something brand new <strong>or</strong> something useful out of a Machine Learning system, but not both. A more realistic take on the first question would be: given this draft of a blog post, how likely is it to engage users?</p>
+
+<p>The second question above simply treats the ML system as a sort of oracle. Machines generally aren’t good at <em>why</em> questions — even when it comes to <a href="https://www.nytimes.com/2017/11/21/magazine/can-ai-be-taught-to-explain-itself.html?_r=0">explaining their own predictions</a>. They can certainly help with sales forecasting, as long as they are fed the data they need.</p>
+
+<p>Here’s a forecasting problem that looks like it’s in the correct format:</p>
+
+<p>Q: Given date x (some future date, e.g. tomorrow), what will the bitcoin price be?</p>
+
+
+<figure class="left-align">
+    
+        <img src="/images/bitcoin.jpeg" />
+    
+    
+</figure>
+
+
+<p>Even if you have trained a model on the entire history of the value of bitcoin, this is of no use in predicting future prices. Machine Learning is not magic. “Prediction” amounts to something like “assuming there was some generalizable signal in the data you fed me, here’s what that signal says about the new data point you’re asking me about.” In the case of historic bitcoin data, there is no such signal — it is a complex, chaotic system.</p>
+
+<p>Ensuring you have the necessary data to answer the question you’re interested in is the next step after nailing down the question, a topic I will leave for a future post.</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "katbailey";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "katbailey";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="http://katbailey.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="http://katbailey.github.io/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+
+<script src="http://katbailey.github.io/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+

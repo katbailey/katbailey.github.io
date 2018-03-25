@@ -52,11 +52,11 @@
 
   <script type="text/x-mathjax-config">
     MathJax.Hub.Queue(function() {
-      
-      
-      
+      // Fix <code> tags after MathJax finishes running. This is a
+      // hack to overcome a shortcoming of Markdown. Discussion at
+      // https://github.com/mojombo/jekyll/issues/199
       var all = MathJax.Hub.getAllJax(), i;
-      for(i = 0; i < all.length; i += 1) {
+      for(i = 0; i &lt; all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
       }
     });
@@ -96,7 +96,7 @@
 
     
 
-    <p>&copy; 2017 Katherine Bailey</p>
+    <p>&copy; 2018 Katherine Bailey</p>
   </div>
 </div>
 
@@ -127,27 +127,27 @@
 
 <p>The idea of an artificial Superintelligence arising as an inevitable consequence of continued technological progress was popularized (albeit more optimistically) by Ray Kurzweil. In his book, The Singularity is Near, Kurzweil offers page after page of exponential growth curves as evidence for this inevitability.</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/exponential_progress.png" />
     
     
 </figure>
-</p>
+
 
 <p>One thing that both the pessimistic and optimistic takes on the Singularity have in common is a complete lack of rigor in defining what they’re even talking about. Bostrom, disappointingly but perhaps also wisely, never attempts a definition of intelligence. Harris defines it as information processing and warns us that our continued improvements in information processing will just inevitably result in entities far more intelligent than us.</p>
 
 <p>Let’s imagine these entities of the future that have arisen as a result of progress in weak AI. Imagine them as creatures, who can do things in the world (otherwise, how could they threaten us?). What are these creatures interested in? Whatever their interests, they must be interests that are better served with increased information processing capabilities. Now let’s flip the progress curve around to go back in time…</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/exponential_progress_reverse.png" />
     
     
 </figure>
-</p>
+
 
 <p>Traveling back in time, the information processing ability of these creatures, which is what enables them to better serve their own interests than we can serve ours, decreases. So at each point we should have creatures with interests, i.e., with desires, motivations, etc., that they are less well able to serve, since they’ve got less “intelligence”. But we already know that’s not what we’ll find. Imagine we go all the way back to the present! All we’ll find is machines built by humans, with algorithms written by humans, all designed to serve the interests of humans. If our imagined superintelligent entities of the future existed — and remember, they’re supposed to be the descendants of current weak AI systems—then their past would exist right now. But it doesn’t.</p>
 

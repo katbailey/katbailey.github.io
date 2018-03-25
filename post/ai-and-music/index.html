@@ -52,11 +52,11 @@
 
   <script type="text/x-mathjax-config">
     MathJax.Hub.Queue(function() {
-      
-      
-      
+      // Fix <code> tags after MathJax finishes running. This is a
+      // hack to overcome a shortcoming of Markdown. Discussion at
+      // https://github.com/mojombo/jekyll/issues/199
       var all = MathJax.Hub.getAllJax(), i;
-      for(i = 0; i < all.length; i += 1) {
+      for(i = 0; i &lt; all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
       }
     });
@@ -96,7 +96,7 @@
 
     
 
-    <p>&copy; 2017 Katherine Bailey</p>
+    <p>&copy; 2018 Katherine Bailey</p>
   </div>
 </div>
 
@@ -127,10 +127,10 @@
 
 <p>EMI might be able to produce 1000 different Chaconnes based on Bach&rsquo;s entire works, but given the choice, I&rsquo;d rather listen to the original 1000 times over. As for the intelligent, human-like machine that might one day exist, it&rsquo;s as unlikely to ever produce anything Bach-like as a human composer is today: it might produce something comparable in depth and power, but the lack of understanding will most likely be on my part this time.</p>
 
-<p><div class="embed video-player">
+<div class="embed video-player">
 <iframe class="youtube-player" type="text/html" width="640" height="385" src="http://www.youtube.com/embed/QqA3qQMKueA" allowfullscreen frameborder="0">
 </iframe>
-</div></p>
+</div>
 
   </div>
   <div id="disqus_thread"></div>

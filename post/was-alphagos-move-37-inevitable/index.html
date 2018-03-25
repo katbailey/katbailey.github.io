@@ -52,11 +52,11 @@
 
   <script type="text/x-mathjax-config">
     MathJax.Hub.Queue(function() {
-      
-      
-      
+      // Fix <code> tags after MathJax finishes running. This is a
+      // hack to overcome a shortcoming of Markdown. Discussion at
+      // https://github.com/mojombo/jekyll/issues/199
       var all = MathJax.Hub.getAllJax(), i;
-      for(i = 0; i < all.length; i += 1) {
+      for(i = 0; i &lt; all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
       }
     });
@@ -96,7 +96,7 @@
 
     
 
-    <p>&copy; 2017 Katherine Bailey</p>
+    <p>&copy; 2018 Katherine Bailey</p>
   </div>
 </div>
 
@@ -109,14 +109,14 @@
     <br/>
     
     </span>
-    <p>
+    
 <figure class="center">
     
         <img src="/images/go_board.jpg" />
     
     
 </figure>
-</p>
+
 
 <p>This question is interesting to me both because of the way this particular move was reported on at the time, and because it works as a starting point for me to understand the inner workings of AlphaGo. I&rsquo;m talking, of course, about the AI that beat the human Go champion, Lee Sedol, last March. The famous &ldquo;move 37&rdquo; happened in the second game of the 5-game match, and was described by commentators, once they got over their initial shock, with words like &ldquo;beautiful&rdquo; and &ldquo;creative.&rdquo; It left Sedol utterly flumoxed, to the point where he had to spend 15 minutes contemplating his own next move.</p>
 

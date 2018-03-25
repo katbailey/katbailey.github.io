@@ -52,11 +52,11 @@
 
   <script type="text/x-mathjax-config">
     MathJax.Hub.Queue(function() {
-      
-      
-      
+      // Fix <code> tags after MathJax finishes running. This is a
+      // hack to overcome a shortcoming of Markdown. Discussion at
+      // https://github.com/mojombo/jekyll/issues/199
       var all = MathJax.Hub.getAllJax(), i;
-      for(i = 0; i < all.length; i += 1) {
+      for(i = 0; i &lt; all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
       }
     });
@@ -96,7 +96,7 @@
 
     
 
-    <p>&copy; 2017 Katherine Bailey</p>
+    <p>&copy; 2018 Katherine Bailey</p>
   </div>
 </div>
 
@@ -125,49 +125,49 @@
 
 <p>Recall that in the simple linear regression setting, we have a dependent variable y that we assume can be modeled as a function of an independent variable x, i.e. $ y = f(x) + \epsilon $ (where $ \epsilon $ is the irreducible error) but we assume further that the function $ f $ defines a linear relationship and so we are trying to find the parameters $ \theta_0 $ and $ \theta_1 $ which define the intercept and slope of the line respectively, i.e. $ y = \theta_0 + \theta_1x + \epsilon $. Bayesian linear regression provides a probabilistic approach to this by finding a distribution over the parameters that gets updated whenever new data points are observed. The GP approach, in contrast, is a <em>non-parametric</em> approach, in that it finds a distribution over the possible <strong>functions</strong> $ f(x) $ that are consistent with the observed data. As with all Bayesian methods it begins with a prior distribution and updates this as data points are observed, producing the posterior distribution over functions.</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/all_the_functions.jpg" />
     
     
 </figure>
-</p>
+
 
 <p>To get an intuition about what this even means, think of the simple OLS line defined by an intercept and slope that does its best to fit your data.</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/bad_least_squares.png" />
     
     
 </figure>
-</p>
+
 
 <p>The problem is, this line simply isn&rsquo;t adequate to the task, is it? You&rsquo;d really like a curved line: instead of just 2 parameters $ \theta_0 $ and $ \theta_1 $ for the function $ \hat{y} = \theta_0 + \theta_1x$ it looks like a quadratic function would do the trick, i.e. $ \hat{y} = \theta_0 + \theta_1x + \theta_2x^2 $. Now we&rsquo;d need to learn 3 parameters. But what if we don&rsquo;t want to specify upfront how many parameters are involved? We&rsquo;d like to consider every possible function that matches our data, with however many parameters are involved. That&rsquo;s what non-parametric means: it&rsquo;s not that there aren&rsquo;t parameters, it&rsquo;s that there are infinitely many parameters.</p>
 
 <p>But of course we need a prior before we&rsquo;ve seen any data. What might that look like? Well, we don&rsquo;t really want ALL THE FUNCTIONS, that would be nuts. So let&rsquo;s put some constraints on it. First of all, we&rsquo;re only interested in a specific domain &mdash; let&rsquo;s say our x values only go from -5 to 5. Now we can say that within that domain we&rsquo;d like to sample functions that produce an output whose mean is, say, 0 and that are <em>not too wiggly</em>. Here&rsquo;s an example of a very wiggly function:</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/wiggly.png" />
     
     
 </figure>
-</p>
+
 
 <p>And here&rsquo;s a much smoother function:</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/smooth.png" />
     
     
 </figure>
-</p>
+
 
 <p>There&rsquo;s a way to specify that smoothness: we use a <strong>covariance matrix</strong> to ensure that values that are close together in input space will produce output values that are close together. This covariance matrix, along with a mean function to output the expected value of $ f(x) $ defines a Gaussian Process.</p>
 
@@ -280,14 +280,14 @@ pl.title('Three samples from the GP prior')
 pl.show()
 </code></pre>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/output_prior.png" />
     
     
 </figure>
-</p>
+
 
 <p>Note that the K_ss variable here corresponds to<code>$K_{**}$</code>in the equation above for the joint probability. It will be used again below, along with<code>$K$</code>and<code>$K_{*}$</code></p>
 
@@ -322,14 +322,14 @@ pl.title('Three samples from the GP posterior')
 pl.show()
 </code></pre>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/output_posterior.png" />
     
     
 </figure>
-</p>
+
 
 <p>See how the training points (the blue squares) have &ldquo;reined in&rdquo; the set of possible functions: the ones we have sampled from the posterior all go through those points. The dotted red line shows the mean output and the grey area shows 2 standard deviations from the mean. Note that this is 0 at our training points (because we did not add any noise to our data). Also note how things start to go a bit wild again to the right of our last training point<code>$x = 1$</code>&mdash; that won&rsquo;t get reined in until we observe some data over there.</p>
 

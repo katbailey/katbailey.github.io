@@ -52,11 +52,11 @@
 
   <script type="text/x-mathjax-config">
     MathJax.Hub.Queue(function() {
-      
-      
-      
+      // Fix <code> tags after MathJax finishes running. This is a
+      // hack to overcome a shortcoming of Markdown. Discussion at
+      // https://github.com/mojombo/jekyll/issues/199
       var all = MathJax.Hub.getAllJax(), i;
-      for(i = 0; i < all.length; i += 1) {
+      for(i = 0; i &lt; all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
       }
     });
@@ -96,7 +96,7 @@
 
     
 
-    <p>&copy; 2017 Katherine Bailey</p>
+    <p>&copy; 2018 Katherine Bailey</p>
   </div>
 </div>
 
@@ -111,14 +111,14 @@
     </span>
     <p>(<a href="https://medium.com/@katherinebailey/reframing-the-ai-effect-c445f87ea98b#.fsdszp5fu">This piece was originally posted on Medium</a>)</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/karpov.jpeg" />
     
     
 </figure>
-</p>
+
 
 <p>There’s a phenomenon known as the <a href="https://en.wikipedia.org/wiki/AI_effect">AI effect</a>, whereby as soon as Artificial Intelligence (AI) researchers achieve a milestone long thought to signify the achievement of true artificial intelligence, e.g., beating a human at chess, it suddenly gets downgraded to not true AI. Kevin Kelly wrote in a <a href="https://www.wired.com/2014/10/future-of-artificial-intelligence/">Wired article in October 2014</a>:</p>
 
@@ -134,27 +134,27 @@
 
 <p>Some well-known AI researchers who note the AI effect might say “true AI is whatever hasn’t been done yet.” They distinguish between:</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/ai_distinction_1.png" />
     
     
 </figure>
-</p>
+
 
 <p>But this is the wrong way to frame the issue, because it makes it appear that all we need is time: if we just keep going, we’ll eventually solve everything and create strong AI. This means that every step we’re taking right now is seen as a step in that direction. I doubt many AI researchers actually believe this. It’s more like a defensive quip in the face of people’s apparent failure to be impressed enough at AI’s successes.</p>
 
 <p>The useful distinction to make isn’t between what we’ve already solved and what we haven’t, which suggests that time is the only factor that makes a difference. Instead, the useful distinction is between:</p>
 
-<p>
+
 <figure class="center">
     
         <img src="/images/ai_distinction_2.png" />
     
     
 </figure>
-</p>
+
 
 <p>If we frame the issue this way, then even if we originally put a problem like “build something that can beat the best human at chess” in the box on the right, because we think it would require strong AI, once we actually solve it with weak AI, we just move it to the box on the left. Note that this doesn’t imply anything at all about our progress towards building a strong AI, whereas the original framing did.</p>
 

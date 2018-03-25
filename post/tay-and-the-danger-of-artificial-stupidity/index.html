@@ -52,11 +52,11 @@
 
   <script type="text/x-mathjax-config">
     MathJax.Hub.Queue(function() {
-      
-      
-      
+      // Fix <code> tags after MathJax finishes running. This is a
+      // hack to overcome a shortcoming of Markdown. Discussion at
+      // https://github.com/mojombo/jekyll/issues/199
       var all = MathJax.Hub.getAllJax(), i;
-      for(i = 0; i < all.length; i += 1) {
+      for(i = 0; i &lt; all.length; i += 1) {
           all[i].SourceElement().parentNode.className += ' has-jax';
       }
     });
@@ -96,7 +96,7 @@
 
     
 
-    <p>&copy; 2017 Katherine Bailey</p>
+    <p>&copy; 2018 Katherine Bailey</p>
   </div>
 </div>
 
@@ -112,7 +112,7 @@
     
 
 <p>
-<figure >
+<figure>
     
         <img src="/images/sexist_tay.png" />
     
@@ -123,30 +123,30 @@ This is an imagined conversation between <a href="https://www.tay.ai">Tay</a>, M
 
 <p>AIs are still pretty stupid and can&rsquo;t answer questions like the one above. At their core, they are machine learning algorithms (possibly multiple algorithms feeding into each other). Machine learning involves training a machine to learn from data and make predictions about new data. It&rsquo;s about math, statistics and lots and lots of data.</p>
 
-<h2 id="the-question-tay-is-really-answering:20a4829f9cb79389360a21a53910b571">The question Tay is really answering</h2>
+<h2 id="the-question-tay-is-really-answering">The question Tay is really answering</h2>
 
 <p>In the case of an AI that has been trained using data from real human conversations, be they from Twitter, YouTube or what have you, the question it is actually answering when I ask it &ldquo;As a woman, should I work in technology?&rdquo; is more like &ldquo;<strong>What is the most common response to the question</strong> <em>As a woman, should I work in technology?</em>&rdquo; And if all the responses it has ever seen are from sexist jerks, then this is the correct answer - way to go Tay! :D</p>
 
 <p>Very often there won&rsquo;t be a difference between the answers to these different questions and that&rsquo;s when the AI will seem smart.</p>
 
-<p>
-<figure >
+
+<figure>
     
         <img src="/images/questions.png" />
     
     
 </figure>
-</p>
+
 
 <p>This question-answering behavior is in contrast to AI systems like Apple&rsquo;s Siri, which use machine learning only to understand the question but not to generate the response. To answer questions, Siri consults the <a href="https://en.wikipedia.org/wiki/Wolfram_Alpha">Wolfram Alpha</a> knowledge engine.</p>
 
-<h2 id="machine-learning-always-involves-uncertainty:20a4829f9cb79389360a21a53910b571">Machine Learning always involves uncertainty</h2>
+<h2 id="machine-learning-always-involves-uncertainty">Machine Learning always involves uncertainty</h2>
 
 <p>I can&rsquo;t actually pose my question to Tay as the chatbot is <a href="https://twitter.com/tayandyou">taking a break</a> but when I asked Siri about whether women make good software engineers, I had to re-phrase the question several times before it would even attempt a response, and its response in the end was to google the question. In a scenario like this, the level of uncertainty is clear to the user - uncertainty about the question being asked, and uncertainty in the answer, which is a list of Google search results that may or may not be what you are looking for. (As an aside, <a href="http://www.slate.com/articles/technology/cover_story/2016/04/alexa_cortana_and_siri_aren_t_novelties_anymore_they_re_our_terrifyingly.html?wpsrc=sh_all_dt_tw_top">this Slate article</a> raises some interesting questions about the trust issues involved when an AI answers a question by quoting verbatim from a single source like Wikipedia without saying this is where it got the answer from.)</p>
 
 <p>Siri is probably no less sophisticated an AI system than Tay - it&rsquo;s just more upfront about the level of uncertainty involved when you interact with it. Both systems are examples of <strong>weak AI</strong>, which is also called <em>narrow</em> AI, because it&rsquo;s the type of AI that is focused on one very specific and narrow task. <strong>Strong AI</strong>, on the other hand, also called <strong>Artificial General Intelligence</strong>, is about human-like intelligence, and there is absolutely no reason to believe that all the sophisticated weak AIs in the world are a basis for producing strong AI.</p>
 
-<h2 id="weak-ai-and-the-objective-function:20a4829f9cb79389360a21a53910b571">Weak AI and the Objective Function</h2>
+<h2 id="weak-ai-and-the-objective-function">Weak AI and the Objective Function</h2>
 
 <p>The difference between weak AI and strong AI is pretty important, especially in order to understand what is bemoaned as the &ldquo;moving the goal posts&rdquo; problem in the perception of AI. Kevin Kelly wrote in a <a href="http://www.wired.com/2014/10/future-of-artificial-intelligence/">Wired article in October 2014</a>:</p>
 
@@ -162,18 +162,18 @@ This is an imagined conversation between <a href="https://www.tay.ai">Tay</a>, M
 
 <p>With all that said, this is still really really impressive stuff!</p>
 
-<h2 id="objective-function-goggles:20a4829f9cb79389360a21a53910b571">Objective Function Goggles</h2>
+<h2 id="objective-function-goggles">Objective Function Goggles</h2>
 
 <p>To examine Tay with an objective eye, we need to put on our Objective Function Goggles (OFGs). The idea for these goggles comes from a professor I once had for symbolic logic, who encouraged us to don &ldquo;Boolean Goggles&rdquo; when assessing the validity of an argument.</p>
 
-<p>
-<figure >
+
+<figure>
     
         <img src="/images/goggles.png" />
     
     
 </figure>
-</p>
+
 
 <p>The reason for the goggles is so that if the premises in the argument were something less palatable (e.g. &ldquo;if it&rsquo;s raining then the grass is blue&rdquo;) we would not get tripped up by their meaning and just focus on whether the logic is valid.</p>
 
@@ -186,14 +186,14 @@ This is an imagined conversation between <a href="https://www.tay.ai">Tay</a>, M
 <li>Does Tay engage in conversation with interlocutors in a way that suggests it has understood the values of those interlocutors?</li>
 </ul>
 
-<p>
-<figure >
+
+<figure>
     
         <img src="/images/OFGs.png" />
     
     
 </figure>
-</p>
+
 
 <p>It&rsquo;s reasonable to answer Yes to all of these questions. Presumably there are separate pieces to Tay - perhaps some sentiment analysis and other Natural Language Processing (NLP) techniques are applied on the tweets it receives. Once it has processed those, it needs to generate responses using some probabilistic model. At each step it is obviously performing well.</p>
 
@@ -203,7 +203,7 @@ This is an imagined conversation between <a href="https://www.tay.ai">Tay</a>, M
 
 <p>Tay may be an impressively smart piece of Machine Learning, but it makes for a very dumb human. It is an Artificial Stupidity (or <strong>A</strong>rtificially <strong>S</strong>tupid <strong>S</strong>ystem?)</p>
 
-<h2 id="should-we-be-worried-about-weak-ai:20a4829f9cb79389360a21a53910b571">Should we be worried about weak AI?</h2>
+<h2 id="should-we-be-worried-about-weak-ai">Should we be worried about weak AI?</h2>
 
 <p>George Dvorsky, transhumanist and Chair of the Board for the Institute for Ethics and Emerging Technologies, has <a href="http://io9.gizmodo.com/how-much-longer-before-our-first-ai-catastrophe-464043243">written about the dangers of weak AI</a>, but focuses mostly on what can happen when artificial intelligence &ldquo;gets it wrong&rdquo;:</p>
 
@@ -217,13 +217,13 @@ This is an imagined conversation between <a href="https://www.tay.ai">Tay</a>, M
 
 <p>Dvorsky talks about critical decisions now being in the hands of machines, but really the critical decision is whether to deploy that machine for a particular task in the first place. And that decision is always squarely in the hands of humans.</p>
 
-<h2 id="imputing-intelligence-to-machines-and-responding-emotionally:20a4829f9cb79389360a21a53910b571">Imputing intelligence to machines and responding emotionally</h2>
+<h2 id="imputing-intelligence-to-machines-and-responding-emotionally">Imputing intelligence to machines and responding emotionally</h2>
 
 <p>The other potential source of trouble when it comes to weak AI has also more to do with human behavior than the behavior of the AIs. It has to do with how we naturally respond to AIs.</p>
 
 <p>Leaving aside AIs for a moment, meet Tubbs the cat from popular Japanese game <a href="https://en.wikipedia.org/wiki/Neko_Atsume">Neko Atsume</a>.</p>
 
-<p>
+
 <figure class="half-size center">
     
         <img src="/images/tubbs.jpg" alt="This is the only thing you&#39;ll ever see Tubbs doing" />
@@ -239,7 +239,7 @@ This is an imagined conversation between <a href="https://www.tay.ai">Tay</a>, M
     </figcaption>
     
 </figure>
-</p>
+
 
 <p>Apparently people have <a href="http://www.buzzfeed.com/natalyalobanova/protect-tubbs-at-all-costs">quite strong feelings</a> about Tubbs, and he&rsquo;s just a  bunch of pixels, not even animated! (Yes, I totally did just make up a reason to include a picture of Tubbs in my blog post.)</p>
 
@@ -287,11 +287,11 @@ This is an imagined conversation between <a href="https://www.tay.ai">Tay</a>, M
 
 <p>And I&rsquo;ll leave you with a simple trick for assessing whether something is an example of strong AI&hellip;</p>
 
-<h2 id="binary-classifier-for-strong-ai:20a4829f9cb79389360a21a53910b571">Binary classifier for strong AI</h2>
+<h2 id="binary-classifier-for-strong-ai">Binary classifier for strong AI</h2>
 
 <p>A binary classifier is an algorithm that can distinguish members of a class from non-members - its output is a simple <code>true</code> or <code>false</code> for each input. Various machine learning techniques can be used to train binary classifiers, including neural networks.</p>
 
-<p>Here&rsquo;s a binary classifier that tells you whether <code>x</code> (the latest amazing piece of AI technology) is an example of strong AI and thus a harbinger of the Singularity. It has been trained on a highly sophisticated convolutional neural network<sup class="footnote-ref" id="fnref:20a4829f9cb79389360a21a53910b571:cnnfootnote"><a rel="footnote" href="#fn:20a4829f9cb79389360a21a53910b571:cnnfootnote">1</a></sup> with hundreds of layers and thousands of nodes. <strong>100% accuracy guaranteed!</strong></p>
+<p>Here&rsquo;s a binary classifier that tells you whether <code>x</code> (the latest amazing piece of AI technology) is an example of strong AI and thus a harbinger of the Singularity. It has been trained on a highly sophisticated convolutional neural network<sup class="footnote-ref" id="fnref:cnnfootnote"><a href="#fn:cnnfootnote">1</a></sup> with hundreds of layers and thousands of nodes. <strong>100% accuracy guaranteed!</strong></p>
 
 <pre><code class="language-python">def isStrongAI(x):
   return False
@@ -303,8 +303,8 @@ This is an imagined conversation between <a href="https://www.tay.ai">Tay</a>, M
 <hr />
 
 <ol>
-<li id="fn:20a4829f9cb79389360a21a53910b571:cnnfootnote">Tongue firmly in cheek
- <a class="footnote-return" href="#fnref:20a4829f9cb79389360a21a53910b571:cnnfootnote"><sup>[return]</sup></a></li>
+<li id="fn:cnnfootnote">Tongue firmly in cheek
+ <a class="footnote-return" href="#fnref:cnnfootnote"><sup>[return]</sup></a></li>
 </ol>
 </div>
 
