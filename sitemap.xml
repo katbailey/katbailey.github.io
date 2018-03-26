@@ -93,6 +93,12 @@
   </url>
   
   <url>
+    <loc>http://katbailey.github.io/</loc>
+    <lastmod>2017-11-29T07:32:46-06:00</lastmod>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>http://katbailey.github.io/post/</loc>
     <lastmod>2017-11-29T07:32:46-06:00</lastmod>
     <priority>0</priority>
@@ -100,12 +106,6 @@
   
   <url>
     <loc>http://katbailey.github.io/tags/</loc>
-    <priority>0</priority>
-  </url>
-  
-  <url>
-    <loc>http://katbailey.github.io/</loc>
-    <lastmod>2017-11-29T07:32:46-06:00</lastmod>
     <priority>0</priority>
   </url>
   

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ohAI</title>
+    <title>Katherine Bailey</title>
     <link>http://katbailey.github.io/</link>
-    <description>Recent content on ohAI</description>
+    <description>Recent content on Katherine Bailey</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Nov 2017 07:32:46 -0600</lastBuildDate>
@@ -165,7 +165,7 @@ And what of my understanding of neural nets as a result of this exercise? After 
       <pubDate>Sat, 12 Dec 2015 12:36:25 -0700</pubDate>
       
       <guid>http://katbailey.github.io/about/</guid>
-      <description>Having had a philosophical interest in Artificial Intelligence for years I am finally starting to learn about it properly, as in - how it actually works. As far as I recall, my interest in AI began when I took a course on Social and Political Perspectives on Information Technology as part of a Masters in Business Studies in Dublin back in 2001. That&amp;rsquo;s when I first heard of Hubert Dreyfus&amp;rsquo; book What Computers Still Can&amp;rsquo;t Do, whose title intrigued me no end.</description>
+      <description>Having had an interest in Artificial Intelligence for over 15 years I finally moved from a software engineering role in 2016 to a role where I actually get to design and implement Machine Learning based applications. As far as I recall, my interest in AI began when I took a course on Social and Political Perspectives on Information Technology as part of a Masters in Business Studies in Dublin back in 2001.</description>
     </item>
     
     <item>
