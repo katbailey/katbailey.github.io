@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Katherine Bailey</title>
-    <link>http://katbailey.github.io/</link>
+    <link>https://katbailey.github.io/</link>
     <description>Recent content on Katherine Bailey</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Nov 2017 07:32:46 -0600</lastBuildDate>
     
-	<atom:link href="http://katbailey.github.io/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://katbailey.github.io/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Can Machine Learning Answer Your Question?</title>
-      <link>http://katbailey.github.io/post/can-machine-learning-answer-your-question/</link>
+      <link>https://katbailey.github.io/post/can-machine-learning-answer-your-question/</link>
       <pubDate>Wed, 29 Nov 2017 07:32:46 -0600</pubDate>
       
-      <guid>http://katbailey.github.io/post/can-machine-learning-answer-your-question/</guid>
+      <guid>https://katbailey.github.io/post/can-machine-learning-answer-your-question/</guid>
       <description>(This piece was originally posted on Medium)
  This post aims to make it easier for stakeholders looking to enhance processes with Machine Learning capabilities to formulate their question as a Machine Learning question in order to get the conversation with data scientists off to the right start.
 More and more business functions are looking to Machine Learning (ML) to solve problems. Sometimes the motivation can be questionable: “We should figure out a way to use ML for this because because every business these days should be using ML,” or “I want to use TensorFlow to solve this problem because TensorFlow is cool.</description>
@@ -24,28 +24,28 @@ More and more business functions are looking to Machine Learning (ML) to solve p
     
     <item>
       <title>You Don’t Know What A.I. Is (an afternoon with Elon Musk)</title>
-      <link>http://katbailey.github.io/post/you-dont-know-what-ai-is/</link>
+      <link>https://katbailey.github.io/post/you-dont-know-what-ai-is/</link>
       <pubDate>Sat, 22 Jul 2017 15:44:05 -0400</pubDate>
       
-      <guid>http://katbailey.github.io/post/you-dont-know-what-ai-is/</guid>
+      <guid>https://katbailey.github.io/post/you-dont-know-what-ai-is/</guid>
       <description>Inspired by the Raymond Carver flavor of this post by Tom Davenport on Artificial Intelligence, here’s my take on Elon Musk’s warnings to a room full of governors about A.I. and the future of humanity. It is based on Raymond Carver’s You Don’t Know What Love Is (an evening with Charles Bukowski).  You don&#39;t know what A.I. is Musk said I&#39;m 46 years old look at me There isn&#39;t one of you in this room would recognize A.</description>
     </item>
     
     <item>
       <title>Was AlphaGo&#39;s Move 37 Inevitable?</title>
-      <link>http://katbailey.github.io/post/was-alphagos-move-37-inevitable/</link>
+      <link>https://katbailey.github.io/post/was-alphagos-move-37-inevitable/</link>
       <pubDate>Mon, 23 Jan 2017 17:00:24 -0500</pubDate>
       
-      <guid>http://katbailey.github.io/post/was-alphagos-move-37-inevitable/</guid>
+      <guid>https://katbailey.github.io/post/was-alphagos-move-37-inevitable/</guid>
       <description>This question is interesting to me both because of the way this particular move was reported on at the time, and because it works as a starting point for me to understand the inner workings of AlphaGo. I&amp;rsquo;m talking, of course, about the AI that beat the human Go champion, Lee Sedol, last March. The famous &amp;ldquo;move 37&amp;rdquo; happened in the second game of the 5-game match, and was described by commentators, once they got over their initial shock, with words like &amp;ldquo;beautiful&amp;rdquo; and &amp;ldquo;creative.</description>
     </item>
     
     <item>
       <title>Put away your Machine Learning hammer, criminality is not a nail</title>
-      <link>http://katbailey.github.io/post/put-away-your-machine-learning-hammer/</link>
+      <link>https://katbailey.github.io/post/put-away-your-machine-learning-hammer/</link>
       <pubDate>Tue, 29 Nov 2016 18:13:28 -0500</pubDate>
       
-      <guid>http://katbailey.github.io/post/put-away-your-machine-learning-hammer/</guid>
+      <guid>https://katbailey.github.io/post/put-away-your-machine-learning-hammer/</guid>
       <description>(This piece was originally posted on Medium)
 Earlier this month, researchers claimed to have found evidence that criminality can be predicted from facial features. In “Automated Inference on Criminality using Face Images,” Xiaolin Wu and Xi Zhang describe how they trained classifiers using various machine learning techniques that were able to distinguish photos of criminals from photos of non-criminals with a high level of accuracy.
 The result these researchers found can be interpreted differently depending on what assumptions you bring to interpreting it, and what question you’re interested in answering.</description>
@@ -53,10 +53,10 @@ The result these researchers found can be interpreted differently depending on w
     
     <item>
       <title>Reframing the &#34;AI Effect&#34;</title>
-      <link>http://katbailey.github.io/post/reframing-the-ai-effect/</link>
+      <link>https://katbailey.github.io/post/reframing-the-ai-effect/</link>
       <pubDate>Thu, 27 Oct 2016 09:06:30 -0500</pubDate>
       
-      <guid>http://katbailey.github.io/post/reframing-the-ai-effect/</guid>
+      <guid>https://katbailey.github.io/post/reframing-the-ai-effect/</guid>
       <description>(This piece was originally posted on Medium)
  There’s a phenomenon known as the AI effect, whereby as soon as Artificial Intelligence (AI) researchers achieve a milestone long thought to signify the achievement of true artificial intelligence, e.g., beating a human at chess, it suddenly gets downgraded to not true AI. Kevin Kelly wrote in a Wired article in October 2014:
  In the past, we would have said only a superintelligent AI could drive a car, or beat a human at Jeopardy!</description>
@@ -64,116 +64,116 @@ The result these researchers found can be interpreted differently depending on w
     
     <item>
       <title>Why Machine Learning is not a path to the Singularity</title>
-      <link>http://katbailey.github.io/post/why-machine-learning-is-not-a-path-to-the-singularity/</link>
+      <link>https://katbailey.github.io/post/why-machine-learning-is-not-a-path-to-the-singularity/</link>
       <pubDate>Mon, 24 Oct 2016 10:02:12 -0400</pubDate>
       
-      <guid>http://katbailey.github.io/post/why-machine-learning-is-not-a-path-to-the-singularity/</guid>
+      <guid>https://katbailey.github.io/post/why-machine-learning-is-not-a-path-to-the-singularity/</guid>
       <description>(This piece was originally posted on Medium)
 All of the advances in Artificial Intelligence that you ever hear about — whether it’s machines beating humans at Go, great advances in Machine Translation, self-driving cars, or anything else — are examples of weak AI. They are each focused on a single, narrowly defined task. Some would have you believe, even fear, that these advances will inevitably lead to strong AI (human-level intelligence), which in turn will lead to a Superintelligence we’ll no longer control.</description>
     </item>
     
     <item>
       <title>Thoughts on data-driven language learning</title>
-      <link>http://katbailey.github.io/post/thoughts-on-data-driven-language-learning/</link>
+      <link>https://katbailey.github.io/post/thoughts-on-data-driven-language-learning/</link>
       <pubDate>Mon, 12 Sep 2016 16:57:39 -0400</pubDate>
       
-      <guid>http://katbailey.github.io/post/thoughts-on-data-driven-language-learning/</guid>
+      <guid>https://katbailey.github.io/post/thoughts-on-data-driven-language-learning/</guid>
       <description>I used to be a language pedant. I would bemoan the use of the word &amp;ldquo;presently&amp;rdquo; to mean &amp;ldquo;currently&amp;rdquo;, shudder at &amp;ldquo;between you and I&amp;rdquo;, gasp at the use of &amp;ldquo;literally&amp;rdquo; to mean&amp;hellip; &amp;ldquo;not literally&amp;rdquo; (&amp;ldquo;I literally peed my pants laughing.&amp;rdquo; &amp;ldquo;Orly?&amp;rdquo;) I would get particularly exasperated when I heard people use phrases that were clearly (to me) nonsensical but that sounded almost correct. A classic example of this is when people say &amp;ldquo;The reason being is&amp;hellip;&amp;rdquo; or start a sentence with &amp;ldquo;As such, &amp;hellip;&amp;rdquo; when the word &amp;ldquo;such&amp;rdquo; does not refer to anything.</description>
     </item>
     
     <item>
       <title>Gaussian Processes for Dummies</title>
-      <link>http://katbailey.github.io/post/gaussian-processes-for-dummies/</link>
+      <link>https://katbailey.github.io/post/gaussian-processes-for-dummies/</link>
       <pubDate>Tue, 09 Aug 2016 09:00:03 -0700</pubDate>
       
-      <guid>http://katbailey.github.io/post/gaussian-processes-for-dummies/</guid>
+      <guid>https://katbailey.github.io/post/gaussian-processes-for-dummies/</guid>
       <description>Source: The Kernel Cookbook by David Duvenaud
 It always amazes me how I can hear a statement uttered in the space of a few seconds about some aspect of machine learning that then takes me countless hours to understand. I first heard about Gaussian Processes on an episode of the Talking Machines podcast and thought it sounded like a really neat idea. I promptly procured myself a copy of the classic text on the subject, Gaussian Processes for Machine Learning by Rasmussen and Williams, but my tenuous grasp on the Bayesian approach to machine learning meant I got stumped pretty quickly.</description>
     </item>
     
     <item>
       <title>From both sides now: the math of linear regression</title>
-      <link>http://katbailey.github.io/post/from-both-sides-now-the-math-of-linear-regression/</link>
+      <link>https://katbailey.github.io/post/from-both-sides-now-the-math-of-linear-regression/</link>
       <pubDate>Thu, 02 Jun 2016 07:32:46 -0600</pubDate>
       
-      <guid>http://katbailey.github.io/post/from-both-sides-now-the-math-of-linear-regression/</guid>
+      <guid>https://katbailey.github.io/post/from-both-sides-now-the-math-of-linear-regression/</guid>
       <description>Linear regression is the most basic and the most widely used technique in machine learning; yet for all its simplicity, studying it can unlock some of the most important concepts in statistics.
 If you have a basic undestanding of linear regression expressed as $ \hat{Y} = \theta_0 + \theta_1X$, but don&amp;rsquo;t have a background in statistics and find statements like &amp;ldquo;ridge regression is equivalent to the maximum a posteriori (MAP) estimate with a zero-mean Gaussian prior&amp;rdquo; bewildering, then this post is for you.</description>
     </item>
     
     <item>
       <title>AI and Music</title>
-      <link>http://katbailey.github.io/post/ai-and-music/</link>
+      <link>https://katbailey.github.io/post/ai-and-music/</link>
       <pubDate>Fri, 06 May 2016 16:30:28 -0700</pubDate>
       
-      <guid>http://katbailey.github.io/post/ai-and-music/</guid>
+      <guid>https://katbailey.github.io/post/ai-and-music/</guid>
       <description>I originally wrote the post below in May 2010 as a guest blogger on a now-defunct blog called high-c.com. I&amp;rsquo;m re-posting it here because I recently had cause to dig it up and was pleasantly surprised at how well it still reflects my views on this topic. The only change I made is the recording of Bach&amp;rsquo;s Chaconne that I link to&amp;hellip;
  On one stave, for a small instrument, the man writes a whole world of the deepest thoughts and most powerful feelings.</description>
     </item>
     
     <item>
       <title>Tay and the Dangers of Artificial Stupidity</title>
-      <link>http://katbailey.github.io/post/tay-and-the-danger-of-artificial-stupidity/</link>
+      <link>https://katbailey.github.io/post/tay-and-the-danger-of-artificial-stupidity/</link>
       <pubDate>Tue, 12 Apr 2016 07:13:39 -0700</pubDate>
       
-      <guid>http://katbailey.github.io/post/tay-and-the-danger-of-artificial-stupidity/</guid>
+      <guid>https://katbailey.github.io/post/tay-and-the-danger-of-artificial-stupidity/</guid>
       <description>This is an imagined conversation between Tay, Microsoft&amp;rsquo;s AI chatbot, and me. Tay was let loose on Twitter a couple of weeks ago to pretty disastrous effect. It was trained by a bunch of racists to say racist things. It could just as easily have been trained by a bunch of sexists to say sexist things, hence my imagined conversation above. The conversation is completely unrealistic though - I would never take career advice from an AI!</description>
     </item>
     
     <item>
       <title>Matrix Factorization with Tensorflow</title>
-      <link>http://katbailey.github.io/post/matrix-factorization-with-tensorflow/</link>
+      <link>https://katbailey.github.io/post/matrix-factorization-with-tensorflow/</link>
       <pubDate>Fri, 11 Mar 2016 16:50:34 -0500</pubDate>
       
-      <guid>http://katbailey.github.io/post/matrix-factorization-with-tensorflow/</guid>
+      <guid>https://katbailey.github.io/post/matrix-factorization-with-tensorflow/</guid>
       <description>I&amp;rsquo;ve been working on building a content recommender in TensorFlow using matrix factorization, following the approach described in the article Matrix Factorization Techniques for Recommender Systems (MFTRS). I haven&amp;rsquo;t come across any discussion of this particular use case in TensorFlow but it seems like an ideal job for it. I&amp;rsquo;ll explain briefly here what matrix factorization is in the context of recommender systems (although I highly cough recommend reading the MFTRS article) and how things needed to be set up to do this in TensorFlow.</description>
     </item>
     
     <item>
       <title>My Favourite Data Science Podcasts</title>
-      <link>http://katbailey.github.io/post/data-science-podcasts/</link>
+      <link>https://katbailey.github.io/post/data-science-podcasts/</link>
       <pubDate>Sat, 06 Feb 2016 10:58:20 -0700</pubDate>
       
-      <guid>http://katbailey.github.io/post/data-science-podcasts/</guid>
+      <guid>https://katbailey.github.io/post/data-science-podcasts/</guid>
       <description>There&amp;rsquo;s a pretty impressive selection of high-quality podcasts out there these days on topics in data science. Here are four that I am really enjoying right now, along with my take on what is good about each of them.
 Not So Standard Deviations NSSD podcast on SoundCloud Two very smart people with PhDs in biostatistics, one still in academia and the other working as a data scientist for Etsy, Roger and Hilary sure do ramble on but the ramblings are great :) They cover all sorts of topics, always at least loosely related to data science and my favourite things about the podcast are 1.</description>
     </item>
     
     <item>
       <title>Machine Learning talk</title>
-      <link>http://katbailey.github.io/post/machine-learning-talk/</link>
+      <link>https://katbailey.github.io/post/machine-learning-talk/</link>
       <pubDate>Tue, 26 Jan 2016 07:45:28 -0700</pubDate>
       
-      <guid>http://katbailey.github.io/post/machine-learning-talk/</guid>
+      <guid>https://katbailey.github.io/post/machine-learning-talk/</guid>
       <description>Here are the &amp;ldquo;slides&amp;rdquo; from a talk I gave on machine learning last week. The idea is to give an overview of the different topics and how they fit together. I may end up building on it as I learn about more facets of ML.
    In case you&amp;rsquo;re wondering, the slides were created using Hovercraft which is a python tool for creating impress.js slides but authoring them in reStructuredText instead of HTML.</description>
     </item>
     
     <item>
       <title>Adventures learning Neural Nets and Python</title>
-      <link>http://katbailey.github.io/post/neural-nets-in-python/</link>
+      <link>https://katbailey.github.io/post/neural-nets-in-python/</link>
       <pubDate>Mon, 21 Dec 2015 21:04:12 -0700</pubDate>
       
-      <guid>http://katbailey.github.io/post/neural-nets-in-python/</guid>
+      <guid>https://katbailey.github.io/post/neural-nets-in-python/</guid>
       <description>This documents my efforts to learn both neural networks and, to a certain extent, the Python programming language. I say &amp;ldquo;to a certain extent&amp;rdquo; because far from feeling all &amp;ldquo;yay! I know Python now!&amp;rdquo; I feel more like &amp;ldquo;I can use Python 2.7 in certain ways to do certain things&amp;hellip; yay?&amp;rdquo;
 And what of my understanding of neural nets as a result of this exercise? After battling with my naïve implementation of a multi-layer perceptron as described below, I felt I had a pretty visceral understanding of them.</description>
     </item>
     
     <item>
       <title>What&#39;s this all about?</title>
-      <link>http://katbailey.github.io/about/</link>
+      <link>https://katbailey.github.io/about/</link>
       <pubDate>Sat, 12 Dec 2015 12:36:25 -0700</pubDate>
       
-      <guid>http://katbailey.github.io/about/</guid>
+      <guid>https://katbailey.github.io/about/</guid>
       <description>Having had an interest in Artificial Intelligence for over 15 years I finally moved from a software engineering role in 2016 to a role where I actually get to design and implement Machine Learning based applications. As far as I recall, my interest in AI began when I took a course on Social and Political Perspectives on Information Technology as part of a Masters in Business Studies in Dublin back in 2001.</description>
     </item>
     
     <item>
       <title>Welch&#39;s T-test in Go</title>
-      <link>http://katbailey.github.io/post/welch-t-test-golang/</link>
+      <link>https://katbailey.github.io/post/welch-t-test-golang/</link>
       <pubDate>Thu, 15 Oct 2015 21:04:38 -0700</pubDate>
       
-      <guid>http://katbailey.github.io/post/welch-t-test-golang/</guid>
+      <guid>https://katbailey.github.io/post/welch-t-test-golang/</guid>
       <description>I wrote some code for doing a Welch&amp;rsquo;s T-Test in Go. You can read up on what a Welch&amp;rsquo;s t-test is here but in short it&amp;rsquo;s a significance test for the difference between two treatments (like in an A/B test) where the distributions may have unequal variances.
  * * * * * * * * * * * ** * *** * ***** * * * *********** -----------------|-----|-----------  So if you are doing an A/B test and you have the mean and variance of each treatment, you can get a confidence measure for whether the mean of one is truly higher than the mean of the other.</description>
     </item>
