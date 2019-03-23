@@ -6,10 +6,19 @@
     <description>Recent content in Posts on Katherine Bailey</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 08 Nov 2018 19:05:49 +1100</lastBuildDate>
+    <lastBuildDate>Sat, 23 Mar 2019 09:23:48 +1100</lastBuildDate>
     
 	<atom:link href="https://katbailey.github.io/post/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>The Wrong Classroom</title>
+      <link>https://katbailey.github.io/post/the-wrong-classroom/</link>
+      <pubDate>Sat, 23 Mar 2019 09:23:48 +1100</pubDate>
+      
+      <guid>https://katbailey.github.io/post/the-wrong-classroom/</guid>
+      <description>This is my response to Rich Sutton&amp;rsquo;s The Bitter Lesson, Rodney Brooks&amp;rsquo; A Better Lesson, and Andy Kitchen&amp;rsquo;s A Meta Lesson. The bitter lesson from Sutton was that we should stop trying to incorporate human knowledge and human ways of thinking into our AI systems because these approaches always lose out to those using massive scale search and learning. Examples provided include chess, Go and computer vision. Brooks&amp;rsquo; better lesson was that the human ingenuity required to get search and learning based approaches to succeed at all gives the lie to the idea that we are ever talking about pure search and learning when looking at these examples of success, i.</description>
+    </item>
     
     <item>
       <title>AI and the Future of Work</title>
