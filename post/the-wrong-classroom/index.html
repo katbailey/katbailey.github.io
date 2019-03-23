@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+  <link href="http://gmpg.org/xfn/11" rel="profile">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+
+  <title>The Wrong Classroom &middot; </title>
+
+  
+  <link rel="stylesheet" href="https://katbailey.github.io/css/poole.css">
+  <link rel="stylesheet" href="https://katbailey.github.io/css/hyde.css">
+  <link rel="stylesheet" href="https://katbailey.github.io/css/poole-overrides.css">
+  <link rel="stylesheet" href="https://katbailey.github.io/css/hyde-overrides.css">
+  <link rel="stylesheet" href="https://katbailey.github.io/css/hyde-x.css">
+  <link rel="stylesheet" href="https://katbailey.github.io/css/styles.css">
+  <link rel="stylesheet" href="https://katbailey.github.io/css/highlight/monokai_sublime.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+
+  
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://katbailey.github.io/touch-icon-144-precomposed.png">
+  <link href="https://katbailey.github.io/favicon.png" rel="icon">
+
+  
+  
+  
+  
+
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  
+  <link href="https://katbailey.github.io/css/featherlight.min.css" type="text/css" rel="stylesheet" />
+  <script type="text/javascript"
+  src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.3/latest.js?config=TeX-MML-AM_CHTML' async>
+  </script>
+  <script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      displayMath: [['$$','$$'], ['\[','\]']],
+      processEscapes: true,
+      processEnvironments: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre'],
+      TeX: { equationNumbers: { autoNumber: "AMS" },
+           extensions: ["AMSmath.js", "AMSsymbols.js"] }
+    }
+  });
+  </script>
+
+</head>
+<body>
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    <div class="sidebar-about">
+      
+      <h1>Katherine Bailey</h1>
+          <figure class="center profile-pic">
+      <a href="https://katbailey.github.io/about"><img src="/images/kat_sm.png" /></a>
+    </figure>
+      <p class="lead">AI, Machine Learning, Data Science, Language</p>
+    </div>
+    <ul class="sidebar-nav">
+
+      <li class="sidebar-nav-item"><a href="https://katbailey.github.io/">Home</a></li>
+            <li class="sidebar-nav-item"><a href="https://katbailey.github.io/about">About</a></li>
+      
+    </ul>
+
+    <ul class="sidebar-nav">
+      <li class="sidebar-nav-item">
+      <a href="http://github.com/katbailey"><i class="fa fa-github-square fa-3x"></i></a>
+      
+      
+      
+      
+      
+      <a href="http://twitter.com/katherinebailey"><i class="fa fa-twitter-square fa-3x"></i></a>
+      
+      
+      </li>
+    </ul>
+
+    
+
+    <p>&copy; 2019 Katherine Bailey</p>
+  </div>
+</div>
+
+
+<div class="content container">
+  <div class="post">
+    <h1>The Wrong Classroom</h1>
+    <span class="post-date">Mar 23, 2019 &middot; 4 minute read &middot; <a href="https://katbailey.github.io/post/the-wrong-classroom/#disqus_thread">Comments</a>
+    </span>
+    <p>This is my response to Rich Sutton&rsquo;s <a href="http://www.incompleteideas.net/IncIdeas/BitterLesson.html">The Bitter Lesson</a>, Rodney Brooks&rsquo; <a href="https://rodneybrooks.com/a-better-lesson/">A Better Lesson</a>, and Andy Kitchen&rsquo;s <a href="http://andy.kitchen/a-meta-lesson.html">A Meta Lesson</a>. The bitter lesson from Sutton was that we should stop trying to incorporate human knowledge and human ways of thinking into our AI systems because these approaches always lose out to those using massive scale search and learning. Examples provided include chess, Go and computer vision. Brooks&rsquo; better lesson was that the human ingenuity required to get search and learning based approaches to succeed at all gives the lie to the idea that we are ever talking about pure search and learning when looking at these examples of success, i.e. the design and architecture choices <em>by humans</em> are what made them work. Kitchen&rsquo;s meta lesson is that human ingenuity combined with massive compute are required in order to have systems that learns better ways of learning.</p>
+
+<p>But learning what exactly? To accomplish a specific, narrowly-defined task? To behave &ldquo;intelligently&rdquo; in some environment? Or to accomplish a task <em>in virtue of having behaved intelligently</em>? This, to my mind, is at the heart of the disagreements between the search and learn camp and the human knowledge camp. With computer chess, was the goal just to win at chess, or was chess chosen as a metric because it was believed that in order to master it you had to do so the way humans did it? My understanding of the history of AI is that it was the latter. Having a chess-playing machine was not the point of the exercise. Chess was simply seen as the answer to the question, &ldquo;What are intelligent humans good at?&rdquo; Intelligence is something that is useful for us to track in other agents, especially other humans, and when we reflect on the most impressive examples of it we&rsquo;ve come across we come up with examples like &ldquo;people who are good at math,&rdquo; &ldquo;people who read lots of books,&rdquo; and &ldquo;people who are good at chess.&rdquo; The chess challenge was well-defined, not vague like other possible challenges (Does reading books mean understanding them? How do you prove understanding?) and so it makes sense as a way to measure progress towards machine intelligence. Confusing the metric for the end goal was and remains the crucial but largely unacknowledged point of contention between the two camps as defined above.</p>
+
+<p>As I reflect on this I&rsquo;m reminded of the now infamous story of the <a href="https://www.gizmodo.com.au/2017/08/no-facebook-did-not-panic-and-shut-down-an-ai-program-that-was-getting-dangerously-smart/">Facebook bots that were widely reported to have invented their own language</a>, much to the alarm of the researchers that designed them. The reporting is now often used as an example of the worst of the AI hype machine - there was no alarm on the part of the researchers, the bots had simply learned to optimize a metric while by-passing what was in fact the true end goal of the research: having bots learn to communicate using coherent English sentences. The assumption had been that the task (in this case negotiating with another agent over a split between items of differing value) could only be achieved via the intermediary (to the agents) goal of learning the English language. This is analogous to the chess-as-metric idea: with chess the assumption was that you could only win at it by playing it the way humans do, bringing all of our human intelligence to bear on the task.</p>
+
+<p>Metrics for AI systems have to be well-defined, and my suspicion is that this makes them almost by definition solvable without something we humans would ever track as &ldquo;intelligence.&rdquo; But what does this matter? Sometimes the metric and the end goal are aligned, such as in the case of computer vision and speech recognition: we want systems that can detect objects or recognize words in speech, we directly measure their ability to do those things. But when they&rsquo;re not, such as when the true end goal is something vague like &ldquo;solving intelligence,&rdquo; there may be many lessons learned but at least some AI researchers will simply be in the wrong classroom.</p>
+
+  </div>
+  <div id="disqus_thread"></div>
+</div>
+
+
+<script type="text/javascript">
+var disqus_shortname = "katbailey";
+(function () {
+    var s = document.createElement('script'); s.async = true;
+    s.type = 'text/javascript';
+    s.src = '//' + disqus_shortname + '.disqus.com/count.js';
+    (document.getElementsByTagName('HEAD')[0] || document.getElementsByTagName('BODY')[0]).appendChild(s);
+}());
+</script>
+
+
+
+<script type="text/javascript">
+    var disqus_shortname = "katbailey";
+    (function() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+<a href="http://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+
+<script src="https://katbailey.github.io/js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+<script src="https://katbailey.github.io/js/jquery-2.2.1.min.js" type="text/javascript"></script>
+
+<script src="https://katbailey.github.io/js/featherlight.min.js" type="text/javascript" charset="utf-8"></script>
+</body>
+</html>
+
